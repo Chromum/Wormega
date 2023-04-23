@@ -1,0 +1,87 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.236340372)
+
+newmtl OrbBase
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Bar.001
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl dsda
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Material.002
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl HandleOuter
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Material.001
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Bar
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Material.003
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Material.004
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl dsa
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Material.005
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl sads
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Material.006
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Missle5
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Missle2
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Missle4
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Missle3
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl Missle1
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl EyeMiddle
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl EyeOuter
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl DaEye
+kd 0.8 0.8 0.8
+illum 1
+

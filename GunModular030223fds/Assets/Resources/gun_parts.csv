@@ -1,0 +1,6 @@
+Name,Type,Rareity,Dam,Firerate,MagSize,Accuracy,ShotMode
+Test Barrel,Barrel,Common,10,10,0,5,SingleShot
+Test Module,Module,Legendary,0,0,0,0,
+Test Grip,Grip,Rare,0,0,0,-10,
+Test Magazine,Magazine,Common,1,0,100,0,
+Test Sight,Sight,Common,0,0,0,-1,

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45bd21b96a03dde4598e49532d9b0684, type: 3}
+  m_Name: BallerAttack
+  m_EditorClassIdentifier: 
+  Cooldown: 10
+  AttackDistance: 15.71
+  AnimationSetting: 0
+  BaseDam: 120
+  ShootDelay: 0.5
+  Delay: 1
+  TargetPrefab: {fileID: 4048819780009649159, guid: 0e8233a41f9912a44a5dd4f30c9c470a, type: 3}
+  ExplosionVFX: {fileID: 7045433050410226748, guid: 4603c0b42ad66cf4386a300a750bae9e, type: 3}
+  endScale: {x: 0.5, y: 0.5, z: 0.5}

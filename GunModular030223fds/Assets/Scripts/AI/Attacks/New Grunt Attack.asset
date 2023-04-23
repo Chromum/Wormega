@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76dcb501586d7c4eb60d10d6476da3e, type: 3}
+  m_Name: New Grunt Attack
+  m_EditorClassIdentifier: 
+  Cooldown: 1
+  AttackDistance: 5.6
+  AnimationSetting: 0
+  FollowState: {fileID: 11400000, guid: a04f60c423c4b8647beac087169ed76a, type: 2}

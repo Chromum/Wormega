@@ -1,0 +1,28 @@
+Name,Type,Rarity,Dam,Firerate,MagSize,Accuracy,ShotMode,Info,Debug,FireType
+Test Barrel,Barrel,Common,1342,10,0,5,TrippleShot,This is a test barrel!,1,SemiAuto
+Test Module,Module,Legendary,0,0,0,0,,This is a test module!,1,
+Test Grip,Grip,Rare,0,0,0,-10,,This is a test grip!,1,
+Test Magazine,Magazine,Common,1,0,100,0,,This is a test magazine!,1,
+Test Sight,Sight,Common,0,0,0,-1,,This is a test sight!,1,
+WormCorp Standard Barrel,Barrel,Common,2,-1,0,0,SingleShot,Standard barrel issued by WormCorp to its Officers,0,SemiAuto
+Additional Ammo Module,Module,Common,0,0,5,0,,Grants 5 Additional Bullets Per Clip,0,
+WormCorp Standard Grip,Grip,Common,0,0,0,0.007,,Standard grip issued by WormCorp to its Officers,0,
+WormCorp Standard Magazine,Magazine,Common,0,0,11,0,,Standard magazine issued by WormCorp to its Officers,0,
+WormCorp Standard Sight,Sight,Common,0,0,0,0.007,,Standard sight issued by WormCorp to its Officers,0,
+WormCorp Upgraded Barrel,Barrel,Rare,4,-0.4,-5,0,DoubleShot,Upgraded barrel issued by WormCorp to its High Ranking Officers,0,FullyAuto
+Additional Damage Module,Module,Rare,2,0,0,0,,Grants 5 Additional Bullets Per Clip,0,
+WormCorp Upgraded Grip,Grip,Rare,0,0,0,0.005,,Upgraded grip issued by WormCorp to its High Ranking Officers,0,
+WormCorp Upgraded Magazine,Magazine,Rare,0,0,15,0,,Upgraded magazine issued by WormCorp to its High Ranking Officers,0,
+WormCorp Upgraded Sight,Sight,Rare,0,0,0,0.005,,Upgraded sight issued by WormCorp to its High Ranking Officers,0,
+WormCorp R&D Barrel,Barrel,Legendary,3,-0.5,-3,0,TrippleShot,A barrel currently in development by WormCorps R&D department,0,SniperBarrel
+Anti Recoil Module,Module,Legendary,0,0,0,-1000,,Removes all recoil from your weapon,0,
+WormCorp R&D Grip,Grip,Legendary,0,0,0,0.005,,A grip currently in development by WormCorps R&D department,0,
+WormCorp R&D Magazine,Magazine,Legendary,0,0,20,0,,A magazine currently in development by WormCorps R&D department,0,
+WormCorp R&D Sight,Sight,Legendary,0,0,0,0.005,,A sight currently in development by WormCorps R&D department,0,
+JOSH SMELLS,Module,Legendary,100,100,100,-10000,,JOSH SMEELS REAL BAD,0,
+WormCorp Thingamajig,Barrel,Rare,3,0,0,0.003,SingleShot,Sploingy Boingy Barrel from Sid Inc,0,SniperBarrel
+MinMax Tech Experimental Laser,Barrel,Rare,6,-3,0,-10,,The coolest sight for the dopest person.,0,SemiAuto
+Sammer Software,Module,Rare,0,0,0,0,,Sammer Soft's custom Module created Guns Around the world,0,
+Nothing Grip,Grip,Common,0,0,0,0,,It does what it says,0,
+IPhone 5 SE,Module,Legendary,-5,0,0,0,,8th IPhone,0,
+cUCUMBER,Barrel,Legendary,100,50,12,-100,SingleShot,Sloglingy Cucumber YUMMY,0,FullyAuto

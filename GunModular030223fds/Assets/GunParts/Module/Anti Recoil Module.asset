@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ab5aabf6731434897a2a61199b42c1, type: 3}
+  m_Name: Anti Recoil Module
+  m_EditorClassIdentifier: 
+  Name: Anti Recoil Module
+  Bio: Removes all recoil from your weapon
+  FireRate: 0
+  Damage: 0
+  MagSize: 0
+  Accuracy: -1000
+  Sprite: {fileID: 0}
+  Rareity: 2
+  Debug: 0
