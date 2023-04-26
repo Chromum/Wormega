@@ -244,7 +244,7 @@ public class ItemBox : Interactable
         }
         if (Upgrade)
         {
-            Item Part;
+            Item Part = null;
             switch (rareity)
             {
                 case Rareity.Common:
@@ -260,7 +260,7 @@ public class ItemBox : Interactable
                     Part = Database.MythicUp[Random.Range(0, Database.Mythic.Count)];
                     break;
             }
-            Item = Part = null;
+            Item = Part;
             SetItem(Part.objectName, Part.Rareity);
         }
     }
