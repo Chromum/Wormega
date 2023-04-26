@@ -30,12 +30,12 @@ public class ItemBox : MonoBehaviour
                 matHolo = Common.HoloMaterial;
                 break;
             case Rareity.Rare:
-                matGlow = Common.glowMaterial;
-                matHolo = Common.HoloMaterial;
+                matGlow = Rare.glowMaterial;
+                matHolo = Rare.HoloMaterial;
                 break;
             case Rareity.Legendary:
-                matGlow = Common.glowMaterial;
-                matHolo = Common.HoloMaterial;
+                matGlow = Legendary.glowMaterial;
+                matHolo = Legendary.HoloMaterial;
                 break;
             default:
                 break;
@@ -58,7 +58,8 @@ public class ItemBox : MonoBehaviour
     [Button]
     public void SetRandomColour()
     {
-        Rareity r = (Rareity)System.Enum.ToObject(typeof(Rareity), Random.Range(0, 2));
+        Rareity r = (Rareity)System.Enum.ToObject(typeof(Rareity), Random.Range(0, 3));
+        UnityEngine.Debug.Log(r);
         SetType(r);
     }
 

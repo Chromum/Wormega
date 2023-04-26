@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CommonHolo
+  m_Name: LegendaryHolo
   m_Shader: {fileID: -6465566751694194690, guid: 7184da7e75e333941b805748a6060e21, type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -256,8 +256,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - Color_19C6C157: {r: 0, g: 1, b: 1, a: 1}
-    - Color_E448CF9F: {r: 0, g: 24.490852, b: 67.79352, a: 1}
+    - Color_19C6C157: {r: 1, g: 0.66017836, b: 0, a: 1}
+    - Color_E448CF9F: {r: 1024, g: 401.56863, b: 0, a: 1}
     - Vector2_6925FF1E: {r: 1, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 0, g: 1, b: 0.015195131, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
