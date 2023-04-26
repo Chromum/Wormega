@@ -46,13 +46,26 @@ public class ItemBox : Interactable
     public IEnumerator Spin()
     {
         while (!isOpen)
-        {
-            int i = Random.Range(0, Items.childCount);
-            foreach (Transform child in Items.transform)
+        {  
+            if(Gun)
             {
-                child.gameObject.SetActive(false);
-                if (child == Items.GetChild(i))
-                    child.gameObject.SetActive(true);
+                int i = Random.Range(0, Items.GetChild(0).childCount);
+                foreach (Transform child in Items.GetChild(0).transform)
+                {
+                    child.gameObject.SetActive(false);
+                    if (child == Items.GetChild(0).GetChild(i))
+                        child.gameObject.SetActive(true);
+                }
+            }
+            if (Upgrade)
+            {
+                int i = Random.Range(0, Items.GetChild(1).childCount);
+                foreach (Transform child in Items.GetChild(1).transform)
+                {
+                    child.gameObject.SetActive(false);
+                    if (child == Items.GetChild(1).GetChild(i))
+                        child.gameObject.SetActive(true);
+                }
             }
             yield return new WaitForSeconds(.5f);
         }
