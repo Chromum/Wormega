@@ -17,6 +17,7 @@ public class GunPart : ScriptableObject
     [Header("Outsider Info")] 
     public Sprite Sprite;
     public Rareity Rareity;
+    public string objectName;
     public bool Debug;
 }
 

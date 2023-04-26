@@ -20,4 +20,5 @@ MonoBehaviour:
   Accuracy: 0
   Sprite: {fileID: 0}
   Rareity: 0
+  objectName: 
   Debug: 0

@@ -10,6 +10,7 @@ public class GunPartCSVImporter : EditorWindow
     private string GunfileName;
     private TextAsset ItemcsvFile;
     private string ItemfileName;
+    private Database db;
 
     [MenuItem("Window/Gun Part CSV Importer")]
     public static void ShowWindow()
@@ -26,6 +27,9 @@ public class GunPartCSVImporter : EditorWindow
 
         ItemcsvFile = EditorGUILayout.ObjectField("Gun CSV File", ItemcsvFile, typeof(TextAsset), false) as TextAsset;
         ItemfileName = ItemcsvFile ? ItemcsvFile.name : "";
+        
+        db = EditorGUILayout.ObjectField("Database", db, typeof(Database), false) as Database;
+
 
         if (GUILayout.Button("Import"))
         {
@@ -102,6 +106,10 @@ public class GunPartCSVImporter : EditorWindow
                     case "Legendary":
                         gunPart.Rareity = Rareity.Legendary;
                         break;
+                    case
+                        "Mythic":
+                        gunPart.Rareity = Rareity.Mythic;
+                        break;
                 }
 
                
@@ -119,6 +127,7 @@ public class GunPartCSVImporter : EditorWindow
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        db.FillInDatabase();
     }
 
     private void LoadGunParts()
@@ -189,6 +198,10 @@ public class GunPartCSVImporter : EditorWindow
                     case "Legendary":
                         gunPart.Rareity = Rareity.Legendary;
                         break;
+                    case
+                        "Mythic":
+                        gunPart.Rareity = Rareity.Mythic;
+                        break;
                 }
 
                 gunPart.Name = name;
@@ -207,5 +220,6 @@ public class GunPartCSVImporter : EditorWindow
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        
     }
 }

@@ -13,33 +13,229 @@ MonoBehaviour:
   m_Name: Database
   m_EditorClassIdentifier: 
   gunParts:
-  - {fileID: 11400000, guid: f2b549d0e236c9c4f8dff6c4ce41774f, type: 2}
-  - {fileID: 11400000, guid: 71c1845e139c85944b8bf0ef5ce33b4e, type: 2}
-  - {fileID: 11400000, guid: 0307e3d24aa225b47bc100b1d2480944, type: 2}
-  - {fileID: 11400000, guid: 0cba68e83df86404a9d21327c494056f, type: 2}
-  - {fileID: 11400000, guid: a3becb6a8bde1ab48b390710a1d09a4c, type: 2}
-  - {fileID: 11400000, guid: 8976f9d5e0e6228498786ec9e7852442, type: 2}
-  - {fileID: 11400000, guid: 6a5e4f9b5f3581f4680fb9cd19c69266, type: 2}
-  - {fileID: 11400000, guid: b2bc3ce9498d2a44c90d504a35501b2f, type: 2}
-  - {fileID: 11400000, guid: c6c070b5542d3cd4fb3b3647c08c2a80, type: 2}
-  - {fileID: 11400000, guid: 6acb16cee10c7e04eaef6f8ec6306e7e, type: 2}
-  - {fileID: 11400000, guid: 287bacd7307d10247ad9febdcf438d34, type: 2}
-  - {fileID: 11400000, guid: 69d84ed963c47604a961f9f4eba91a3b, type: 2}
-  - {fileID: 11400000, guid: ab80c6df074901348b25bff7d7869f35, type: 2}
-  - {fileID: 11400000, guid: 6971e8da618aab444bddba6c317249bb, type: 2}
-  - {fileID: 11400000, guid: f88d9050fe18c8e47a6ff8db3800bf00, type: 2}
-  - {fileID: 11400000, guid: f7c3c820f24a7b648bf0b0522379fe69, type: 2}
-  - {fileID: 11400000, guid: c7ce85b20bbfc514eaa83706c25f20b9, type: 2}
-  - {fileID: 11400000, guid: 02388964958843b44b847b08b9bd136e, type: 2}
-  - {fileID: 11400000, guid: 40b9749a34ff1ab469eb7b11b70012c5, type: 2}
-  - {fileID: 11400000, guid: 9f334db0a2138f04cab93207e1f7f17f, type: 2}
-  - {fileID: 11400000, guid: a312fd2fccf03e847b89fd479089abe5, type: 2}
-  - {fileID: 11400000, guid: 8110441fb251db44980a4d8acff6e96b, type: 2}
-  - {fileID: 11400000, guid: 37c758fe5a293c245a3578cc8c773c5d, type: 2}
-  - {fileID: 11400000, guid: c561e02fb1557994f9055580eecf29b5, type: 2}
-  - {fileID: 11400000, guid: 1728bb137058cdf4cb0c225de4f69ed8, type: 2}
-  - {fileID: 11400000, guid: f4c45d9e007f306408c4ba21aa04b6b5, type: 2}
-  - {fileID: 11400000, guid: d2fbaf80a05b85b48b4e1d21769e507c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Common:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Rare:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Legendary:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Mythic:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   items:
   - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
   - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
@@ -48,3 +244,56 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ccb81eac796f744596b8d632d61a524, type: 2}
   - {fileID: 11400000, guid: db69ed158ac35a34881f5eb5d826e731, type: 2}
   - {fileID: 11400000, guid: bcb4260a8d779d544a2fe9dc0af3ee32, type: 2}
+  CommonUp:
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 11400000, guid: 0ccb81eac796f744596b8d632d61a524, type: 2}
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 11400000, guid: 0ccb81eac796f744596b8d632d61a524, type: 2}
+  - {fileID: 11400000, guid: f8f248028c722d1429a5353f52e77c50, type: 2}
+  - {fileID: 11400000, guid: 0ccb81eac796f744596b8d632d61a524, type: 2}
+  RareUp:
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 11400000, guid: db69ed158ac35a34881f5eb5d826e731, type: 2}
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 11400000, guid: db69ed158ac35a34881f5eb5d826e731, type: 2}
+  - {fileID: 11400000, guid: 72fd0dfae145de74fbafe0dbeba942f3, type: 2}
+  - {fileID: 11400000, guid: a0523bb3b164957448a1a27850696dd5, type: 2}
+  - {fileID: 11400000, guid: db69ed158ac35a34881f5eb5d826e731, type: 2}
+  LegendaryUp:
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 11400000, guid: bcb4260a8d779d544a2fe9dc0af3ee32, type: 2}
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 11400000, guid: bcb4260a8d779d544a2fe9dc0af3ee32, type: 2}
+  - {fileID: 11400000, guid: 0eabb95c978ba6549b0d13e6c50e6ac3, type: 2}
+  - {fileID: 11400000, guid: bcb4260a8d779d544a2fe9dc0af3ee32, type: 2}
+  MythicUp: []

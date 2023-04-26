@@ -7,7 +7,9 @@ using UnityEngine;
 public class Database : ScriptableObject
 {
     public List<GunPart> gunParts = new List<GunPart>();
+    [SerializeField] public List<GunPart> Common, Rare, Legendary, Mythic = new List<GunPart>();
     public List<Item> items = new List<Item>();
+    [SerializeField] public List<Item> CommonUp, RareUp, LegendaryUp, MythicUp = new List<Item>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,14 @@ public class Database : ScriptableObject
     {
         gunParts.Clear();
         items.Clear();
+        Common.Clear();
+        CommonUp.Clear();
+        Rare.Clear();
+        RareUp.Clear();
+        Legendary.Clear();
+        LegendaryUp.Clear();
+        Mythic.Clear();
+        MythicUp.Clear();
         // Find all GunPart ScriptableObjects in the project and add them to the list
         string[] guids = AssetDatabase.FindAssets("t:GunPart");
         foreach (string guid in guids)
@@ -35,7 +45,24 @@ public class Database : ScriptableObject
             if (gunPart != null)
             {
                 if (!gunPart.Debug)
+                {
                     gunParts.Add(gunPart);
+                    switch(gunPart.Rareity)
+                    {
+                        case Rareity.Common:
+                            Common.Add(gunPart);
+                            break;
+                        case Rareity.Rare:
+                            Rare.Add(gunPart);
+                            break;
+                        case Rareity.Legendary:
+                            Legendary.Add(gunPart);
+                            break;
+                        case Rareity.Mythic:
+                            Mythic.Add(gunPart);
+                            break;
+                    }
+                }
             }
         }
 
@@ -48,8 +75,29 @@ public class Database : ScriptableObject
             if (gunPart != null)
             {
                 if (!gunPart.Debug)
+                {
                     items.Add(gunPart);
+                    switch (gunPart.Rareity)
+                    {
+                        case Rareity.Common:
+                            CommonUp.Add(gunPart);
+                            break;
+                        case Rareity.Rare:
+                            RareUp.Add(gunPart);
+                            break;
+                        case Rareity.Legendary:
+                            LegendaryUp.Add(gunPart);
+                            break;
+                        case Rareity.Mythic:
+                            MythicUp.Add(gunPart);
+                            break;
+                    }
+                }
             }
         }
     }
 }
+
+
+
+

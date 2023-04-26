@@ -6,6 +6,7 @@ using UnityEngine;
 public class RareityItem : ScriptableObject
 {
     public Rareity Rareity;
+    public float PercChance;
     public Material glowMaterial;
     public Material HoloMaterial;
 }
