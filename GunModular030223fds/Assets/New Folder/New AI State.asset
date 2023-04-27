@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba6a433e565a44c689401322a4fe9c2, type: 3}
   m_Name: New AI State
   m_EditorClassIdentifier: 
-  AIActions: []
+  AIActions:
+  - {fileID: 11400000, guid: 2a96c7c5148aecc479f427d3b79b14fa, type: 2}
   AITransitions:
-  - {fileID: 11400000, guid: d42556eda7543ed42b27172b5d898cb1, type: 2}
+  - {fileID: 11400000, guid: a4d841b99fba40b4c926829579516a61, type: 2}
