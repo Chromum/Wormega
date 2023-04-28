@@ -145,8 +145,9 @@ MonoBehaviour:
   mapSpriteSelector: {fileID: 6645272069507029489}
   HeliPrefab: {fileID: 4243386060940601233, guid: 13b63eccaf965994fbb21952b83bfd1c, type: 3}
   EnemyPrefabs:
-  - {fileID: 6526000689476068412, guid: 2d6450487cccbce449ac85b02b17dece, type: 3}
+  - {fileID: 1865120117351406976, guid: 654c0dda43e1fe54fa870c0b61d7ebc2, type: 3}
   - {fileID: 2777943868785224869, guid: 4f4558f54890ed54e8c3740aadbf3cd3, type: 3}
+  - {fileID: 1865120117351406976, guid: 654c0dda43e1fe54fa870c0b61d7ebc2, type: 3}
   SF: {fileID: 8300000, guid: 395e7a331a2f2c440aaef9718e089e0e, type: 3}
 --- !u!82 &420593877046413896
 AudioSource:

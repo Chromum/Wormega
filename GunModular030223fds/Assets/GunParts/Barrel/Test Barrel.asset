@@ -20,7 +20,7 @@ MonoBehaviour:
   Accuracy: 5
   Sprite: {fileID: 0}
   Rareity: 0
-  objectName: Shotgun
+  objectName: 
   Debug: 1
   ShotMode: 2
   barrelType: 0

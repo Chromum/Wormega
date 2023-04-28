@@ -248,16 +248,16 @@ public class ItemBox : Interactable
             switch (rareity)
             {
                 case Rareity.Common:
-                    Part = Database.CommonUp[Random.Range(0, Database.Common.Count)];
+                    Part = Database.CommonUp[Random.Range(0, Database.CommonUp.Count)];
                     break;
                 case Rareity.Rare:
-                    Part = Database.RareUp[Random.Range(0, Database.Rare.Count)];
+                    Part = Database.RareUp[Random.Range(0, Database.RareUp.Count)];
                     break;
                 case Rareity.Legendary:
-                    Part = Database.LegendaryUp[Random.Range(0, Database.Legendary.Count)];
+                    Part = Database.LegendaryUp[Random.Range(0, Database.LegendaryUp.Count)];
                     break;
                 case Rareity.Mythic:
-                    Part = Database.MythicUp[Random.Range(0, Database.Mythic.Count)];
+                    Part = Database.MythicUp[Random.Range(0, Database.MythicUp.Count)];
                     break;
             }
             Item = Part;
@@ -267,9 +267,14 @@ public class ItemBox : Interactable
 
     public void SetItem(string objectName,Rareity R)
     {
-        
+        Transform t = null;
         UnityEngine.Debug.Log(objectName);
-        foreach (Transform child in Items.transform)
+        if (Gun)
+            t = Items.GetChild(0);
+        if (Upgrade)
+            t = Items.GetChild(1);
+
+        foreach (Transform child in t)
         {
             child.gameObject.SetActive(false);
             if (objectName.ToLower() == child.name.ToLower())

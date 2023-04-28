@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0237ea256fd8653469b4f70438fca425, type: 3}
   m_Name: DebugItem 3
   m_EditorClassIdentifier: 
+  Debug: 1
   Rareity: 2
   ItemStats:
     Health: 3
@@ -22,3 +23,4 @@ MonoBehaviour:
     Strength: 5
     Stamina: 4
     NO: 0
+  objectName: 

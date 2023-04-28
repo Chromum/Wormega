@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650ebc69e4c83dd43b45fb65f8a83909, type: 3}
-  m_Name: Daniels Widgy
+  m_Script: {fileID: 11500000, guid: 0237ea256fd8653469b4f70438fca425, type: 3}
+  m_Name: Health-Up Tier IV
   m_EditorClassIdentifier: 
-  Name: Daniels Widgy
-  Bio: YUMMY
-  FireRate: 50
-  Damage: 100
-  MagSize: 12
-  Accuracy: -100
-  Sprite: {fileID: 0}
-  Rareity: 2
-  objectName: 
   Debug: 0
-  ShotMode: 0
-  barrelType: 1
+  Rareity: 3
+  ItemStats:
+    Health: 50
+    Speed: 0
+    JumpHeight: 0
+    GrappleCooldown: 0
+    AbilityCooldown: 0
+    Strength: 0
+    Stamina: 0
+    NO: 0
+  objectName: 
