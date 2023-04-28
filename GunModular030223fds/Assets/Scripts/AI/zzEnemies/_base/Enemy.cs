@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,8 @@ public class Enemy : MonoBehaviour
 {
     public Attack Attack;
     public NavMeshAgent NavMeshAgent;
-    public float cooldownTimer;
+    public Countdown countdown;
+    public float cooldown;
     public bool canAttack;
     public GameObject player;
     public Animator animator;
@@ -16,9 +18,11 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
         b = gameObject.GetComponent<AIBase>();
-        cooldownTimer = Attack.Cooldown;
+        b.enabled = true;
+        cooldown = Attack.Cooldown;
+        countdown.Count = cooldown;
     }
 
 
@@ -26,21 +30,23 @@ public class Enemy : MonoBehaviour
     {
         if (!canAttack)
         {
-            cooldownTimer -= Time.deltaTime; 
-            if (cooldownTimer <= 0) 
-            {
-                canAttack = true;
-                Debug.Log("Timer Reset");
-            }
+            countdown.CountdownUpdate();
         }
-        
+
+        if (countdown.HasFinished())
+        {
+            if(canAttack == false)
+                canAttack = true;
+            
+
+        }
        
     }
 
     public void ResetCooldown()
     {
         canAttack = false;
-        cooldownTimer = Attack.Cooldown;
+        countdown.StartCountdown();
         Debug.Log("Reseting Timer");
     }
 

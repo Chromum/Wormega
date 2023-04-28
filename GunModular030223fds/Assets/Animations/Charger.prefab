@@ -1389,9 +1389,10 @@ GameObject:
   - component: {fileID: 1865120117351406981}
   - component: {fileID: 1865120117351406982}
   - component: {fileID: 1865120117351406983}
-  - component: {fileID: 1865120117351406987}
   - component: {fileID: 2882763617839998186}
   - component: {fileID: 1994988594}
+  - component: {fileID: 2803775690751345955}
+  - component: {fileID: 1479695639}
   m_Layer: 0
   m_Name: Charger
   m_TagString: Untagged
@@ -1452,7 +1453,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attack: {fileID: 11400000, guid: 824e463c5fec9614899718f3b82e9914, type: 2}
   NavMeshAgent: {fileID: 1865120117351406981}
-  cooldownTimer: 0
+  countdown:
+    Finished: 0
+    value: 0
+    Count: 0
+  cooldown: 0
   canAttack: 0
   player: {fileID: 0}
   animator: {fileID: 1865120117351406983}
@@ -1462,6 +1467,7 @@ MonoBehaviour:
   Shot: {fileID: 8300000, guid: 0e97ebbf2edcefd448e265db68e525a7, type: 3}
   hasCharged: 0
   distanceFromPlayerStart: 0
+  rb: {fileID: 1479695639}
 --- !u!114 &1865120117351406980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,7 +1475,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865120117351406976}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a652260f2154c4c408eaa253535349ac, type: 3}
   m_Name: 
@@ -1525,29 +1531,13 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c9d0ad9fccbf1844bbeafac55adde8ad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &1865120117351406987
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865120117351406976}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 12
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &2882763617839998186
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1560,7 +1550,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.194
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1604,7 +1594,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1659,6 +1649,36 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 100
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
+--- !u!136 &2803775690751345955
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865120117351406976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.013690268
+  m_Height: 0.039411306
+  m_Direction: 1
+  m_Center: {x: 0.00022220613, y: -0.0012093101, z: -0.0018991531}
+--- !u!54 &1479695639
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865120117351406976}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2050084379769399993
 GameObject:
   m_ObjectHideFlags: 0

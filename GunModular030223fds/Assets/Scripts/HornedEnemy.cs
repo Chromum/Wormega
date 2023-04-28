@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HornedEnemy : Enemy
@@ -8,6 +9,18 @@ public class HornedEnemy : Enemy
     public AudioClip Charge, Shot;
     public bool hasCharged;
     public float distanceFromPlayerStart;
+    public Rigidbody rb;
+
+
+    public void Update()
+    {
+        base.Update();
+        if (hasCharged == false)
+        {
+            NavMeshAgent.velocity = Vector3.zero;
+        }
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (hasCharged == true)
@@ -28,13 +41,17 @@ public class HornedEnemy : Enemy
             }
             hasCharged = false;
             NavMeshAgent.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
     }
 
 
     public void ChargeUp()
     {
-        AudioUtils.PlaySoundWithPitch(AU, Charge, 1f);
+        if (hasCharged == false)
+        {
+            AudioUtils.PlaySoundWithPitch(AU, Charge, 1f);
+        }
     }
     public void StopSound()
     {

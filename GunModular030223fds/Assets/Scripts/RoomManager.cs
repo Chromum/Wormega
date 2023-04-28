@@ -43,6 +43,7 @@ public class RoomManager : MonoBehaviour
     }
     public void FirstTimeEnter()
     {
+        FirstTime = true;
         GameObject j = GameObject.Instantiate(HeliPrefab, new Vector3(transform.position.x - 50f, transform.position.y + 60f, transform.position.z), Quaternion.identity);
         StartCoroutine(FlyAwayEnum(j.GetComponent<AudioSource>(), j));
         
@@ -65,24 +66,38 @@ public class RoomManager : MonoBehaviour
         g.GetComponent<Animator>().SetTrigger("FlyAway");
 
     }
-    public IEnumerator LerpObject(NavMeshAgent start, Vector3 end, float duration, Vector3 POS)
+    public IEnumerator LerpObject(NavMeshAgent start, float duration, Vector3 POS)
     {
         Vector3 startPosition = POS;
+
+        Vector3 randomPosition = POS;
+        NavMeshHit hit;
+
+        while (!NavMesh.SamplePosition(randomPosition, out hit, 5f, NavMesh.AllAreas))
+        {
+            randomPosition = Random.insideUnitSphere * 10f + transform.position;
+            yield return null;
+        }
+        
+
+
+
         float startTime = Time.time;
         start.transform.position = startPosition;
         while (Time.time < startTime + duration)
         {
             float t = (Time.time - startTime) / duration;
-            start.transform.position = Vector3.Lerp(startPosition, end, t);
+            start.transform.position = Vector3.Lerp(startPosition, hit.position, t);
             yield return null;
         }
 
-        // Ensure we end exactly at the target position
-        start.transform.position = end;
-        start.Warp(end);
+        start.transform.position = hit.position;
+        start.Warp(hit.position);
         start.enabled = true;
         start.GetComponent<Enemy>().enabled = true;
     }
+
+
 
     public void SpawnEnemy(GameObject Heli)
     {
@@ -90,8 +105,6 @@ public class RoomManager : MonoBehaviour
         g.enabled = false;
         g.GetComponent<Enemy>().enabled = false;
         g.transform.position = Heli.transform.GetChild(14).position;
-        NavMeshHit h;
-        NavMesh.SamplePosition(g.transform.position, out h, 100f, NavMesh.AllAreas);
-        StartCoroutine(LerpObject(g, h.position, 3f, Heli.transform.GetChild(14).position));
+        StartCoroutine(LerpObject(g, 3f, Heli.transform.GetChild(14).position));
     }
 }

@@ -130,7 +130,6 @@ public class ItemBox : Interactable
     public void SetRandomColour()
     {
         Rareity r = (Rareity)System.Enum.ToObject(typeof(Rareity), Random.Range(0, 4));
-        UnityEngine.Debug.Log(r);
         SetType(r);
     }
 

@@ -784,7 +784,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6526000689476068412}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a652260f2154c4c408eaa253535349ac, type: 3}
   m_Name: 
@@ -806,7 +806,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attack: {fileID: 11400000, guid: bc9871c938a409b43bb934aa7d699b1e, type: 2}
   NavMeshAgent: {fileID: 6526000689476068415}
-  cooldownTimer: 3
+  countdown:
+    Finished: 0
+    value: 0
+    Count: 0
+  cooldown: 0
   canAttack: 0
   player: {fileID: 0}
   animator: {fileID: 6526000689476068411}

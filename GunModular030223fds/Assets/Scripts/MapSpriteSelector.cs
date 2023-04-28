@@ -24,11 +24,15 @@ public class MapSpriteSelector : MonoBehaviour
     public delegate void PlayerExitsRoom();
     public PlayerEntersRoom PEER;
 
+    public PlayerManager Pm;
+    public Transform playerSpawn;
+
     void Start ()
     {
         transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
         mainColor = normalColor;
         PickColor();
+        Pm = FindObjectOfType<PlayerManager>();
         NavMeshSurface s = gameObject.GetComponentInChildren<NavMeshSurface>();
         s.BuildNavMesh();
     }
@@ -86,12 +90,15 @@ public class MapSpriteSelector : MonoBehaviour
                 break;
             case 1:
                 mainColor = enterColor;
+                transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             case 3:
                 mainColor = enemyRoomColor;
+                transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             case 4:
                 mainColor = shopRoomColor;
+                transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             default:
                 break;
@@ -104,6 +111,7 @@ public class MapSpriteSelector : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerInRoom = true;
+            Pm.currentRoom = this;
             PER?.Invoke();
         }
     }
