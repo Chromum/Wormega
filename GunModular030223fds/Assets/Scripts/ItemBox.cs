@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ItemBox : Interactable
@@ -77,6 +78,57 @@ public class ItemBox : Interactable
         isOpen = true;
         PickItem();
         gameObject.GetComponent<Animator>().SetTrigger("Open");
+        StartCoroutine(Wait());
+
+        
+    }
+
+    public IEnumerator Wait()
+    {
+        
+
+        yield return new WaitForSeconds(3f);
+        GameObject g = GameObject.FindObjectOfType<PlayerManager>().ItemPickupUI;
+        g.SetActive(true);
+
+
+        if (Gun)
+        {
+            g.GetComponent<ItemHolder>().part = GunPart;
+            g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GunPart.Name;
+            g.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GunPart.Bio;
+            g.transform.GetChild(5).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Damage: " + GunPart.Damage.ToString();
+            g.transform.GetChild(5).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Fire Rate: " + GunPart.FireRate.ToString();
+            g.transform.GetChild(5).GetChild(2).GetComponent<TextMeshProUGUI>().text = "Mag Size: " + GunPart.MagSize.ToString();
+            g.transform.GetChild(5).GetChild(3).GetComponent<TextMeshProUGUI>().text = "Accuracy: " + GunPart.Accuracy.ToString();
+            if (GunPart.GetType() == typeof(Barrel))
+            {
+                Barrel b = (Barrel)GunPart;
+                g.transform.GetChild(5).GetChild(4).gameObject.SetActive(true);
+                g.transform.GetChild(5).GetChild(5).gameObject.SetActive(true);
+                g.transform.GetChild(5).GetChild(4).GetComponent<TextMeshProUGUI>().text = "Shot Mode : " + b.ShotMode.ToString();
+                g.transform.GetChild(5).GetChild(5).GetComponent<TextMeshProUGUI>().text = "Shot Mode : " + b.barrelType.ToString();
+            }
+            else
+            {
+                g.transform.GetChild(5).GetChild(4).gameObject.SetActive(false);
+                g.transform.GetChild(5).GetChild(5).gameObject.SetActive(false);
+            }
+        }
+        if (Upgrade)
+        {
+            g.GetComponent<ItemHolder>().item = Item;
+            g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Item.Name;
+            g.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Item.Description;
+            g.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Health: " + Item.ItemStats.Health.ToString();
+            g.transform.GetChild(4).GetChild(1).GetComponent<TextMeshProUGUI>().text = "Speed: " + Item.ItemStats.Speed.ToString();
+            g.transform.GetChild(4).GetChild(2).GetComponent<TextMeshProUGUI>().text = "Jump Height: " + Item.ItemStats.JumpHeight.ToString();
+            g.transform.GetChild(4).GetChild(3).GetComponent<TextMeshProUGUI>().text = "Ability Cooldown: " + Item.ItemStats.AbilityCooldown.ToString();
+            g.transform.GetChild(4).GetChild(4).GetComponent<TextMeshProUGUI>().text = "Strength: " + Item.ItemStats.Strength.ToString();
+            g.transform.GetChild(4).GetChild(5).GetComponent<TextMeshProUGUI>().text = "Stamina: " + Item.ItemStats.Stamina.ToString();
+        }
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public override void Interact(GameObject GO)

@@ -22,7 +22,7 @@ public class Database : ScriptableObject
     {
         
     }
-        
+#if UNITY_EDITOR
     [Button("Fill Database")]
     public void FillInDatabase()
     {
@@ -96,6 +96,7 @@ public class Database : ScriptableObject
             }
         }
     }
+#endif
 }
 
 

@@ -40,9 +40,9 @@ public class PlayerInput : MonoBehaviour
             Activator.Check = true;
             Activator.abilityManager.StartAbility();
         }
-            if(Input.GetKey(InventoryUIManager.ActivateButton))
+            if(Input.GetKeyDown(InventoryUIManager.ActivateButton))
             InventoryUIManager.TurnOnUI();
-        else 
+        else if (Input.GetKeyUp(InventoryUIManager.ActivateButton))
             InventoryUIManager.TurnOffUI();
     }
 }

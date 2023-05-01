@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Health-Up Tier III
   m_EditorClassIdentifier: 
   Debug: 0
+  Name: Health-Up Tier III
+  Description: Legendary Health Item
   Rareity: 2
   ItemStats:
     Health: 35

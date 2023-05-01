@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -9,8 +11,12 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] public Room[,] rooms;
     public List<Vector2> takenPositions = new List<Vector2>();
     public int gridSizeX, gridSizeY, numberOfRooms = 20;
-    public GameObject roomWhiteObj;
-    public GameObject DebugBuildPrefab;
+    public List<GameObject> roomWhiteObj = new List<GameObject>();
+    public List<GameObject> ShopOptions = new List<GameObject>();
+    public GameObject BossRoom;
+    public GameObject StartRoom;
+    public List<GameObject> DebugBuildPrefab = new List<GameObject>();
+    public List<GameObject> Offsets = new List<GameObject>();
     public Transform mapRoot;
 
 
@@ -32,6 +38,8 @@ public class LevelGenerator : MonoBehaviour
         gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         transform.localScale = new Vector3(5f, 5f, 5f);
         LG?.Invoke();
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        
 
     }
     void CreateRooms()
@@ -207,11 +215,35 @@ public class LevelGenerator : MonoBehaviour
                 room.type = 4;
                 doneShop = true;
             }
-            //create map obj and assign its variables
-            MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, new Quaternion(180, 0f, 0f, 0f)).GetComponent<MapSpriteSelector>();
+            MapSpriteSelector mapper = null;
+
+            switch (room.type)
+            {
+                case 0:
+                    mapper = Object.Instantiate(roomWhiteObj[Random.Range(0,roomWhiteObj.Count)], drawPos, new Quaternion(180, 0f, 0f, 0f)).GetComponent<MapSpriteSelector>();
+                    
+                    break;
+                case 1:
+                    mapper = Object.Instantiate(StartRoom, drawPos, new Quaternion(180, 0f, 0f, 0f)).GetComponent<MapSpriteSelector>();
+                    break;
+                case 2:
+                    mapper = Object.Instantiate(roomWhiteObj[Random.Range(0, roomWhiteObj.Count)], drawPos, new Quaternion(180, 0f, 0f, 0f)).GetComponent<MapSpriteSelector>();
+                    break;
+                case 3:
+                    mapper = Object.Instantiate(BossRoom, drawPos, new Quaternion(180, 0f, 0f, 0f)).GetComponent<MapSpriteSelector>();
+                    break;
+                case 4:
+                    mapper = Object.Instantiate(ShopOptions[Random.Range(0, ShopOptions.Count)], drawPos, new Quaternion(180, 0f, 0f, 0f)).GetComponent<MapSpriteSelector>();
+                    break;
+
+            }
             mapper.gameObject.transform.parent = mapRoot;
             mapper.type = room.type;
+            GameObject g = Instantiate(Offsets[Random.RandomRange(0, Offsets.Count)], mapper.transform);
+            g.transform.localScale = new Vector3(0.08394533f, 6.2959f, 0.08394533f);
+            g.transform.localPosition = Vector3.zero;
             mapSprites.Add(room.gridPos, mapper);
+
         }
 
         for (int i = 0; i < rooms.GetLength(0); i++)
@@ -223,7 +255,7 @@ public class LevelGenerator : MonoBehaviour
                     Vector2 drawPosss = new Vector2(i - gridSizeX, j - gridSizeY);
                     drawPosss.x *= 16;//aspect ratio of map sprite
                     drawPosss.y *= 16;
-                    GameObject g = GameObject.Instantiate(DebugBuildPrefab, drawPosss, new Quaternion(180, 0f, 0f, 0f));
+                    GameObject g = GameObject.Instantiate(DebugBuildPrefab[Random.RandomRange(0,DebugBuildPrefab.Count)], drawPosss, new Quaternion(180, 0f, 0f, 0f));
                     g.gameObject.transform.parent = mapRoot;
                     g.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
                 }

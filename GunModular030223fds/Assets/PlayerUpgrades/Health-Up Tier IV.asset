@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Health-Up Tier IV
   m_EditorClassIdentifier: 
   Debug: 0
+  Name: Health-Up Tier IV
+  Description: Mythic Health Item
   Rareity: 3
   ItemStats:
     Health: 50

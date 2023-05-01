@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public Attack Attack;
+    public EnemyDifficultyStats Stats;
     public NavMeshAgent NavMeshAgent;
     public Countdown countdown;
     public float cooldown;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         b.enabled = true;
         cooldown = Attack.Cooldown;
         countdown.Count = cooldown;
+        Stats = GameManager.instance.currentDifficulty.enemyStats;
     }
 
 

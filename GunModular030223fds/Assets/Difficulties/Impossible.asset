@@ -15,3 +15,11 @@ MonoBehaviour:
   difficultyName: Apocalyptic
   Length: 100000
   difficultyColor: {r: 0.1509434, g: 0, b: 0.012730149, a: 1}
+  enemyStats:
+    HealthMultiplier: 2
+    DamageMultiplier: 2
+    Magazine: {fileID: 11400000, guid: ab80c6df074901348b25bff7d7869f35, type: 2}
+    Grip: {fileID: 11400000, guid: 6acb16cee10c7e04eaef6f8ec6306e7e, type: 2}
+    Sight: {fileID: 11400000, guid: 9f334db0a2138f04cab93207e1f7f17f, type: 2}
+    Barrel: {fileID: 11400000, guid: 71c1845e139c85944b8bf0ef5ce33b4e, type: 2}
+    Module: {fileID: 11400000, guid: f4c45d9e007f306408c4ba21aa04b6b5, type: 2}

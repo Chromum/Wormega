@@ -71,8 +71,12 @@ public class CigaretteManager : AbilityManager
             colorAdj.contrast.value = Mathf.Lerp(colorAdj.contrast.value, Contrast, Time.deltaTime);
             colorAdj.colorFilter.value = Color.Lerp(colorAdj.colorFilter.value, ColorFilter, Time.deltaTime);
             colorAdj.saturation.value = Mathf.Lerp(colorAdj.saturation.value, Saturation, Time.deltaTime);
-            Time.timeScale = Mathf.Lerp(Time.timeScale, desiredTimeScale, Time.deltaTime);
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            if (!GameManager.instance.isPaused)
+            {
+                Time.timeScale = Mathf.Lerp(Time.timeScale, desiredTimeScale, Time.deltaTime);
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            }
+
         }
         else
         {
@@ -84,8 +88,12 @@ public class CigaretteManager : AbilityManager
             colorAdj.contrast.value = Mathf.Lerp(colorAdj.contrast.value, 0, Time.deltaTime);
             colorAdj.colorFilter.value = Color.Lerp(colorAdj.colorFilter.value, new Color(1f, 1f, 1f), Time.deltaTime);
             colorAdj.saturation.value = Mathf.Lerp(colorAdj.saturation.value, 0, Time.deltaTime);
-            Time.timeScale = Mathf.Lerp(Time.timeScale, 1 , Time.deltaTime);
-            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            if(!GameManager.instance.isPaused)
+            {
+                Time.timeScale = Mathf.Lerp(Time.timeScale, 1, Time.deltaTime);
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            }
+
         }
 
         if(Active && Countdown.HasFinished() && !hasSet)

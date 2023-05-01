@@ -5,6 +5,7 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class MapSpriteSelector : MonoBehaviour
 {
@@ -27,13 +28,16 @@ public class MapSpriteSelector : MonoBehaviour
     public PlayerManager Pm;
     public Transform playerSpawn;
 
+    public UnityEvent ev;
+    public UnityEvent Leave;
+
     void Start ()
     {
         transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
-        mainColor = normalColor;
         PickColor();
         Pm = FindObjectOfType<PlayerManager>();
-        NavMeshSurface s = gameObject.GetComponentInChildren<NavMeshSurface>();
+        NavMeshSurface s = gameObject.GetComponent<NavMeshSurface>();
+        s.RemoveData();
         s.BuildNavMesh();
     }
     
@@ -86,24 +90,19 @@ public class MapSpriteSelector : MonoBehaviour
         switch (type)
         {   
             case 0:
-                mainColor = normalColor;
                 break;
             case 1:
-                mainColor = enterColor;
                 transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             case 3:
-                mainColor = enemyRoomColor;
                 transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             case 4:
-                mainColor = shopRoomColor;
                 transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             default:
                 break;
         }
-        rend.material = mainColor;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -113,6 +112,7 @@ public class MapSpriteSelector : MonoBehaviour
             PlayerInRoom = true;
             Pm.currentRoom = this;
             PER?.Invoke();
+            ev?.Invoke();
         }
     }
 
@@ -122,7 +122,7 @@ public class MapSpriteSelector : MonoBehaviour
         {
             PlayerInRoom = false;
             PEER?.Invoke();
-
+            Leave?.Invoke();
         }
     }
 }

@@ -7,7 +7,7 @@ public class InventoryUIManager : MonoBehaviour
 {
     public KeyCode ActivateButton;
 
-    public Canvas Canvas;
+    public GameObject Canvas;
 
     public bool Active;
     // Start is called before the first frame update

@@ -121,7 +121,7 @@ public class FPSCam : MonoBehaviour
         jumpVector = new Vector3(0, 0, 0);
         InputStuff();
 
-        if (!Pm.InventoryUIManager.Active)
+        if (!Pm.InventoryUIManager.Active && GameManager.instance.isPaused == false)
         {
             ymouse += Input.GetAxis("Mouse X") * Sensitivity;
             Xmouse += Input.GetAxis("Mouse Y") * Sensitivity;

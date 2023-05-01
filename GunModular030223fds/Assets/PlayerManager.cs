@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public MapSpriteSelector currentRoom;
+    public GameObject ItemPickupUI;
 
     // Start is called before the first frame update
     void Start()

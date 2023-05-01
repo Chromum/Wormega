@@ -74,6 +74,8 @@ public class GunPartCSVImporter : EditorWindow
 
                 Item gunPart = new Item
                 {
+                    Name = name,
+                    Description = bio,
                     ItemStats = new Stats()
                     {
                         Health = health,
@@ -85,6 +87,7 @@ public class GunPartCSVImporter : EditorWindow
                         Stamina = stamina
                     }
                 };
+
 
 
                 int Debug = int.Parse(data[10]);
@@ -177,8 +180,26 @@ public class GunPartCSVImporter : EditorWindow
                 else
                     gunPart.Debug = true;
 
-                if (type == "Barrel")
-                    ((Barrel)gunPart).barrelType = (BarrelType)System.Enum.Parse(typeof(BarrelType), data[10]);
+                switch(type)
+                {
+                    case "Barrel":
+                        ((Barrel)gunPart).barrelType = (BarrelType)System.Enum.Parse(typeof(BarrelType), data[10]);
+                        gunPart.Type = Typwe.Barrel;
+                        break;
+                    case "Magazine":
+                        gunPart.Type = Typwe.Mag;
+                        break;
+                    case "Sight":
+                        gunPart.Type = Typwe.Sight;
+                        break;
+                    case "Module":
+                        gunPart.Type = Typwe.Module;
+                        break;
+                    case "Grip":
+                        gunPart.Type = Typwe.Grip;
+                        break;
+
+                }
 
 
                 gunPart.name = name;

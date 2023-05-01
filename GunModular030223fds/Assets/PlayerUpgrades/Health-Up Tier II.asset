@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Health-Up Tier II
   m_EditorClassIdentifier: 
   Debug: 0
+  Name: Health-Up Tier II
+  Description: Rare Health Item
   Rareity: 1
   ItemStats:
     Health: 20

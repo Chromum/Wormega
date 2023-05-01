@@ -15,3 +15,11 @@ MonoBehaviour:
   difficultyName: Hurt Me Plenty
   Length: 450
   difficultyColor: {r: 1, g: 0.687739, b: 0, a: 1}
+  enemyStats:
+    HealthMultiplier: 1.25
+    DamageMultiplier: 1.25
+    Magazine: {fileID: 11400000, guid: 69d84ed963c47604a961f9f4eba91a3b, type: 2}
+    Grip: {fileID: 11400000, guid: 6acb16cee10c7e04eaef6f8ec6306e7e, type: 2}
+    Sight: {fileID: 11400000, guid: 8110441fb251db44980a4d8acff6e96b, type: 2}
+    Barrel: {fileID: 11400000, guid: a3becb6a8bde1ab48b390710a1d09a4c, type: 2}
+    Module: {fileID: 11400000, guid: f4c45d9e007f306408c4ba21aa04b6b5, type: 2}

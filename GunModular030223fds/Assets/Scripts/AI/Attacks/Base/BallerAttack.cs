@@ -86,7 +86,7 @@ public class BallerAttack : Attack
             foreach (Collider item in tea)
             {
                 if (item.tag == "Player" || item.tag == "Destructable")
-                    item.GetComponent<Damageable>().DoDamage(Damage(item.transform.position, b.transform.position),Vector3.zero);
+                    item.GetComponent<Damageable>().DoDamage(Damage(item.transform.position, b.transform.position,b),Vector3.zero);
             }
 
         }
@@ -95,10 +95,10 @@ public class BallerAttack : Attack
         c = null;
         base.Execute(b);
     }
-    public float Damage(Vector3 target, Vector3 self)
+    public float Damage(Vector3 target, Vector3 self, Enemy e)
     {
         float distance = Vector3.Distance(self, target);
-        float damage = BaseDam / distance;
+        float damage = BaseDam * e.Stats.DamageMultiplier / distance;
         Debug.Log(damage);
 
         if (damage > BaseDam)

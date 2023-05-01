@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Health-Up Tier I
   m_EditorClassIdentifier: 
   Debug: 0
+  Name: Health-Up Tier I
+  Description: Common Health Item
   Rareity: 0
   ItemStats:
     Health: 10

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,11 +16,15 @@ public class RoomManager : MonoBehaviour
     public List<GameObject> EnemyPrefabs = new List<GameObject>();
     public AudioClip SF;
 
+    public int Waves;
+
+    public List<EnemyT> t = new List<EnemyT>();
     // Start is called before the first frame update
     void Start()
     {
         mapSpriteSelector.PER += PlayerEnter;
         mapSpriteSelector.PEER += PlayerExits;
+        Waves = Random.Range(1, 3);
     }
 
     // Update is called once per frame
@@ -73,13 +78,11 @@ public class RoomManager : MonoBehaviour
         Vector3 randomPosition = POS;
         NavMeshHit hit;
 
+
         while (!NavMesh.SamplePosition(randomPosition, out hit, 5f, NavMesh.AllAreas))
         {
             randomPosition = Random.insideUnitSphere * 10f + transform.position;
-            yield return null;
         }
-        
-
 
 
         float startTime = Time.time;
@@ -88,13 +91,44 @@ public class RoomManager : MonoBehaviour
         {
             float t = (Time.time - startTime) / duration;
             start.transform.position = Vector3.Lerp(startPosition, hit.position, t);
-            yield return null;
+            yield return null; 
         }
 
         start.transform.position = hit.position;
         start.Warp(hit.position);
         start.enabled = true;
         start.GetComponent<Enemy>().enabled = true;
+    }
+
+    public Vector3 ValidPosition(Vector3 POS, Vector3 Origin)
+    {
+
+        bool isValid = false;
+        Vector3 randomPosition = POS;
+        Vector3 returner;
+        while(isValid)
+        {
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPosition, out hit, 5f, NavMesh.AllAreas))
+            {
+                RaycastHit h;
+                if (Physics.Raycast(Origin,(Origin - hit.position),out h))
+                {
+                    if(h.collider.gameObject.layer != 8)
+                    {
+                        return hit.position;
+                    }
+
+                        
+
+                }
+            }
+            else
+                randomPosition = Random.insideUnitSphere * 10f + transform.position;
+        }
+
+        return Vector3.zero;
+        
     }
 
 
@@ -107,4 +141,11 @@ public class RoomManager : MonoBehaviour
         g.transform.position = Heli.transform.GetChild(14).position;
         StartCoroutine(LerpObject(g, 3f, Heli.transform.GetChild(14).position));
     }
+}
+
+[System.Serializable]
+public struct EnemyT
+{
+    GameObject EnemyOBJ;
+    bool Alive;
 }

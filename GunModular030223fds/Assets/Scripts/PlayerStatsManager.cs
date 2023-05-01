@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerStatsManager : MonoBehaviour
 {
     public Stats PlayerStats;
+    public Damageable Player;
 
 
     public void AddStats(Stats NewStat)
     {
         PlayerStats.Health = MathsUtils.IncreaseFloatByPercentage(PlayerStats.Health, NewStat.Health);
+        Player.MaxHealth = 100 * PlayerStats.Health;
         PlayerStats.Speed = MathsUtils.IncreaseFloatByPercentage(PlayerStats.Speed, NewStat.Speed);
         PlayerStats.JumpHeight = MathsUtils.IncreaseFloatByPercentage(PlayerStats.JumpHeight, NewStat.JumpHeight);
         PlayerStats.GrappleCooldown = MathsUtils.IncreaseFloatByPercentage(PlayerStats.GrappleCooldown, NewStat.GrappleCooldown);
