@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.UI;
 public class CigaretteManager : AbilityManager
 {
     public bool Active;
@@ -28,6 +29,8 @@ public class CigaretteManager : AbilityManager
     public Animator Anima;
 
     public Countdown Countdown;
+
+    public Image cooldownImage;
 
     public float desiredTimeScale;
     private float fixedDeltaTime;
@@ -101,6 +104,17 @@ public class CigaretteManager : AbilityManager
            StopAbility();
         }
 
+        if(!Countdown.HasFinished())
+        {
+            float alpha = Mathf.Lerp(1f, 0f, Countdown.value / Countdown.Count);
+            cooldownImage.color = new Color(cooldownImage.color.r, cooldownImage.color.g, cooldownImage.color.b, alpha);
+        }
+        else
+        {
+            cooldownImage.color = new Color(cooldownImage.color.r, cooldownImage.color.g, cooldownImage.color.b, 1f);
+        
+    }
+
 
         Countdown.CountdownUpdate();
     }
@@ -113,7 +127,6 @@ public class CigaretteManager : AbilityManager
         lens.active = true;
         colorAdj.active = true;
         og = new Color(1f, 1f, 1f);
-        gun.SetActive(true);
     }
 
     public override void StartAbility()
@@ -121,7 +134,6 @@ public class CigaretteManager : AbilityManager
         base.StartAbility();
         Anima.SetTrigger("ZaZa");
         hasSet = false;
-        gun.SetActive(false);
     }
 
     public override void StopAbility()
@@ -129,6 +141,14 @@ public class CigaretteManager : AbilityManager
         Active = false;
         abOver?.Invoke();
         hasSet = true;
+    }
+
+    public void ToggleGun()
+    {
+        if (gun.GetComponent<Animator>().GetBool("HiddenGun") == true)
+            gun.GetComponent<Animator>().SetBool("HiddenGun", false);
+        else
+            gun.GetComponent<Animator>().SetBool("HiddenGun", true);
     }
 
 }

@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 2285263865721947148}
   m_Layer: 0
   m_Name: Grunt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 2777943868785224869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 79.29778, y: 8.29, z: 37.28234}
-  m_LocalScale: {x: 1.0039324, y: 1.0039324, z: 1.0039324}
+  m_LocalScale: {x: 1.1281188, y: 1.1281188, z: 1.1281188}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2777943869076938737}
@@ -160,11 +160,11 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2777943868785224869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 6
+  m_Acceleration: 19
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -209,6 +209,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasHealthBar: 1
   healthBar: {fileID: 2285263865721947148}
+  Regen: 0
+  RegenSpeed: 0
+  cooldown:
+    Finished: 0
+    value: 0
+    Count: 0
   MaxHealth: 10
   Health: 10
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
@@ -227,6 +233,7 @@ MonoBehaviour:
   HealthBarSlider: {fileID: 6858876082480466923}
   player: {fileID: 0}
   Damageable: {fileID: 5729558202026584227}
+  TwoD: 0
 --- !u!1 &2777943869076938736
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cb0c7ca6582404c8ff7add1bb65be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AI: 0
+  AI: 1
   BaseStat: {fileID: 11400000, guid: 1f2fca1bdc2c6fb43bba2edb40e0f191, type: 2}
   sU: {fileID: 2777943869076938742}
   clip: {fileID: 8300000, guid: 7d9c1b59aecaaab4dab5554e0432c73d, type: 3}
@@ -357,6 +364,8 @@ MonoBehaviour:
   Module: {fileID: 11400000, guid: f4c45d9e007f306408c4ba21aa04b6b5, type: 2}
   currentAmmo: 0
   fireTar: {fileID: 2777943869397122810}
+  AmmoCount: {fileID: 0}
+  gunRecoil: {fileID: 0}
   Countdown:
     Finished: 0
     value: 0
@@ -373,16 +382,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.662
+  m_Pitch: 1.0532342
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 0.5634079
+  MaxDistance: 18.73
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -417,7 +426,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

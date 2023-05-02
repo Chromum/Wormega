@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c8b081da21c194c9d85a2a99e5c4cc, type: 3}
   m_Name: ChargerAttack
   m_EditorClassIdentifier: 
-  Cooldown: 5
+  Cooldown: 3
   AttackDistance: 200
-  AnimationSetting: 0
   minDamage: 20
   maxDamage: 50
   minKnockbackForce: 50

@@ -19,57 +19,69 @@ public class ItemBox : Interactable
     public float rotationSpeed = 10.0f;
     public AudioSource Au;
     public AudioClip Keypad, Ding, DePreasure;
+    public bool TurnedOn = false;
 
     public void Start()
     {
-        StartCoroutine(BoxStart());
-        StartCoroutine(Spin());
-
+        if(TurnedOn)
+        {
+            StartCoroutine(BoxStart());
+            StartCoroutine(Spin());
+        }
     }
 
     public void Update()
     {
-        if (isOpen == false)
-            Items.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime, Space.Self);
+        if(TurnedOn)
+            if (isOpen == false)
+                Items.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime, Space.Self);
     }
 
     public bool isOpen;
 
     public IEnumerator BoxStart()
     {
-        while (!isOpen)
+        if (TurnedOn)
         {
-            SetRandomColour();
-            yield return new WaitForSeconds(.5f);
+            while (!isOpen)
+            {
+                SetRandomColour();
+                yield return new WaitForSeconds(.5f);
+            }
         }
+ 
     }
 
     public IEnumerator Spin()
     {
-        while (!isOpen)
-        {  
-            if(Gun)
+        if(TurnedOn)
+        {
+            while (!isOpen)
             {
-                int i = Random.Range(0, Items.GetChild(0).childCount);
-                foreach (Transform child in Items.GetChild(0).transform)
+                if (Gun)
                 {
-                    child.gameObject.SetActive(false);
-                    if (child == Items.GetChild(0).GetChild(i))
-                        child.gameObject.SetActive(true);
+                    int i = Random.Range(0, Items.GetChild(0).childCount);
+                    foreach (Transform child in Items.GetChild(0).transform)
+                    {
+                        child.gameObject.SetActive(false);
+                        if (child == Items.GetChild(0).GetChild(i))
+                            child.gameObject.SetActive(true);
+                    }
                 }
-            }
-            if (Upgrade)
-            {
-                int i = Random.Range(0, Items.GetChild(1).childCount);
-                foreach (Transform child in Items.GetChild(1).transform)
+                if (Upgrade)
                 {
-                    child.gameObject.SetActive(false);
-                    if (child == Items.GetChild(1).GetChild(i))
-                        child.gameObject.SetActive(true);
+                    int i = Random.Range(0, Items.GetChild(1).childCount);
+                    foreach (Transform child in Items.GetChild(1).transform)
+                    {
+                        child.gameObject.SetActive(false);
+                        if (child == Items.GetChild(1).GetChild(i))
+                            child.gameObject.SetActive(true);
+                    }
                 }
+                yield return new WaitForSeconds(.5f);
             }
-            yield return new WaitForSeconds(.5f);
         }
+       
     }
 
     [Button]
@@ -79,6 +91,7 @@ public class ItemBox : Interactable
         PickItem();
         gameObject.GetComponent<Animator>().SetTrigger("Open");
         StartCoroutine(Wait());
+        
 
         
     }
@@ -90,10 +103,13 @@ public class ItemBox : Interactable
         yield return new WaitForSeconds(3f);
         GameObject g = GameObject.FindObjectOfType<PlayerManager>().ItemPickupUI;
         g.SetActive(true);
+        g.transform.GetChild(4).gameObject.SetActive(false);
+        g.transform.GetChild(5).gameObject.SetActive(false);
 
 
         if (Gun)
         {
+            g.transform.GetChild(5).gameObject.SetActive(true   );
             g.GetComponent<ItemHolder>().part = GunPart;
             g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GunPart.Name;
             g.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GunPart.Bio;
@@ -117,6 +133,7 @@ public class ItemBox : Interactable
         }
         if (Upgrade)
         {
+            g.transform.GetChild(4).gameObject.SetActive(true);
             g.GetComponent<ItemHolder>().item = Item;
             g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Item.Name;
             g.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Item.Description;
@@ -133,8 +150,11 @@ public class ItemBox : Interactable
 
     public override void Interact(GameObject GO)
     {
-        base.Interact(GO);
-        OpenBox();
+        if(TurnedOn && !isOpen )
+        {
+            base.Interact(GO);
+            OpenBox();
+        }
     }
 
 
@@ -336,6 +356,14 @@ public class ItemBox : Interactable
         
         SetType(R);
     }
+    [Button]
+    public void TurnBoxOn()
+    {
+        TurnedOn = true;
+        StartCoroutine(BoxStart());
+        StartCoroutine(Spin());
+    }
+
 }
     [System.Serializable]
 public struct GlowStruct

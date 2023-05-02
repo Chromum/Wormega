@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     public SecondAblityActivator Activator;
     public RayInteractor Interactor;
     public InventoryUIManager InventoryUIManager;
+    public Melee melee;
     
     // Start is called before the first frame update
     void Start()
@@ -44,5 +45,10 @@ public class PlayerInput : MonoBehaviour
             InventoryUIManager.TurnOnUI();
         else if (Input.GetKeyUp(InventoryUIManager.ActivateButton))
             InventoryUIManager.TurnOffUI();
+
+
+        if (Input.GetKeyDown(KeyCode.V))
+            melee.Attack();
+            
     }
 }

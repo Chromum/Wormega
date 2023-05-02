@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Mythic Barel
   m_EditorClassIdentifier: 
   Name: Mythic Barel
+  Type: 0
   Bio: fdnjg
   FireRate: 0
-  Damage: 0
+  Damage: 223.24
   MagSize: 0
   Accuracy: 0
   Sprite: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medium
   m_EditorClassIdentifier: 
   difficultyName: Hurt Me Plenty
-  Length: 450
+  Length: 225
   difficultyColor: {r: 1, g: 0.687739, b: 0, a: 1}
   enemyStats:
     HealthMultiplier: 1.25

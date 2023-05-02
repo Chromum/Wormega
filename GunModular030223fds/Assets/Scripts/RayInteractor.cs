@@ -9,12 +9,13 @@ public class RayInteractor : MonoBehaviour
     public float Range;
 
     public GameObject InteractText;
+    public LayerMask LayerMask;
 
     // Update is called once per frame
     void Update()
     {
         RaycastHit i;
-        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward,out i, Range))
+        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward,out i, Range,LayerMask))
         {
             if (i.collider.tag == "Interactable")
             {

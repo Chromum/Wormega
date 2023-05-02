@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Extra Hard
   m_EditorClassIdentifier: 
   difficultyName: Nightmare
-  Length: 900
+  Length: 450
   difficultyColor: {r: 0.3764706, g: 0.050980393, b: 0.078431375, a: 1}
   enemyStats:
     HealthMultiplier: 1.5

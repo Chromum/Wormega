@@ -26,3 +26,4 @@ MonoBehaviour:
     Stamina: 0
     NO: 0
   objectName: 
+  Image: {fileID: 21300000, guid: 8325d4ef0a6eb3d43952aff8a06d9f45, type: 3}

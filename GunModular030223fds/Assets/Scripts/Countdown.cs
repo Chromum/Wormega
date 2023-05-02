@@ -21,7 +21,6 @@ public struct Countdown
     {
         value = Count;
         Finished = false;
-        Debug.Log("started");
     }
 
 

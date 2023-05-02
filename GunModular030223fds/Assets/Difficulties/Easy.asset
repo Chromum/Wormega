@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   difficultyName: "I\u2019m Too Young to Die"
-  Length: 300
+  Length: 150
   difficultyColor: {r: 0, g: 0.6603774, b: 0.04226408, a: 1}
   enemyStats:
     HealthMultiplier: 1

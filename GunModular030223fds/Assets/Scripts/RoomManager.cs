@@ -17,8 +17,10 @@ public class RoomManager : MonoBehaviour
     public AudioClip SF;
 
     public int Waves;
-
+    public int WavesCompleted;
     public List<EnemyT> t = new List<EnemyT>();
+    public int i;
+    public List<ItemBox> boxes = new List<ItemBox>(1);
     // Start is called before the first frame update
     void Start()
     {
@@ -63,25 +65,24 @@ public class RoomManager : MonoBehaviour
         int e = Random.Range(4, 7);
         for (int i = 0; i < e; i++)
         {
-            Debug.Log("HHAHH");
             SpawnEnemy(g);
             SFX.PlayOneShot(SF);
             yield return new WaitForSeconds(1f);
         }
         g.GetComponent<Animator>().SetTrigger("FlyAway");
-
     }
     public IEnumerator LerpObject(NavMeshAgent start, float duration, Vector3 POS)
     {
         Vector3 startPosition = POS;
 
-        Vector3 randomPosition = POS;
+        Vector3 randomPosition;
         NavMeshHit hit;
 
-
+        randomPosition = Random.insideUnitSphere * 10f + transform.position;
         while (!NavMesh.SamplePosition(randomPosition, out hit, 5f, NavMesh.AllAreas))
         {
             randomPosition = Random.insideUnitSphere * 10f + transform.position;
+            yield return null;
         }
 
 
@@ -135,17 +136,60 @@ public class RoomManager : MonoBehaviour
 
     public void SpawnEnemy(GameObject Heli)
     {
-        NavMeshAgent g = GameObject.Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)]).GetComponent<NavMeshAgent>();
-        g.enabled = false;
-        g.GetComponent<Enemy>().enabled = false;
-        g.transform.position = Heli.transform.GetChild(14).position;
-        StartCoroutine(LerpObject(g, 3f, Heli.transform.GetChild(14).position));
+        try
+        {
+           NavMeshAgent g = GameObject.Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)]).GetComponent<NavMeshAgent>();
+            g.enabled = false;
+            g.GetComponent<Enemy>().enabled = false;
+            g.transform.position = Heli.transform.GetChild(14).position;
+            t.Add(new EnemyT { EnemyOBJ = g.gameObject, Alive = true });
+            g.GetComponent<Damageable>().Death += EnemyDied;
+            StartCoroutine(LerpObject(g, 3f, Heli.transform.GetChild(14).position));
+        }
+        catch
+        {
+
+        }
+        
+    }
+
+    public void EnemyDied(GameObject g)
+    {
+        i++;
+        Destroy(g);
+        if (i == t.Count)
+        {
+            WaveCompleteMethod();
+        }
+    }
+    public void WaveCompleteMethod()
+    {
+
+        WavesCompleted++;
+        if (WavesCompleted >= Waves)
+        {
+            RoofComplete();
+            return;
+        }
+        i = 0;
+        t.Clear();
+        GameObject j = GameObject.Instantiate(HeliPrefab, new Vector3(transform.position.x - 50f, transform.position.y + 60f, transform.position.z), Quaternion.identity);
+        StartCoroutine(FlyAwayEnum(j.GetComponent<AudioSource>(), j));
+
+    }
+    public void RoofComplete()
+    {
+        Debug.Log("Roof Complete");
+        foreach (var item in boxes)
+        {
+            item.TurnBoxOn();
+        }
     }
 }
 
 [System.Serializable]
 public struct EnemyT
 {
-    GameObject EnemyOBJ;
-    bool Alive;
+    public GameObject EnemyOBJ;
+    public bool Alive;
 }

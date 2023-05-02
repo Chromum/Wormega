@@ -6,6 +6,7 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public Stats PlayerStats;
     public Damageable Player;
+    public Melee melee;
 
 
     public void AddStats(Stats NewStat)
@@ -17,6 +18,7 @@ public class PlayerStatsManager : MonoBehaviour
         PlayerStats.GrappleCooldown = MathsUtils.IncreaseFloatByPercentage(PlayerStats.GrappleCooldown, NewStat.GrappleCooldown);
         PlayerStats.AbilityCooldown = MathsUtils.IncreaseFloatByPercentage(PlayerStats.AbilityCooldown, NewStat.AbilityCooldown);
         PlayerStats.Strength = MathsUtils.IncreaseFloatByPercentage(PlayerStats.Strength, NewStat.Strength);
+        melee.Damage = melee.BaseDamage * PlayerStats.Strength;
         PlayerStats.Stamina = MathsUtils.IncreaseFloatByPercentage(PlayerStats.Stamina, NewStat.Stamina);
     }
 

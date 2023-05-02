@@ -12,4 +12,5 @@ public class Item : ScriptableObject
     public Rareity Rareity;
     public Stats ItemStats;
     public string objectName;
+    public Sprite Image;
 }

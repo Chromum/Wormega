@@ -8,6 +8,8 @@ using NaughtyAttributes;
 
 public class Damageable : MonoBehaviour
 {
+    public bool isEnemy;
+
     public bool hasHealthBar;
     [EnableIf("hasHealthBar")]
     public HealthBar healthBar;
@@ -27,9 +29,12 @@ public class Damageable : MonoBehaviour
     public delegate void OnDie(GameObject g);
     public OnDie Death;
 
+    private AudioSource Au;
+
     public void Start()
     {
         Health = MaxHealth;
+        Au = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -43,6 +48,7 @@ public class Damageable : MonoBehaviour
         }
         if(healthBar.Damageable.healthBar.HealthBarSlider.maxValue != MaxHealth)
             healthBar.Damageable.healthBar.HealthBarSlider.maxValue = MaxHealth;
+
     }
 
     public void DoDamage(float i, Vector3 Pos)
@@ -59,6 +65,11 @@ public class Damageable : MonoBehaviour
         if (Regen)
         {
             cooldown.StartCountdown();
+        }
+
+        if(isEnemy)
+        {
+            AudioUtils.PlaySoundWithPitch(GameManager.instance.AudioSource, GameManager.instance.HitMarker, 1f);
         }
     }
 

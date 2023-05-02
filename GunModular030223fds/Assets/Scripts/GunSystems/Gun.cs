@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -30,6 +31,9 @@ public class Gun : MonoBehaviour
 
 
     public Transform fireTar;
+    public TextMeshProUGUI AmmoCount;
+
+    public GunRecoil gunRecoil;
 
 
     public Countdown Countdown;
@@ -44,6 +48,15 @@ public class Gun : MonoBehaviour
     {
 
         Countdown.CountdownUpdate();
+
+        if(!AI)
+        {
+            if (AmmoCount.text != currentAmmo + "/" + MagSize)
+            {
+                AmmoCount.text = currentAmmo + "/" + MagSize;
+            }
+        }
+
     }
 
     public bool NeedsToReload()
@@ -147,6 +160,7 @@ public class Gun : MonoBehaviour
         this.Damage = Damage;
         MagSize = magSize;
         this.Accuracy = Accuracy;
+        Reload();
     }
 
     public void Reload()
@@ -218,7 +232,6 @@ public class Gun : MonoBehaviour
                 }
                 GunShot();
                 
-                Debug.Log("Shot");
             }
             if (ShotCount == 2)
             {
@@ -307,6 +320,8 @@ public class Gun : MonoBehaviour
                 }
             }
         }
+
+        gunRecoil.Fire();
     }
     public bool RaycastWithAccuracy(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance, float accuracy)
     {

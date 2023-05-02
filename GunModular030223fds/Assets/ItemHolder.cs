@@ -6,7 +6,7 @@ public class ItemHolder : MonoBehaviour
 {
     public Item item;
     public GunPart part;
-
+    public PlayerManager playerManager;
 
     public void AcceptItem()
     {
@@ -14,6 +14,8 @@ public class ItemHolder : MonoBehaviour
         {
             PlayerInventory pi = GameObject.FindObjectOfType<PlayerInventory>();
             pi.AddNewItem(item);
+            Cursor.lockState = CursorLockMode.None;
+            gameObject.SetActive(false);
         }
         else
         {
@@ -40,13 +42,16 @@ public class ItemHolder : MonoBehaviour
                     break;
             }
             PlayerGun.RecalculateStats();
+            Cursor.lockState = CursorLockMode.None;
+            gameObject.SetActive(false);
         }
+        playerManager.currentRoom.rm.boxes[0].gameObject.SetActive(false);
+        playerManager.currentRoom.rm.boxes[1].gameObject.SetActive(false);
     }
     public void DeclineItem()
     {
         item = null;
         part = null;
-        GameManager.instance.TogglePause();
         Cursor.lockState = CursorLockMode.None;
         gameObject.SetActive(false);
     }

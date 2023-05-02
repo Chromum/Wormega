@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Standard Barrel
   m_EditorClassIdentifier: 
   Name: WormCorp Standard Barrel
+  Type: 0
   Bio: Standard barrel issued by WormCorp to its Officers
   FireRate: -1
   Damage: 2

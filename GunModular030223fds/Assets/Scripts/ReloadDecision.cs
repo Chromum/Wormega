@@ -9,6 +9,6 @@ public class ReloadDecision : AIDecision
     public override bool Decide(AIBase AIbase)
     {
         Grunt g = (Grunt)AIbase.Enemy;
-        return g.AIGun.NeedsToReload();
+        return !g.AIGun.NeedsToReload();
     }
 }
