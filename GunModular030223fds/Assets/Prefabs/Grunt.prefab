@@ -364,6 +364,9 @@ MonoBehaviour:
   Barrel: {fileID: 11400000, guid: 37c758fe5a293c245a3578cc8c773c5d, type: 2}
   Module: {fileID: 11400000, guid: f4c45d9e007f306408c4ba21aa04b6b5, type: 2}
   currentAmmo: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 2147483647
   fireTar: {fileID: 2777943869397122810}
   AmmoCount: {fileID: 0}
   gunRecoil: {fileID: 0}

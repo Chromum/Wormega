@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIActions:
   - {fileID: 11400000, guid: 2a96c7c5148aecc479f427d3b79b14fa, type: 2}
+  - {fileID: 11400000, guid: 0b14c0a5de0fefb4daa2363a2645ed03, type: 2}
   AITransitions:
-  - {fileID: 11400000, guid: a4d841b99fba40b4c926829579516a61, type: 2}
+  - {fileID: 11400000, guid: 7050f780a2a5e824c833fe4bf7fbd72b, type: 2}

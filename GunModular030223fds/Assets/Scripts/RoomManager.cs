@@ -62,12 +62,12 @@ public class RoomManager : MonoBehaviour
     public IEnumerator FlyAwayEnum(AudioSource SFX, GameObject g)
     {
         yield return new WaitForSeconds(5f);
-        int e = Random.Range(4, 7);
+        int e = Random.Range(5, 8);
         for (int i = 0; i < e; i++)
         {
             SpawnEnemy(g);
             SFX.PlayOneShot(SF);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.75f);
         }
         g.GetComponent<Animator>().SetTrigger("FlyAway");
     }

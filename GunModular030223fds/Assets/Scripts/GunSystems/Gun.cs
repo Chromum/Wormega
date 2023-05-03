@@ -320,8 +320,8 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-
-        gunRecoil.Fire();
+        if(!AI)
+            gunRecoil.Fire();
     }
     public bool RaycastWithAccuracy(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance, float accuracy)
     {

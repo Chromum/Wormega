@@ -8,6 +8,7 @@ public class ChargerAttack : Attack
     public float maxDamage;
     public float minKnockbackForce = 100f;
     public float maxKnockbackForce = 500f;
+    public float AttackSpeed;
     public override void Execute(Enemy en)
     {
         
@@ -15,7 +16,7 @@ public class ChargerAttack : Attack
         e.hasCharged = true;
         e.distanceFromPlayerStart = Vector3.Distance(en.NavMeshAgent.transform.position, en.player.transform.position);
         Vector3 chargeDirection = (en.player.transform.position - en.NavMeshAgent.transform.position).normalized;
-        en.NavMeshAgent.velocity = chargeDirection * en.NavMeshAgent.speed;
+        en.NavMeshAgent.velocity = chargeDirection * AttackSpeed;
         base.Execute(en);
 
     }

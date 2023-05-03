@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "Sam Green/AI/Actions/BallerFollowAction")]
 public class BallerFollow : AIAction
 {
+    public bool moveaway;
     public float followDistance = 5f;
     public float moveAwayDistance = 2f;
     private float sqrFollowDistance;
@@ -17,25 +18,33 @@ public class BallerFollow : AIAction
         sqrMoveAwayDistance = moveAwayDistance * moveAwayDistance;
         NavMeshAgent agent = AIbase.Enemy.NavMeshAgent;
         Transform player = AIbase.Enemy.player.transform;
-        
+
         Vector3 offset = player.position - AIbase.transform.position;
         float sqrDistanceToPlayer = offset.sqrMagnitude;
+        Debug.Log("YEP!");
+        Debug.Log(player.name);
+        Debug.Log(agent.name);
+        Debug.Log(sqrDistanceToPlayer);
+        Debug.Log(sqrMoveAwayDistance);
 
-        if (sqrDistanceToPlayer > sqrFollowDistance)
-        {
-            agent.SetDestination(player.position);
-        }
-        else if (sqrDistanceToPlayer < sqrMoveAwayDistance)
-        {
-            Vector3 moveAwayDirection = (AIbase.transform.position - player.position).normalized;
-            Vector3 moveAwayTarget = AIbase.transform.position + moveAwayDirection * followDistance;
-            agent.SetDestination(moveAwayTarget);
-        }
-        else
-        {
-            agent.ResetPath();
-        }
-
-
+    
+            if (sqrDistanceToPlayer >= sqrFollowDistance)
+            {
+                Debug.Log("EE");
+                agent.SetDestination(player.position);
+            }
+            else if (sqrDistanceToPlayer <= sqrMoveAwayDistance)
+            {
+                Vector3 moveAwayDirection = (AIbase.transform.position - player.position).normalized;
+                Vector3 moveAwayTarget = AIbase.transform.position + moveAwayDirection * followDistance;
+                agent.SetDestination(moveAwayTarget);
+                Debug.Log("TEEE");
+            }
+            else
+            {
+                agent.ResetPath();
+                Debug.Log("HA");
+            }
+        
     }
 }

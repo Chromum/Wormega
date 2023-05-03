@@ -8,7 +8,7 @@ public class HasClearShot : AIDecision
     {
         Debug.Log("1");
         RaycastHit hit;
-        if(Physics.Raycast(AIbase.transform.position , AIbase.transform.forward, out hit, 10f))
+        if(Physics.Raycast(AIbase.transform.position , AIbase.transform.forward, out hit, 30f))
         {
             Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Player")

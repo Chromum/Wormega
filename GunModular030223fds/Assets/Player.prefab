@@ -419,18 +419,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252022109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000118460004}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00013311354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1777447415}
-  m_Father: {fileID: 3151519761222494056}
-  m_RootOrder: 4
+  m_Father: {fileID: 8704390382121254351}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 649.4285, y: 402.00006}
-  m_SizeDelta: {x: -1492.6012, y: -982.59}
+  m_SizeDelta: {x: -491.6012, y: -563.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &252022113
 CanvasRenderer:
@@ -1731,7 +1731,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3151519761222494056}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4802,7 +4802,7 @@ RectTransform:
   - {fileID: 1625550389}
   - {fileID: 1889071124}
   m_Father: {fileID: 8704390382121254351}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7329,7 +7329,7 @@ Transform:
   m_Children:
   - {fileID: 4722927939556131416}
   m_Father: {fileID: 8704390382121254351}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2561840470471435889
 GameObject:
@@ -7412,10 +7412,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 252022110}
   - {fileID: 4331255174943820506}
   - {fileID: 1408398592}
   m_Father: {fileID: 3151519761222494056}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8336,6 +8337,9 @@ MonoBehaviour:
   Barrel: {fileID: 11400000, guid: 0307e3d24aa225b47bc100b1d2480944, type: 2}
   Module: {fileID: 11400000, guid: 6971e8da618aab444bddba6c317249bb, type: 2}
   currentAmmo: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   fireTar: {fileID: 3151519759413428042}
   AmmoCount: {fileID: 1889071125}
   gunRecoil: {fileID: 0}
@@ -8686,7 +8690,6 @@ RectTransform:
   - {fileID: 1471956657}
   - {fileID: 7637138507117324006}
   - {fileID: 6981728687981982011}
-  - {fileID: 252022110}
   - {fileID: 469687895}
   - {fileID: 8704390382121254351}
   m_Father: {fileID: 7643707566535075099}
@@ -9035,6 +9038,8 @@ MonoBehaviour:
   slideVector: {x: 0, y: 0, z: 0}
   Pm: {fileID: 3151519760732086518}
   contactMod: 1
+  running: 0
+  fss: {fileID: 0}
 --- !u!54 &4941917818253290943
 Rigidbody:
   m_ObjectHideFlags: 0

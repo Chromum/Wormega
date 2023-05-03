@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba6a433e565a44c689401322a4fe9c2, type: 3}
-  m_Name: HornerAttackState
+  m_Script: {fileID: 11500000, guid: 2995566a7e58a2a438b8f31d25253e2d, type: 3}
+  m_Name: ChaseFollow
   m_EditorClassIdentifier: 
-  AIActions:
-  - {fileID: 11400000, guid: e0f6e4f3973e5224481a50c38da940da, type: 2}
-  AITransitions:
-  - {fileID: 11400000, guid: 7050f780a2a5e824c833fe4bf7fbd72b, type: 2}
+  moveaway: 0
+  followDistance: 4.5
+  moveAwayDistance: 3

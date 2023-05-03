@@ -17,7 +17,7 @@ public class HornedEnemy : Enemy
         base.Update();
         if (hasCharged == false)
         {
-            NavMeshAgent.velocity = Vector3.zero;
+            //NavMeshAgent.velocity = Vector3.zero;
         }
     }
 

@@ -31,7 +31,7 @@ public class FootstepSound : MonoBehaviour
         else
             current = baseFootstepInterval;
         
-        if ((FPSCam.movementVector.x != 0 || FPSCam.movementVector.z != 0) && FPSCam.movementVector.y <= 0)
+        if ((FPSCam.movementVector.x != 0 || FPSCam.movementVector.z != 0) && FPSCam.movementVector.y <= 0 && !FPSCam.inAir)
         {
             if (Time.time - lastFootstepTime >= current)
             {
@@ -57,6 +57,7 @@ public class FootstepSound : MonoBehaviour
 
     public void Landed()
     {
+        Debug.Log("Landed");
         int index = Random.Range(0, landSounds.Length);
         AudioUtils.PlaySoundWithPitch(audioSource,landSounds[index],Random.Range(.9f,1.1f));
 
