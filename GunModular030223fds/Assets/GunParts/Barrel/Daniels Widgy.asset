@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Daniels Widgy
   m_EditorClassIdentifier: 
   Name: Daniels Widgy
+  Type: 1
   Bio: YUMMY
-  FireRate: 50
+  FireRate: 75
   Damage: 100
   MagSize: 12
   Accuracy: -100

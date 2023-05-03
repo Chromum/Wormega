@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Barrel
   m_EditorClassIdentifier: 
   Name: Test Barrel
+  Type: 1
   Bio: This is a test barrel!
   FireRate: 10
   Damage: 1342

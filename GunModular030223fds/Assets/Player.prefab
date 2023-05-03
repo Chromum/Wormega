@@ -7331,6 +7331,59 @@ Transform:
   m_Father: {fileID: 8704390382121254351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2561840470471435889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6910892421586213685}
+  - component: {fileID: 9089068011994490171}
+  m_Layer: 3
+  m_Name: AnimParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6910892421586213685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561840470471435889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3151519760509821577}
+  m_Father: {fileID: 7643707566535075099}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &9089068011994490171
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561840470471435889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2696945234774712000
 GameObject:
   m_ObjectHideFlags: 0
@@ -8182,15 +8235,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3151519760509821588}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 1.089997, y: -0.6910143, z: 1.8700004}
-  m_LocalScale: {x: 0.26717696, y: 0.2680736, z: 1.6953784}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: 1.089997, y: -0.6910142, z: 1.8700001}
+  m_LocalScale: {x: 0.267177, y: 0.26807356, z: 1.6953785}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3151519760342674890}
   - {fileID: 3185958066233489476}
-  m_Father: {fileID: 7643707566535075099}
-  m_RootOrder: 1
+  m_Father: {fileID: 6910892421586213685}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -180, y: -180, z: -180}
 --- !u!33 &3151519760509821576
 MeshFilter:
@@ -8285,6 +8338,7 @@ MonoBehaviour:
   currentAmmo: 0
   fireTar: {fileID: 3151519759413428042}
   AmmoCount: {fileID: 1889071125}
+  gunRecoil: {fileID: 0}
   Countdown:
     Finished: 0
     value: 0
@@ -9039,6 +9093,9 @@ MonoBehaviour:
   InteractKey: 101
   Range: 50
   InteractText: {fileID: 3151519760362707017}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3151519760732086523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9061,6 +9118,7 @@ MonoBehaviour:
     Stamina: 1
     NO: 0
   Player: {fileID: 3151519760732086526}
+  melee: {fileID: 0}
 --- !u!114 &3151519760732086525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9094,6 +9152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e582973cdf964397d7219fc080cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 0
   hasHealthBar: 1
   healthBar: {fileID: 180682634}
   Regen: 1
@@ -9121,6 +9180,7 @@ MonoBehaviour:
   Activator: {fileID: 3151519761119564301}
   Interactor: {fileID: 3151519760732086522}
   InventoryUIManager: {fileID: 7629875371119058482}
+  melee: {fileID: 0}
 --- !u!114 &180682621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9914,13 +9974,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6767496124124378811}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000000021597137, y: 0.0000004913697, z: 0.000000120929}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3151519759989628659}
-  - {fileID: 3151519760509821577}
+  - {fileID: 6910892421586213685}
   - {fileID: 3151519759413428042}
   - {fileID: 3151519759208552431}
   - {fileID: 3151519761222494056}

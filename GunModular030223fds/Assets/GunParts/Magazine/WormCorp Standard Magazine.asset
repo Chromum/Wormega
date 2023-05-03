@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Standard Magazine
   m_EditorClassIdentifier: 
   Name: WormCorp Standard Magazine
+  Type: 3
   Bio: Standard magazine issued by WormCorp to its Officers
   FireRate: 0
   Damage: 0

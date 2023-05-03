@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: IPhone 5 SE
   m_EditorClassIdentifier: 
   Name: IPhone 5 SE
+  Type: 4
   Bio: 8th IPhone
   FireRate: 0
   Damage: -5

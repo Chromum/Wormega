@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Upgraded Grip
   m_EditorClassIdentifier: 
   Name: WormCorp Upgraded Grip
+  Type: 0
   Bio: Upgraded grip issued by WormCorp to its High Ranking Officers
   FireRate: 0
   Damage: 0

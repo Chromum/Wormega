@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mythic Grip
   m_EditorClassIdentifier: 
   Name: Mythic Grip
+  Type: 0
   Bio: gfd
   FireRate: 0
   Damage: 0
@@ -21,4 +22,4 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   Rareity: 3
   objectName: 
-  Debug: 0
+  Debug: 1

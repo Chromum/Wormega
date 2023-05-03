@@ -33,10 +33,11 @@ public class Melee : MonoBehaviour
     public void DoDamge()
     {
         RaycastHit raycastHit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out raycastHit, 2.5f))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out raycastHit, 3f))
         {
             if (raycastHit.collider.CompareTag("Enemy"))
             {
+                Debug.Log("Melee");
                 raycastHit.transform.GetComponent<Damageable>().DoDamage(Damage, raycastHit.transform.position);
             }
         }

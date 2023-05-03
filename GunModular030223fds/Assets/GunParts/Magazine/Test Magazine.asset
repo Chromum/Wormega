@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Magazine
   m_EditorClassIdentifier: 
   Name: Test Magazine
+  Type: 3
   Bio: This is a test magazine!
   FireRate: 0
   Damage: 1

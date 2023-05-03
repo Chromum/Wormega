@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp R&D Sight
   m_EditorClassIdentifier: 
   Name: WormCorp R&D Sight
+  Type: 2
   Bio: A sight currently in development by WormCorps R&D department
   FireRate: 0
   Damage: 0

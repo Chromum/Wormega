@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Standard Grip
   m_EditorClassIdentifier: 
   Name: WormCorp Standard Grip
+  Type: 0
   Bio: Standard grip issued by WormCorp to its Officers
   FireRate: 0
   Damage: 0

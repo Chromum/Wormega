@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Additional Damage Module
   m_EditorClassIdentifier: 
   Name: Additional Damage Module
+  Type: 4
   Bio: Grants 5 Additional Bullets Per Clip
   FireRate: 0
   Damage: 2

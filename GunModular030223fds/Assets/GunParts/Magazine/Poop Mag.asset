@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Poop Mag
   m_EditorClassIdentifier: 
   Name: Poop Mag
+  Type: 3
   Bio: Poop
   FireRate: 0
   Damage: 0

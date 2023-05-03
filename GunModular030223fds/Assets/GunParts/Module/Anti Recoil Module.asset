@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Anti Recoil Module
   m_EditorClassIdentifier: 
   Name: Anti Recoil Module
+  Type: 4
   Bio: Removes all recoil from your weapon
   FireRate: 0
   Damage: 0

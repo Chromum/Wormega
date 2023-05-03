@@ -92,7 +92,8 @@ public class FPSCam : MonoBehaviour
     public PlayerInput Pm;
 
     public bool contactMod;
-
+    public bool running;
+    public FootstepSound fss;
 
     void Start()
     {
@@ -144,12 +145,14 @@ public class FPSCam : MonoBehaviour
             inputDir = new Vector3(inputX, 0f, inputY);
             if (Input.GetKey(Sprint))
             {
+                running = true;
                 speed = Mathf.MoveTowards(speed, sprintSpeed, Time.deltaTime * accelerationSpeed);
                 //camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, sprintFOV, Time.deltaTime * fovtime);
 
             }
             else
             {
+                running = false;
                 speed = Mathf.MoveTowards(speed, moveSpeed, Time.deltaTime * decelerationSpeed);
                 //camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, walkFOV, Time.deltaTime * fovtime);
             }
@@ -171,6 +174,7 @@ public class FPSCam : MonoBehaviour
                 if (!inAir)
                 {
                     rb.AddForce(Vector3.up * (JumpAccelertation * STM.PlayerStats.JumpHeight), ForceMode.Impulse);
+                    fss.Jump();
                 }
 
             }
@@ -259,7 +263,11 @@ public class FPSCam : MonoBehaviour
 
 
             if (Physics.Raycast(groundCheck.transform.position, -groundCheck.transform.up, groundCheckDistance))
+            {
+                if (inAir == true)
+                    fss.Landed();
                 inAir = false;
+            }
             else
                 inAir = true;
 

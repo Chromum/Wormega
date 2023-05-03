@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Sight
   m_EditorClassIdentifier: 
   Name: Test Sight
+  Type: 2
   Bio: This is a test sight!
   FireRate: 0
   Damage: 0

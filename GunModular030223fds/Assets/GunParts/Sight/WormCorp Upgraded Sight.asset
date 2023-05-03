@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Upgraded Sight
   m_EditorClassIdentifier: 
   Name: WormCorp Upgraded Sight
+  Type: 2
   Bio: Upgraded sight issued by WormCorp to its High Ranking Officers
   FireRate: 0
   Damage: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sammer Software
   m_EditorClassIdentifier: 
   Name: Sammer Software
+  Type: 4
   Bio: Sammer Soft's custom Module created Guns Around the world
   FireRate: 0
   Damage: 0

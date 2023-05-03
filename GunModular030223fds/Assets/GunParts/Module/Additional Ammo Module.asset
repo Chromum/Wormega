@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Additional Ammo Module
   m_EditorClassIdentifier: 
   Name: Additional Ammo Module
+  Type: 4
   Bio: Grants 5 Additional Bullets Per Clip
   FireRate: 0
   Damage: 0

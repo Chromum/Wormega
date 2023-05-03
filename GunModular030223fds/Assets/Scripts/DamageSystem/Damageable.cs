@@ -81,7 +81,19 @@ public class Damageable : MonoBehaviour
     public virtual void Die()
     {
         Death?.Invoke(this.gameObject);
+        if (gameObject.tag == "Player")
+        {
+            gameObject.GetComponent<Animator>().enabled = true;
+            gameObject.GetComponent<Animator>().SetTrigger("Die");
+        }
     }
+    public void DeathEvent()
+    {
+        Cursor.visible = true;
+        GameManager.instance.PlayerDeath();
+    }
+
+    
 }
 
 

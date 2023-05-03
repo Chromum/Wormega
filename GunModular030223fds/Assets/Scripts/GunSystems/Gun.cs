@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
     public Module Module;
 
     public int currentAmmo;
-
+    public LayerMask mask;
 
     public Transform fireTar;
     public TextMeshProUGUI AmmoCount;
@@ -327,7 +327,7 @@ public class Gun : MonoBehaviour
     {
         Vector3 spreadDirection = Vector3.Slerp(direction, UnityEngine.Random.onUnitSphere, accuracy);
 
-        if (Physics.Raycast(origin, spreadDirection, out hitInfo, maxDistance))
+        if (Physics.Raycast(origin, spreadDirection, out hitInfo, 1000f,mask))
         {
             return true;
         }

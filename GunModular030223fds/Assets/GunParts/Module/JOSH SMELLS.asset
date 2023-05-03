@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: JOSH SMELLS
   m_EditorClassIdentifier: 
   Name: JOSH SMELLS
+  Type: 4
   Bio: JOSH SMEELS REAL BAD
   FireRate: 100
   Damage: 100

@@ -855,6 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e582973cdf964397d7219fc080cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 1
   hasHealthBar: 1
   healthBar: {fileID: 1350166246169364351}
   Regen: 0
@@ -863,7 +864,7 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 0
-  MaxHealth: 35
+  MaxHealth: 20
   Health: 100
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
 --- !u!95 &6526000689476068411

@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 6645272069507029489}
   - component: {fileID: 5173589079472314909}
   - component: {fileID: 1241877822925668680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaseRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

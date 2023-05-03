@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Grip
   m_EditorClassIdentifier: 
   Name: Test Grip
+  Type: 0
   Bio: This is a test grip!
   FireRate: 0
   Damage: 0

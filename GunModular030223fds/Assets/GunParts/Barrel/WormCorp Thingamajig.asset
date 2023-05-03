@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Thingamajig
   m_EditorClassIdentifier: 
   Name: WormCorp Thingamajig
+  Type: 1
   Bio: Sploingy Boingy Barrel from Sid Inc
   FireRate: 0
   Damage: 3

@@ -76,4 +76,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void PlayerDeath()
+    {
+        foreach(GameObject g in GameObject.FindObjectsOfType<GameObject>())
+        {
+            if (g != gameObject)
+                g.SetActive(false);
+        }
+        gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
 }

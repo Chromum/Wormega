@@ -145,10 +145,10 @@ public class CigaretteManager : AbilityManager
 
     public void ToggleGun()
     {
-        if (gun.GetComponent<Animator>().GetBool("HiddenGun") == true)
-            gun.GetComponent<Animator>().SetBool("HiddenGun", false);
+        if (gun.transform.parent.GetComponent<Animator>().GetBool("HiddenGun") == true)
+            gun.transform.parent.GetComponent<Animator>().SetBool("HiddenGun", false);
         else
-            gun.GetComponent<Animator>().SetBool("HiddenGun", true);
+            gun.transform.parent.GetComponent<Animator>().SetBool("HiddenGun", true);
     }
 
 }

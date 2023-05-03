@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp R&D Grip
   m_EditorClassIdentifier: 
   Name: WormCorp R&D Grip
+  Type: 0
   Bio: A grip currently in development by WormCorps R&D department
   FireRate: 0
   Damage: 0

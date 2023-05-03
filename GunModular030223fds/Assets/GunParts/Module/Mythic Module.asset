@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mythic Module
   m_EditorClassIdentifier: 
   Name: Mythic Module
+  Type: 4
   Bio: 0
   FireRate: 0
   Damage: 0
@@ -21,4 +22,4 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   Rareity: 3
   objectName: 
-  Debug: 0
+  Debug: 1

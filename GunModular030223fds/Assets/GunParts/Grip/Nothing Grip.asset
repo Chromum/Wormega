@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Nothing Grip
   m_EditorClassIdentifier: 
   Name: Nothing Grip
+  Type: 0
   Bio: It does what it says
   FireRate: 0
   Damage: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Upgraded Magazine
   m_EditorClassIdentifier: 
   Name: WormCorp Upgraded Magazine
+  Type: 3
   Bio: Upgraded magazine issued by WormCorp to its High Ranking Officers
   FireRate: 0
   Damage: 0

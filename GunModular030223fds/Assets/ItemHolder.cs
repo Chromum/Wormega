@@ -15,6 +15,7 @@ public class ItemHolder : MonoBehaviour
             PlayerInventory pi = GameObject.FindObjectOfType<PlayerInventory>();
             pi.AddNewItem(item);
             Cursor.lockState = CursorLockMode.None;
+            item = null;
             gameObject.SetActive(false);
         }
         else
@@ -47,6 +48,8 @@ public class ItemHolder : MonoBehaviour
         }
         playerManager.currentRoom.rm.boxes[0].gameObject.SetActive(false);
         playerManager.currentRoom.rm.boxes[1].gameObject.SetActive(false);
+        item = null;
+        part = null;
     }
     public void DeclineItem()
     {

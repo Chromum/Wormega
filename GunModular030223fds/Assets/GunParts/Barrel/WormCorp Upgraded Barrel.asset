@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: WormCorp Upgraded Barrel
   m_EditorClassIdentifier: 
   Name: WormCorp Upgraded Barrel
+  Type: 1
   Bio: Upgraded barrel issued by WormCorp to its High Ranking Officers
-  FireRate: -0.4
+  FireRate: 45
   Damage: 4
   MagSize: -5
   Accuracy: 0

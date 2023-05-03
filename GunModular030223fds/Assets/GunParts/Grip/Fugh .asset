@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 'Fugh '
   m_EditorClassIdentifier: 
   Name: 'Fugh '
+  Type: 0
   Bio: FUGH!!!!!!!!!!!!!!
   FireRate: 0
   Damage: 1e+9

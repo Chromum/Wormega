@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WormCorp Standard Sight
   m_EditorClassIdentifier: 
   Name: WormCorp Standard Sight
+  Type: 2
   Bio: Standard sight issued by WormCorp to its Officers
   FireRate: 0
   Damage: 0
