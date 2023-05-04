@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
@@ -29,8 +30,9 @@ public class CigaretteManager : AbilityManager
     public Animator Anima;
 
     public Countdown Countdown;
+    public Countdown AbilityCooldown;
 
-    public Image cooldownImage;
+    public Slider cooldownImage;
 
     public float desiredTimeScale;
     private float fixedDeltaTime;
@@ -104,16 +106,7 @@ public class CigaretteManager : AbilityManager
            StopAbility();
         }
 
-        if(!Countdown.HasFinished())
-        {
-            float alpha = Mathf.Lerp(1f, 0f, Countdown.value / Countdown.Count);
-            cooldownImage.color = new Color(cooldownImage.color.r, cooldownImage.color.g, cooldownImage.color.b, alpha);
-        }
-        else
-        {
-            cooldownImage.color = new Color(cooldownImage.color.r, cooldownImage.color.g, cooldownImage.color.b, 1f);
-        
-    }
+
 
 
         Countdown.CountdownUpdate();
@@ -121,6 +114,7 @@ public class CigaretteManager : AbilityManager
 
     public override void EnableEffect()
     {
+        
         base.EnableEffect();
         Countdown.StartCountdown();
         Active = true;

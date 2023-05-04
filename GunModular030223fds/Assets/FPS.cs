@@ -6,7 +6,7 @@ public class FPS : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public TextMeshProUGUI Text;
+    public TextMeshPro Text;
  
     private Dictionary<int, string> CachedNumberStrings = new();
     private int[] _frameRateSamples;

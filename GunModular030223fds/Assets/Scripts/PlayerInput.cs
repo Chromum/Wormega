@@ -40,6 +40,7 @@ public class PlayerInput : MonoBehaviour
         {
             Activator.Check = true;
             Activator.abilityManager.StartAbility();
+            Activator.slid.value = 0;
         }
             if(Input.GetKeyDown(InventoryUIManager.ActivateButton))
             InventoryUIManager.TurnOnUI();

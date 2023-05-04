@@ -226,6 +226,8 @@ public class ItemBox : Interactable
         
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        GameManager.instance.isPaused = true;
+        Time.timeScale = 0f;
     }
 
     public override void Interact(GameObject GO)

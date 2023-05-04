@@ -32,7 +32,7 @@ using UnityEngine.VFX;
     public LayerMask mask;
 
     public Transform fireTar;
-    public TextMeshProUGUI AmmoCount;
+    public TextMeshPro AmmoCount;
 
     public GunRecoil gunRecoil;
 

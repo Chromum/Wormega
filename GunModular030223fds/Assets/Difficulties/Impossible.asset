@@ -15,6 +15,7 @@ MonoBehaviour:
   difficultyName: Apocalyptic
   Length: 100000
   difficultyColor: {r: 0.1509434, g: 0, b: 0.012730149, a: 1}
+  Mat: {fileID: 2100000, guid: 7af7be19d47e3cb499718886d0518e62, type: 2}
   enemyStats:
     HealthMultiplier: 2
     DamageMultiplier: 2

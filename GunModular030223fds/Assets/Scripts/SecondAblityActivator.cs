@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SecondAblityActivator : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class SecondAblityActivator : MonoBehaviour
     public bool Check;
 
     public Countdown Countdown;
+
+    public Slider slid;
+
+    private bool startChecking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,7 @@ public class SecondAblityActivator : MonoBehaviour
     public void SC()
     {
         Countdown.StartCountdown();
+        startChecking = true;
     }
     
     // Update is called once per frame
@@ -27,5 +33,22 @@ public class SecondAblityActivator : MonoBehaviour
 
         Countdown.CountdownUpdate();
 
+        if (startChecking)
+        {
+            if (Countdown.HasFinished() == false)
+            {
+                float i = 1 - (Countdown.value / Countdown.Count);
+
+                slid.value = i;
+            }
+            else
+            {
+                slid.value = 1;
+                startChecking = false;
+            }
+        }
+        
+        
+        
     }
 }

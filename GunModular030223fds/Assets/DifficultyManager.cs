@@ -14,6 +14,7 @@ public class DifficultyManager : MonoBehaviour
     public Transform Slider;
     public float inGameTime;
     public float timeSinceLastDifficultyChange;
+    public GameObject G;
 
     [Button]
     public void SetUpUI()
@@ -33,21 +34,21 @@ public class DifficultyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        G.GetComponent<Image>().material = CurrentDifficulty.Mat;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        inGameTime += Time.deltaTime;
-        timeSinceLastDifficultyChange += Time.deltaTime;
-        Slider.position = new Vector3(Slider.position.x - Time.deltaTime, Slider.position.y, Slider.position.z);
+
 
         if (timeSinceLastDifficultyChange >= CurrentDifficulty.Length)
         {
             CurrentDifficulty = DifficultyList[DifficultyList.IndexOf(CurrentDifficulty) + 1];
             GameManager.instance.currentDifficulty = CurrentDifficulty;
+            G.GetComponent<Image>().material = CurrentDifficulty.Mat;
             timeSinceLastDifficultyChange = 0f;
         }
 

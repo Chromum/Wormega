@@ -15,6 +15,7 @@ MonoBehaviour:
   difficultyName: "I\u2019m Too Young to Die"
   Length: 150
   difficultyColor: {r: 0, g: 0.6603774, b: 0.04226408, a: 1}
+  Mat: {fileID: 2100000, guid: a277cc39fa633fd44beee3d784612c0f, type: 2}
   enemyStats:
     HealthMultiplier: 1
     DamageMultiplier: 1

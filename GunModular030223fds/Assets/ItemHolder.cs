@@ -46,16 +46,29 @@ public class ItemHolder : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             gameObject.SetActive(false);
         }
-        playerManager.currentRoom.rm.boxes[0].gameObject.SetActive(false);
-        playerManager.currentRoom.rm.boxes[1].gameObject.SetActive(false);
+
+        try
+        {
+            playerManager.currentRoom.rm.boxes[0].gameObject.SetActive(false);
+            playerManager.currentRoom.rm.boxes[1].gameObject.SetActive(false);
+        }
+        catch{}
+
         item = null;
         part = null;
+        GameManager.instance.TogglePause();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void DeclineItem()
     {
         item = null;
         part = null;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameManager.instance.TogglePause();
         gameObject.SetActive(false);
+     
+
     }
 }

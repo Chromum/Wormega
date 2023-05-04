@@ -8,6 +8,7 @@ public class Difficulty : ScriptableObject
     public string difficultyName;
     public float Length;
     public Color difficultyColor;
+    public Material Mat;
     public EnemyDifficultyStats enemyStats;
 }
 [System.Serializable]

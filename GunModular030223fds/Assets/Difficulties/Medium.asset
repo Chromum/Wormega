@@ -15,6 +15,7 @@ MonoBehaviour:
   difficultyName: Hurt Me Plenty
   Length: 225
   difficultyColor: {r: 1, g: 0.687739, b: 0, a: 1}
+  Mat: {fileID: 2100000, guid: 7b9c5971890def24c983f0c1115cb1db, type: 2}
   enemyStats:
     HealthMultiplier: 1.25
     DamageMultiplier: 1.25

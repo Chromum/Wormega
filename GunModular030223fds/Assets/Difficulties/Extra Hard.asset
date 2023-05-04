@@ -15,6 +15,7 @@ MonoBehaviour:
   difficultyName: Nightmare
   Length: 450
   difficultyColor: {r: 0.3764706, g: 0.050980393, b: 0.078431375, a: 1}
+  Mat: {fileID: 2100000, guid: 223076daed09ba541b9b3c24712281df, type: 2}
   enemyStats:
     HealthMultiplier: 1.5
     DamageMultiplier: 1.5

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf384b154398e341b6b29969c078198, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.1
   maximumVelocity:
     m_OverrideState: 0
     m_Value: 200
@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 1
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 12
 --- !u!114 &-4234630571694303712
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b145d2b9ee1ac4f846968484e7485a, type: 3}
   m_Name: ContactShadows
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 0
     m_Value: 1
@@ -165,16 +165,16 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   spectralLut:
     m_OverrideState: 0
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.274
+    m_Value: 0.04
   m_MaxSamples:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,13 +223,13 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.109
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
   tint:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -294,7 +294,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: -0.4683638
+    m_Value: 0
   xMultiplier:
     m_OverrideState: 1
     m_Value: 0.791
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d08ce26990eb1a4a9177b860541e702, type: 3}
   m_Name: Exposure
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   mode:
     m_OverrideState: 1
     m_Value: 1
@@ -685,16 +685,16 @@ MonoBehaviour:
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 36.364155
+    m_Value: 0
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.8235294, g: 0.87058824, b: 0.8156863, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 82.4584
+    m_Value: 0
 --- !u!114 &7502528774814404555
 MonoBehaviour:
   m_ObjectHideFlags: 3
