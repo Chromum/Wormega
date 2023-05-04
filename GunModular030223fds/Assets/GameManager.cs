@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public ItemHolder ItemHolder;
+    public MarkVoiceController markVoice;
     public Difficulty currentDifficulty;
     public bool isPaused;
     public GameObject PauseScreen;
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject LoadingSceneArt;
     public AudioClip HitMarker;
     public AudioSource AudioSource;
+    public GameAnnouncer Announcer;
     private void Start()
     {
         if (instance == null)

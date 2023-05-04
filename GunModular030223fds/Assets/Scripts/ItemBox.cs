@@ -20,7 +20,7 @@ public class ItemBox : Interactable
     public AudioSource Au;
     public AudioClip Keypad, Ding, DePreasure;
     public bool TurnedOn = false;
-
+    
     public void Start()
     {
         if(TurnedOn)
@@ -89,6 +89,60 @@ public class ItemBox : Interactable
     {
         isOpen = true;
         PickItem();
+
+        if (Gun)
+        {
+            int q = Random.Range(0,2);
+
+            if (q == 0)
+            {
+                switch (GunPart.Rareity)
+                {
+                    case Rareity.Common:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Common[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Common.Count)]);
+                        break;
+                    case Rareity.Rare:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Rare[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Rare.Count)]);
+                        break;
+                    case Rareity.Legendary:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Legendary[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Legendary.Count)]);
+                        break;
+                    case Rareity.Mythic:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Mythic[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Mythic.Count)]);
+                        break;
+                }
+            }
+            else
+                GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.AllRounders[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.AllRounders.Count)]);
+        }
+
+        if (Upgrade)
+        {
+            int q = Random.Range(0,2);
+
+            if (q == 0)
+            {
+                switch (Item.Rareity)
+                {
+                    case Rareity.Common:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Common[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Common.Count)]);
+                        break;
+                    case Rareity.Rare:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Rare[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Rare.Count)]);
+                        break;
+                    case Rareity.Legendary:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Legendary[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Legendary.Count)]);
+                        break;
+                    case Rareity.Mythic:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Mythic[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Mythic.Count)]);
+                        break;
+                }
+            }
+            else
+                GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.AllRounders[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.AllRounders.Count)]);
+        }
+        
+        
         gameObject.GetComponent<Animator>().SetTrigger("Open");
         StartCoroutine(Wait());
         
@@ -109,6 +163,29 @@ public class ItemBox : Interactable
 
         if (Gun)
         {
+            int q = Random.Range(0,2);
+
+            if (q == 0)
+            {
+                switch (GunPart.Rareity)
+                {
+                    case Rareity.Common:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Common[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Common.Count)]);
+                        break;
+                    case Rareity.Rare:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Rare[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Rare.Count)]);
+                        break;
+                    case Rareity.Legendary:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Legendary[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Legendary.Count)]);
+                        break;
+                    case Rareity.Mythic:
+                        GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.Mythic[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.Mythic.Count)]);
+                        break;
+                }
+            }
+            else
+                GameManager.instance.markVoice.ItemPickUpPlay(GameManager.instance.markVoice.ItemPickUpSounds.AllRounders[Random.RandomRange(0,GameManager.instance.markVoice.ItemPickUpSounds.AllRounders.Count)]);
+            
             g.transform.GetChild(5).gameObject.SetActive(true   );
             g.GetComponent<ItemHolder>().part = GunPart;
             g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GunPart.Name;
@@ -133,6 +210,8 @@ public class ItemBox : Interactable
         }
         if (Upgrade)
         {
+           
+            
             g.transform.GetChild(4).gameObject.SetActive(true);
             g.GetComponent<ItemHolder>().item = Item;
             g.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Item.Name;
@@ -144,6 +223,7 @@ public class ItemBox : Interactable
             g.transform.GetChild(4).GetChild(4).GetComponent<TextMeshProUGUI>().text = "Strength: " + Item.ItemStats.Strength.ToString();
             g.transform.GetChild(4).GetChild(5).GetComponent<TextMeshProUGUI>().text = "Stamina: " + Item.ItemStats.Stamina.ToString();
         }
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -196,6 +276,9 @@ public class ItemBox : Interactable
             m[glow.Value] = matHolo;
             glow.meshRenderer.sharedMaterials = m;
         }
+
+        
+        
     }
 
     [Button]
@@ -308,6 +391,45 @@ public class ItemBox : Interactable
                     break;
                 case Rareity.Mythic:
                     Part = Database.Mythic[Random.Range(0, Database.Mythic.Count)];
+                    break;
+            }
+            switch (Part.Type)
+            {
+                case Typwe.Grip:
+                    if (GameManager.instance.ItemHolder.playerManager.Gun.Grip == Part)
+                    {
+                        PickItem();
+                        return;
+                    }
+
+                    break;
+                case Typwe.Mag:
+                    if (GameManager.instance.ItemHolder.playerManager.Gun.Magazine == Part)
+                    {
+                        PickItem();
+                        return;
+                    }
+                    break;
+                case Typwe.Sight:
+                    if (GameManager.instance.ItemHolder.playerManager.Gun.Sight == Part)
+                    {
+                        PickItem();
+                        return;
+                    }
+                    break;
+                case Typwe.Module:
+                    if (GameManager.instance.ItemHolder.playerManager.Gun.Module == Part)
+                    {
+                        PickItem();
+                        return;
+                    }
+                    break;
+                case Typwe.Barrel:
+                    if (GameManager.instance.ItemHolder.playerManager.Gun.Barrel == Part)
+                    {
+                        PickItem();
+                        return;
+                    }
                     break;
             }
             GunPart = Part;

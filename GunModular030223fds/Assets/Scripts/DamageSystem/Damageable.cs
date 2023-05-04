@@ -28,6 +28,8 @@ public class Damageable : MonoBehaviour
 
     public delegate void OnDie(GameObject g);
     public OnDie Death;
+    public delegate void OnHit();
+    public OnHit Hit;
 
     private AudioSource Au;
 
@@ -71,6 +73,8 @@ public class Damageable : MonoBehaviour
         {
             AudioUtils.PlaySoundWithPitch(GameManager.instance.AudioSource, GameManager.instance.HitMarker, 1f);
         }
+        
+        Hit?.Invoke();
     }
 
     public void GiveHealth(float i)
@@ -81,6 +85,11 @@ public class Damageable : MonoBehaviour
     public virtual void Die()
     {
         Death?.Invoke(this.gameObject);
+        if (isEnemy)
+        {
+            GameAnnouncer a = GameObject.FindObjectOfType<GameAnnouncer>();
+            a.KillTracker.EnemyDied(a.Announcer);
+        }
         if (gameObject.tag == "Player")
         {
             gameObject.GetComponent<Animator>().enabled = true;

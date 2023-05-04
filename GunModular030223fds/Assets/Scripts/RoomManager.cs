@@ -17,7 +17,7 @@ public class RoomManager : MonoBehaviour
     public AudioClip SF;
 
     public int Waves;
-    public int WavesCompleted;
+    public int CurrentWave = -1;
     public List<EnemyT> t = new List<EnemyT>();
     public int i;
     public List<ItemBox> boxes = new List<ItemBox>(1);
@@ -26,7 +26,8 @@ public class RoomManager : MonoBehaviour
     {
         mapSpriteSelector.PER += PlayerEnter;
         mapSpriteSelector.PEER += PlayerExits;
-        Waves = Random.Range(1, 3);
+        Waves = Random.RandomRange(0, 3);
+        CurrentWave = 0;
     }
 
     // Update is called once per frame
@@ -53,7 +54,7 @@ public class RoomManager : MonoBehaviour
         FirstTime = true;
         GameObject j = GameObject.Instantiate(HeliPrefab, new Vector3(transform.position.x - 50f, transform.position.y + 60f, transform.position.z), Quaternion.identity);
         StartCoroutine(FlyAwayEnum(j.GetComponent<AudioSource>(), j));
-        
+
     }
 
     
@@ -61,6 +62,12 @@ public class RoomManager : MonoBehaviour
 
     public IEnumerator FlyAwayEnum(AudioSource SFX, GameObject g)
     {
+        if(Waves <= (CurrentWave+1))
+            GameManager.instance.Announcer.Wave(CurrentWave,true);
+        else
+        {
+            GameManager.instance.Announcer.Wave(CurrentWave,false);
+        }
         yield return new WaitForSeconds(5f);
         int e = Random.Range(5, 8);
         for (int i = 0; i < e; i++)
@@ -165,17 +172,17 @@ public class RoomManager : MonoBehaviour
     public void WaveCompleteMethod()
     {
 
-        WavesCompleted++;
-        if (WavesCompleted >= Waves)
+
+        if ((CurrentWave+1) >= Waves)
         {
             RoofComplete();
             return;
         }
+        CurrentWave++;
         i = 0;
         t.Clear();
         GameObject j = GameObject.Instantiate(HeliPrefab, new Vector3(transform.position.x - 50f, transform.position.y + 60f, transform.position.z), Quaternion.identity);
         StartCoroutine(FlyAwayEnum(j.GetComponent<AudioSource>(), j));
-
     }
     public void RoofComplete()
     {

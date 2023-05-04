@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
@@ -94,6 +95,7 @@ public class FPSCam : MonoBehaviour
     public bool contactMod;
     public bool running;
     public FootstepSound fss;
+    private bool firstTime = true;
 
     void Start()
     {
@@ -328,6 +330,15 @@ public class FPSCam : MonoBehaviour
         //    Gizmos.DrawLine(wallRunLeftCheck.position, wallRunLeftCheck.position + wallRunLeftCheck.forward * wallRunCheckDistance);
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + -groundCheck.up * groundCheckDistance);
 
+    }
+
+    public void OnCollisionStay(Collision collision)
+    {
+        if (firstTime)
+        {
+            GameObject.FindObjectOfType<MarkVoiceController>().StartGame();
+            firstTime = false;
+        }
     }
 }
 

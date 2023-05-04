@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
+ using Random = UnityEngine.Random;
 
-public class Gun : MonoBehaviour
+ public class Gun : MonoBehaviour
 {
     public bool AI;
     public BaseStat BaseStat;
     public AudioSource sU;
-    public AudioClip clip;
-    public AudioClip Click;
+    public List<AudioClip> clip;
+    public List<AudioClip> Click;
     public GameObject VFX;
     
     [Header("Stats")]
@@ -88,7 +89,11 @@ public class Gun : MonoBehaviour
         {
             if (NeedsToReload() == false)
                 Shoot(Dir);
-            else GunError(0);
+            else
+            {
+                Countdown.StartCountdown();
+                GunError(0);
+            }
         }
     }
 
@@ -97,7 +102,7 @@ public class Gun : MonoBehaviour
         switch (i)
         {
             case 0:
-                AudioUtils.PlaySoundWithPitch(sU, Click, 1f);
+                AudioUtils.PlaySoundWithPitch(sU, Click[Random.RandomRange(0,Click.Count)], 1f);
                 break;
             default:
                 break;
@@ -345,7 +350,7 @@ public class Gun : MonoBehaviour
     public void GunShot()
     {
         float pitch = UnityEngine.Random.Range(0.9f, 1.1f); // Change pitch randomly within a small range
-        AudioUtils.PlaySoundWithPitch(sU,clip,pitch);
+        AudioUtils.PlaySoundWithPitch(sU,clip[Random.RandomRange(0,clip.Count)],pitch);
         GameObject g = GameObject.Instantiate(VFX,transform.GetChild(0).transform.position,new Quaternion(0f,-180f,0f,0f), transform.GetChild(0));
         g.transform.localPosition = new Vector3(0f, 0f, -0.366f);
         g.transform.localRotation = new Quaternion(0f, -180f, 0f, 0f);
