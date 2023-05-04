@@ -5,7 +5,6 @@ using UnityEngine;
 public class Tehehe : MonoBehaviour
 {
     public Melee melee;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +14,8 @@ public class Tehehe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
     }
 
     public void Yep()

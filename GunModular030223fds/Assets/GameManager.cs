@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
             TogglePause();
         if (SceneManager.GetActiveScene().name.Contains("MainMenu"))
             MainMenu = true;
+        DebugManager.instance.enableRuntimeUI = false;
     }
 
     public void Update()

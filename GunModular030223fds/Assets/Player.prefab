@@ -6912,6 +6912,7 @@ MonoBehaviour:
   Slider: {fileID: 1777447415}
   inGameTime: 0
   timeSinceLastDifficultyChange: 0
+  G: {fileID: 0}
 --- !u!114 &1777447416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9271,7 +9272,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5722916fcb52f8f47afd6e646752b275, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -9291,6 +9292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melee: {fileID: 1551694349}
+  a: {fileID: 0}
 --- !u!1 &2696945234774712000
 GameObject:
   m_ObjectHideFlags: 0
@@ -9523,7 +9525,11 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 10
-  cooldownImage: {fileID: 823172336}
+  AbilityCooldown:
+    Finished: 0
+    value: 0
+    Count: 0
+  cooldownImage: {fileID: 0}
   desiredTimeScale: 0.5
 --- !u!1 &3151519759265129368
 GameObject:
@@ -10250,7 +10256,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   fireTar: {fileID: 3151519759413428042}
-  AmmoCount: {fileID: 1889071125}
+  AmmoCount: {fileID: 0}
   gunRecoil: {fileID: 1551694348}
   Countdown:
     Finished: 0
@@ -11223,6 +11229,7 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 30
+  slid: {fileID: 0}
 --- !u!114 &3151519760732086522
 MonoBehaviour:
   m_ObjectHideFlags: 0
