@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab6cc54d77744ba4beb7b36399ec179, type: 3}
+  m_Name: NeedsHeal
+  m_EditorClassIdentifier: 
+  Decision: {fileID: 11400000, guid: 438f5344cfb0ce741857f57010821ec9, type: 2}
+  TrueState: {fileID: 11400000, guid: 040cc092e20440b4b911e9c7b626a873, type: 2}
+  FalseState: {fileID: 11400000, guid: 2bc74221d661a7c4eb0b396dfa6fb725, type: 2}
+  SecondDecision: {fileID: 11400000, guid: 4771bd8b6fba9724fae9b08bafef09f2, type: 2}

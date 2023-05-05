@@ -5,12 +5,14 @@ using UnityEngine;
 public class AIBase : MonoBehaviour
 {
     public Enemy Enemy;
+    public Damageable Damageable;
     [SerializeField] private BaseAIState initialState;
 
     private void Awake()
     {
         CurrentState = initialState;
-    }
+        Damageable = GetComponent<Damageable>();
+}
 
     public BaseAIState CurrentState;
 

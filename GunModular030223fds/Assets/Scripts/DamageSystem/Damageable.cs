@@ -39,6 +39,8 @@ public class Damageable : MonoBehaviour
         Au = GetComponent<AudioSource>();
     }
 
+
+
     public void Update()
     {
         
@@ -48,8 +50,7 @@ public class Damageable : MonoBehaviour
             if(Health <MaxHealth)
                 GiveHealth(Time.deltaTime * RegenSpeed);
         }
-        if(healthBar.Damageable.healthBar.HealthBarSlider.maxValue != MaxHealth)
-            healthBar.Damageable.healthBar.HealthBarSlider.maxValue = MaxHealth;
+        
 
     }
 

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioClip HitMarker;
     public AudioSource AudioSource;
     public GameAnnouncer Announcer;
+    public HealthBar Wave1, Wave2, Wave3;
     private void Start()
     {
         if (instance == null)
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Contains("MainMenu"))
             MainMenu = true;
         DebugManager.instance.enableRuntimeUI = false;
+        Debug.Log("HA");
     }
 
     public void Update()

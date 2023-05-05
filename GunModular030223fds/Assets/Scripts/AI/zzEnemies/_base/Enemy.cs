@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public AIBase b;
 
-    public void Start()
+    public virtual void Start()
     {
         player = GameObject.Find("Player");
         b = gameObject.GetComponent<AIBase>();
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    public void Update()
+    public virtual void Update()
     {
         if (!canAttack)
         {
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
        
     }
 
-    public void ResetCooldown()
+    public virtual void ResetCooldown()
     {
         canAttack = false;
         countdown.StartCountdown();

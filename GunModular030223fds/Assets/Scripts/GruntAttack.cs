@@ -9,14 +9,33 @@ public class GruntAttack : Attack
     public AIDecision clearShot;
     public override void Execute(Enemy en)
     {
-        Grunt g = (Grunt)en;
-        if (clearShot.Decide(en.b))
+        if (en.GetType() == typeof(Grunt))
         {
+            Grunt g = (Grunt)en;
+            if (clearShot.Decide(en.b))
+            {
 
-            g.AIGun.Shoot(g.player.transform.position - g.AIGun.fireTar.position);
-            ShowRayBetweenPoints(g.AIGun.fireTar.position, g.player.transform.GetComponent<CapsuleCollider>().center);
-            en.b.CurrentState = FollowState;
+                g.AIGun.Shoot(g.player.transform.position - g.AIGun.fireTar.position);
+                ShowRayBetweenPoints(g.AIGun.fireTar.position, g.player.transform.GetComponent<CapsuleCollider>().center);
+                en.b.CurrentState = FollowState;
+            }
         }
+        else
+        {
+            BossAI g = (BossAI)en;
+            int i = Random.Range(0, 1);
+            if (clearShot.Decide(en.b))
+            {
+                if(i == 0)
+                    g.Gun1.Shoot(g.player.transform.position - g.Gun1.fireTar.position);
+                else
+                    g.Gun2.Shoot(g.player.transform.position - g.Gun2.fireTar.position);
+
+                //ShowRayBetweenPoints(g.AIGun.fireTar.position, g.player.transform.GetComponent<CapsuleCollider>().center);
+                en.b.CurrentState = g.CurrentResetState;
+            }
+        }
+       
     }
 
     

@@ -13,7 +13,7 @@ public class AttackAction : AIAction
             {
                 e.animator.SetBool("AttackAnim", true);
                 if(e.NavMeshAgent == true)
-                    e.NavMeshAgent.isStopped = true;
+                    e.NavMeshAgent.isStopped = true;    
             }
         }
 

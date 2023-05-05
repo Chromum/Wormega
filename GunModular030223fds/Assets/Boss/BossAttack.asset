@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8107fd49e334f484e9edb044458db24c, type: 3}
+  m_Name: BossAttack
+  m_EditorClassIdentifier: 
+  Cooldown: 0.1
+  AttackDistance: 4
+  f:
+  - {fileID: 11400000, guid: b01b47e78fe9c1c48ab28e8631cbecfe, type: 2}
+  - {fileID: 11400000, guid: de96567eb296df44ebf059e439c2d49e, type: 2}
+  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
+  WaveOne:
+  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
+  WaveTwo:
+  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
+  - {fileID: 11400000, guid: b01b47e78fe9c1c48ab28e8631cbecfe, type: 2}
+  WaveThree:
+  - {fileID: 11400000, guid: b01b47e78fe9c1c48ab28e8631cbecfe, type: 2}
+  - {fileID: 11400000, guid: de96567eb296df44ebf059e439c2d49e, type: 2}
+  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}

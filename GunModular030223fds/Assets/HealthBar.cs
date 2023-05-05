@@ -11,17 +11,24 @@ public class HealthBar : MonoBehaviour
 
     public Damageable Damageable;
     public bool TwoD = false;
+
+    public bool AutoUpdate = true;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerManager>().transform;
-        HealthBarSlider.maxValue = Damageable.MaxHealth;
+        if(AutoUpdate)
+            HealthBarSlider.maxValue = Damageable.MaxHealth;
+        else
+            HealthBarSlider.maxValue = GameObject.FindObjectOfType<BossAI>().b.Damageable.MaxHealth;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        HealthBarSlider.value = Damageable.Health;
+        if(AutoUpdate)
+            HealthBarSlider.value = Damageable.Health;
         if (!TwoD)
         {
             Quaternion lookRotation = Quaternion.LookRotation(player.transform.position - this.transform.position);

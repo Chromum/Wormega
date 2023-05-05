@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58dcb7d5cc032b149a2553083ef54f8b, type: 3}
+  m_Name: New Spawn Healers
+  m_EditorClassIdentifier: 
+  HealerPrefab: {fileID: 4638207621056648799, guid: 7b848da619f46ab4d953a66599a668f0, type: 3}

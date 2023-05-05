@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fccefb8ef4882244b4009e0d015ea3a, type: 3}
+  m_Name: Baller
+  m_EditorClassIdentifier: 
+  attack: {fileID: 11400000, guid: bc9871c938a409b43bb934aa7d699b1e, type: 2}
+  countDown:
+    Finished: 1
+    value: -0.003831259
+    Count: 5
