@@ -23,4 +23,4 @@ MonoBehaviour:
     Grip: {fileID: 11400000, guid: 6acb16cee10c7e04eaef6f8ec6306e7e, type: 2}
     Sight: {fileID: 11400000, guid: 8110441fb251db44980a4d8acff6e96b, type: 2}
     Barrel: {fileID: 11400000, guid: a3becb6a8bde1ab48b390710a1d09a4c, type: 2}
-    Module: {fileID: 11400000, guid: 6971e8da618aab444bddba6c317249bb, type: 2}
+    Module: {fileID: 11400000, guid: 520d7794e5eee004f9c4b87ed509181f, type: 2}

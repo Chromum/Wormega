@@ -15,11 +15,11 @@ MonoBehaviour:
   Name: WormCorp Upgraded Grip
   Type: 0
   Bio: Upgraded grip issued by WormCorp to its High Ranking Officers
-  FireRate: 0
+  FireRate: 10
   Damage: 0
   MagSize: 0
   Accuracy: 0.005
   Sprite: {fileID: 0}
-  Rareity: 1
+  Rareity: 0
   objectName: 
   Debug: 0

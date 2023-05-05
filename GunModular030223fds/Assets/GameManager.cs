@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioClip HitMarker;
     public AudioSource AudioSource;
     public GameAnnouncer Announcer;
+    public float GrappleForce = 100;
     public HealthBar Wave1, Wave2, Wave3;
     private void Start()
     {

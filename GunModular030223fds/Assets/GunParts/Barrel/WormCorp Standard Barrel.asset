@@ -16,7 +16,7 @@ MonoBehaviour:
   Type: 1
   Bio: Standard barrel issued by WormCorp to its Officers
   FireRate: 50
-  Damage: 2
+  Damage: 20
   MagSize: 0
   Accuracy: 0
   Sprite: {fileID: 0}
@@ -24,4 +24,4 @@ MonoBehaviour:
   objectName: 
   Debug: 0
   ShotMode: 0
-  barrelType: 1
+  barrelType: 0

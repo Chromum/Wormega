@@ -12,7 +12,7 @@ public class ChargerAttack : Attack
     public override void Execute(Enemy en)
     {
 
-        if (en.GetType() == typeof(HornedEnemy))
+        if (en.GetType() != typeof(HornedEnemy))
         {
             
         }

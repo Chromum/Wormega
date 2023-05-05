@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 3
   AttackDistance: 200
-  minDamage: 20
-  maxDamage: 50
+  minDamage: 100
+  maxDamage: 250
   minKnockbackForce: 50
   maxKnockbackForce: 100
   AttackSpeed: 30

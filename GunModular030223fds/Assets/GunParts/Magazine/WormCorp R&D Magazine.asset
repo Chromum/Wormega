@@ -20,6 +20,6 @@ MonoBehaviour:
   MagSize: 20
   Accuracy: 0
   Sprite: {fileID: 0}
-  Rareity: 2
+  Rareity: 1
   objectName: 
   Debug: 0

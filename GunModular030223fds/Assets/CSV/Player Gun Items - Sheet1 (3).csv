@@ -1,0 +1,37 @@
+Name,Type,Rarity,Dam,Firerate,MagSize,Accuracy,ShotMode,Info,Debug,FireType,ModelType
+Test Barrel,Barrel,Common,1342,10,0,5,TrippleShot,This is a test barrel!,1,SemiAuto,
+Test Module,Module,Legendary,0,0,0,0,,This is a test module!,1,,
+Test Grip,Grip,Rare,0,0,0,-10,,This is a test grip!,1,,
+Test Magazine,Magazine,Common,1,0,100,0,,This is a test magazine!,1,,
+Test Sight,Sight,Common,0,0,0,-1,,This is a test sight!,1,,
+WormCorp Standard Barrel,Barrel,Common,20,50,0,0,SingleShot,Standard barrel issued by WormCorp to its Officers,0,SemiAuto,
+Empty Module,Module,Common,0,0,0,0,,Grants 5 Additional Bullets Per Clip,0,,
+WormCorp Standard Grip,Grip,Common,0,0,0,0.007,,Standard grip issued by WormCorp to its Officers,0,,StraightGrip
+WormCorp Standard Magazine,Magazine,Common,0,0,11,0,,Standard magazine issued by WormCorp to its Officers,0,,
+WormCorp Standard Sight,Sight,Common,0,0,0,0.007,,Standard sight issued by WormCorp to its Officers,0,,
+WormCorp Upgraded Barrel,Barrel,Common,25,45,-5,0,SingleShot,Upgraded barrel issued by WormCorp to its High Ranking Officers,0,SemiAuto,
+Additional Damage Module,Module,Common,20,0,0,0,,Grants 5 Additional Bullets Per Clip,0,,
+WormCorp Upgraded Grip,Grip,Common,0,10,0,0.005,,Upgraded grip issued by WormCorp to its High Ranking Officers,0,,
+WormCorp Upgraded Magazine,Magazine,Common,0,0,15,0,,Upgraded magazine issued by WormCorp to its High Ranking Officers,0,,
+WormCorp Upgraded Sight,Sight,Common,0,0,0,0.005,,Upgraded sight issued by WormCorp to its High Ranking Officers,0,,
+WormCorp R&D Barrel,Barrel,Rare,35,40,-7,0,SingleShot,A barrel currently in development by WormCorps R&D department,0,FullyAuto,
+Anti Recoil Module,Module,Rare,0,0,0,-1000,,Removes all recoil from your weapon,0,,
+WormCorp R&D Grip,Grip,Rare,0,15,0,0.005,,A grip currently in development by WormCorps R&D department,0,,SharpshooterGrip
+WormCorp R&D Magazine,Magazine,Rare,0,0,20,0,,A magazine currently in development by WormCorps R&D department,0,,
+WormCorp R&D Sight,Sight,Rare,0,0,0,0.003,,A sight currently in development by WormCorps R&D department,0,,
+Sid Inc Sniper Barrel,Barrel,Legendary,45,-30,0,0.003,SingleShot,Sploingy Boingy Barrel from Sid Inc,0,SniperBarrel,SniperBarrel
+Sid Inc What Module,Module,Mythic,35,-5,1,0,,Rinky Dinky Module from Sid Inc,0,,
+Sid Inc Sniper Stock,Grip,Rare,0,0,0,-0.001,,Oinky Roinky Stock from Sid Inc,0,,SniperStock
+Sid Inc Hollowpoint Magazine,Magazine,Legendary,20,-5,5,-0.001,,SID FILL THIS IN,0,,
+Sid Inc Sniper Scope,Sight,Common,0,0,0,-1,,SID FILL THIS IN,0,,
+MinMax Tech Shotgun Barrel,Barrel,Legendary,15,-20,0,0.1,TrippleShot,The coolest barrel for the dopest person.,0,SemiAuto,ShotgunBarrel
+MinMax Tech [QuestionMark] Module,Module,Mythic,-10,75,0,0.05,,Shoot faster with this unreleased untested module!,0,,
+MinMax Tech Short Stock,Grip,Rare,0,10,0,-0.01,,"Hard to hold, easy to fire",0,,ShortStock
+MinMax Tech Slug Mag,Magazine,Legendary,10,-10,8,-0.005,,"Fires slugs, vaugely illegal, quite devastating",0,,
+MinMax Tech No Sight Sight,Sight,Rare,0,0,0,0.009,,not a sight in sight!,0,,
+Sammer Software's Full-Auto barrel,Barrel,Legendary,20,80,0,0.01,SingleShot,SAM FILL THIS IN,0,FullyAuto,
+Sammer Software Bullet Duplicator,Module,Mythic,-5,-10,0,0,DoubleShot,Sammer Soft's custom Module created Guns Around the world,0,,
+Sammer Software Grip,Grip,Rare,0,5,0,0.01,,SAM FILL THIS IN,0,,SharpshooterGrip
+Sammer Software Extended Magazine,Magazine,Legendary,0,0,30,-0.005,,SAM FILL THIS IN,0,,ExtendedMag
+Sammer Software Iron Sight,Sight,Rare,0,0,0,-0.009,,SAM FILL THIS IN,0,,
+Shaft Handle,Grip,Common,0,0,0,-0.1,,"A polished shaft handle made from the finest OAK, stained and dyed with a special ingredient.",0,,

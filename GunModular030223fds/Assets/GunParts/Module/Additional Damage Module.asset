@@ -16,10 +16,10 @@ MonoBehaviour:
   Type: 4
   Bio: Grants 5 Additional Bullets Per Clip
   FireRate: 0
-  Damage: 2
+  Damage: 20
   MagSize: 0
   Accuracy: 0
   Sprite: {fileID: 0}
-  Rareity: 1
+  Rareity: 0
   objectName: 
   Debug: 0

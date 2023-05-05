@@ -15,13 +15,13 @@ MonoBehaviour:
   Name: WormCorp R&D Barrel
   Type: 1
   Bio: A barrel currently in development by WormCorps R&D department
-  FireRate: 50
-  Damage: 3
-  MagSize: -3
+  FireRate: 40
+  Damage: 35
+  MagSize: -7
   Accuracy: 0
   Sprite: {fileID: 0}
-  Rareity: 2
+  Rareity: 1
   objectName: 
   Debug: 0
-  ShotMode: 2
-  barrelType: 2
+  ShotMode: 0
+  barrelType: 1

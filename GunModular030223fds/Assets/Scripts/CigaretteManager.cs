@@ -28,6 +28,7 @@ public class CigaretteManager : AbilityManager
 
 
     public Animator Anima;
+    public float cooldownBase;
 
     public Countdown Countdown;
     public Countdown AbilityCooldown;
@@ -59,7 +60,7 @@ public class CigaretteManager : AbilityManager
         colorAdj.colorFilter.value = new Color(1f, 1f, 1f);
         colorAdj.saturation.value = 0f;
         this.fixedDeltaTime = Time.fixedDeltaTime;
-
+        cooldownBase = Countdown.Count;
 
     }
 

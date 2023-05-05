@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 6526000689476068409}
+  Damageable: {fileID: 0}
   initialState: {fileID: 11400000, guid: 412112fe3b41f6a469589fbf5c38bc49, type: 2}
   CurrentState: {fileID: 0}
 --- !u!114 &6526000689476068409
@@ -864,8 +865,8 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 0
-  MaxHealth: 27
-  Health: 100
+  MaxHealth: 270
+  Health: 270
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
 --- !u!95 &6526000689476068411
 Animator:
@@ -916,6 +917,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Damageable: {fileID: 6526000689476068410}
   TwoD: 0
+  AutoUpdate: 1
 --- !u!1 &6526000689496759016
 GameObject:
   m_ObjectHideFlags: 0

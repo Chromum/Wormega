@@ -15,7 +15,7 @@ public class GrapplePoint : Interactable
     // Update is called once per frame
     void Update()
     {
-        
+        Speed = GameManager.instance.GrappleForce;
     }
 
     public override void Interact(GameObject GO)

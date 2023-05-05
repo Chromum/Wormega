@@ -16,12 +16,12 @@ MonoBehaviour:
   Type: 1
   Bio: Upgraded barrel issued by WormCorp to its High Ranking Officers
   FireRate: 45
-  Damage: 4
+  Damage: 25
   MagSize: -5
   Accuracy: 0
   Sprite: {fileID: 0}
-  Rareity: 1
+  Rareity: 0
   objectName: 
   Debug: 0
-  ShotMode: 1
-  barrelType: 1
+  ShotMode: 0
+  barrelType: 0

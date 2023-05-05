@@ -1491,6 +1491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 1523154611394273495}
+  Damageable: {fileID: 0}
   initialState: {fileID: 11400000, guid: a6a6895ba8d73da418bcfb438c370aac, type: 2}
   CurrentState: {fileID: 11400000, guid: a6a6895ba8d73da418bcfb438c370aac, type: 2}
 --- !u!195 &1865120117351406981
@@ -1665,8 +1666,8 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 0
-  MaxHealth: 25
-  Health: 30
+  MaxHealth: 100
+  Health: 100
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
 --- !u!136 &2803775690751345955
 CapsuleCollider:
@@ -1714,6 +1715,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Damageable: {fileID: 1994988594}
   TwoD: 0
+  AutoUpdate: 1
 --- !u!1 &2050084379769399993
 GameObject:
   m_ObjectHideFlags: 0

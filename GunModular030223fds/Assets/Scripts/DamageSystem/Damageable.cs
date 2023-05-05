@@ -5,6 +5,7 @@ using System.Collections.Generic;
  using UnityEngine;
 using UnityEngine.UI;
 using NaughtyAttributes;
+using TMPro;
 
 public class Damageable : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class Damageable : MonoBehaviour
     [EnableIf("Regen")]
     public Countdown cooldown;
 
+    public bool Player;
+    [EnableIf("Player")]
+    public TextMeshPro text;
+    public float HealthTextValue;
+
     public float MaxHealth;
     public float Health;
 
@@ -33,9 +39,12 @@ public class Damageable : MonoBehaviour
 
     private AudioSource Au;
 
+    public float startingHealth;
     public void Start()
     {
         Health = MaxHealth;
+        startingHealth = MaxHealth;
+        HealthTextValue = 0f;
         Au = GetComponent<AudioSource>();
     }
 
@@ -50,8 +59,12 @@ public class Damageable : MonoBehaviour
             if(Health <MaxHealth)
                 GiveHealth(Time.deltaTime * RegenSpeed);
         }
-        
 
+        float i = Health * 100;
+        float j = i / (HealthTextValue + MaxHealth);
+
+        string[] a = j.ToString().Split(".");
+        text.text = a[0] + "%";
     }
 
     public void DoDamage(float i, Vector3 Pos)

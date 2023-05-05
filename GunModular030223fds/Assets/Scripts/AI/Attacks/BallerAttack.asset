@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 10
   AttackDistance: 15.71
-  AnimationSetting: 0
-  BaseDam: 120
+  BaseDam: 600
   ShootDelay: 0.5
   Delay: 1
   TargetPrefab: {fileID: 4048819780009649159, guid: 0e8233a41f9912a44a5dd4f30c9c470a, type: 3}

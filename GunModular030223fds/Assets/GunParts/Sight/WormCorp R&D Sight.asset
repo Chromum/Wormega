@@ -18,8 +18,8 @@ MonoBehaviour:
   FireRate: 0
   Damage: 0
   MagSize: 0
-  Accuracy: 0.005
+  Accuracy: 0.003
   Sprite: {fileID: 0}
-  Rareity: 2
+  Rareity: 1
   objectName: 
   Debug: 0

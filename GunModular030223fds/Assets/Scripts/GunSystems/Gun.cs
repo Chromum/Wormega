@@ -93,6 +93,7 @@ using UnityEngine.VFX;
             {
                 Countdown.StartCountdown();
                 GunError(0);
+                Reload();
             }
         }
     }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650ebc69e4c83dd43b45fb65f8a83909, type: 3}
+  m_Name: MinMax Tech Shotgun Barrel
+  m_EditorClassIdentifier: 
+  Name: MinMax Tech Shotgun Barrel
+  Type: 1
+  Bio: The coolest barrel for the dopest person.
+  FireRate: -20
+  Damage: 15
+  MagSize: 0
+  Accuracy: 0.1
+  Sprite: {fileID: 0}
+  Rareity: 2
+  objectName: 
+  Debug: 0
+  ShotMode: 2
+  barrelType: 0

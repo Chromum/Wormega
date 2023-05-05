@@ -15,11 +15,11 @@ MonoBehaviour:
   Name: WormCorp R&D Grip
   Type: 0
   Bio: A grip currently in development by WormCorps R&D department
-  FireRate: 0
+  FireRate: 15
   Damage: 0
   MagSize: 0
   Accuracy: 0.005
   Sprite: {fileID: 0}
-  Rareity: 2
+  Rareity: 1
   objectName: 
   Debug: 0
