@@ -18,6 +18,7 @@ public class Healer : MonoBehaviour
     {
         Lr.SetPosition(0,transform.position);
         Lr.SetPosition(1,ta.transform.position);
+        Target.Health += 3f * Time.deltaTime;
     }
     
     public void Enable(Damageable t, AIBase r)

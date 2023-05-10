@@ -137,7 +137,8 @@ public class Damageable : MonoBehaviour
         if (isEnemy)
         {
             GameAnnouncer a = GameObject.FindObjectOfType<GameAnnouncer>();
-            PoolManager.instance.ReturnToPool(poolManager.poolType,gameObject);
+            if(poolManager != null)
+                PoolManager.instance.ReturnToPool(poolManager.poolType,gameObject);
             a.KillTracker.EnemyDied(a.Announcer);
             
         }

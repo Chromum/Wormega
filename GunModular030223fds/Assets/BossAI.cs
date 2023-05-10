@@ -9,6 +9,10 @@ public class BossAI : Enemy
     public List<Transform> HealerPositions;
     public AIState CurrentResetState;
 
+    public float WaveOneHealth;
+    public float WaveTwoHealth;
+    public float WaveThreeHealth;
+
     public bool HealersSpawned;
     public int currentHealers = 0;
 
@@ -29,15 +33,42 @@ public class BossAI : Enemy
     public float maxKnockbackForce;
 
 
+    public BossRoomManager bossRoomManager;
+    public GameObject ChargeVFX;
+    public Transform ChargeTransform;
+    public LineRenderer lineRenderer;
+
+    public GameObject IntroAnimation;
+
+    public Transform spawnTransform;
+
     // Start is called before the first frame update
-    public override void Start()
+
+    public void OnEnable()
     {
+        spawnTransform.parent.gameObject.GetComponent<Animator>().enabled = false;
+        spawnTransform.gameObject.SetActive(false);
+        Vector3 pos = transform.position;
+        transform.parent = null;
         base.Start();
         healerSpawnCooldown.StartCountdown();
         b.Damageable.Death += WaveChange;
         Wave1 = GameObject.Find("Wave1HealthBar").GetComponent<HealthBar>();
         Wave2 = GameObject.Find("Wave2HealthBar").GetComponent<HealthBar>();
         Wave3 = GameObject.Find("Wave3HealthBar").GetComponent<HealthBar>();
+        b.enabled = false;
+    }
+
+    public void Activate()
+    {
+        
+        b.Damageable.MaxHealth = WaveOneHealth;
+        b.Damageable.Health = b.Damageable.MaxHealth;
+        b.enabled = true;
+    }
+
+    public void BackIntoRing()
+    {
 
     }
 
@@ -87,28 +118,44 @@ public class BossAI : Enemy
         Destroy(g);
     }
 
+    public bool outOfArena;
+
     public void WaveChange(GameObject g)
     {
-        wave++;
+        wave++; 
         switch (wave)
         {
             case 2:
                 Wave1.gameObject.SetActive(false);
                 Wave2.gameObject.SetActive(true);
+                b.Damageable.MaxHealth = WaveTwoHealth;
                 b.Damageable.Health = b.Damageable.MaxHealth;
                 break;
             case 3:
                 Wave2.gameObject.SetActive(false);
-                Wave2.gameObject.SetActive(true);
+                Wave3.gameObject.SetActive(true);
+                b.Damageable.MaxHealth = WaveThreeHealth;
                 b.Damageable.Health = b.Damageable.MaxHealth;
                 break;
             case 4:
                 Debug.Log("Boss Defeated");
+                Wave1.transform.parent.gameObject.SetActive(false);
                 Destroy(gameObject);
                 break;
                 
         }
+
+
+        outOfArena = true;
+        SpawnEnemies();
     }
+
+    public void SpawnEnemies()
+    {
+        bossRoomManager.SpawnEnemies();
+        gameObject.SetActive(false);
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (hasCharged == true)

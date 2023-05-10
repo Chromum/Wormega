@@ -15,5 +15,5 @@ MonoBehaviour:
   attack: {fileID: 11400000, guid: 59f0c4e12053e804eba2d07484d43131, type: 2}
   countDown:
     Finished: 1
-    value: -0.0071257707
-    Count: 0.5
+    value: -0.0025093206
+    Count: 0.75

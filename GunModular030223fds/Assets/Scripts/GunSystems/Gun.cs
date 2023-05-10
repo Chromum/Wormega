@@ -10,6 +10,8 @@ using UnityEngine.VFX;
  public class Gun : MonoBehaviour
 {
     public bool AI;
+    public bool boss;
+    public float bossAccuracy;
     public BaseStat BaseStat;
     public AudioSource sU;
     public List<AudioClip> clip;
@@ -206,6 +208,8 @@ using UnityEngine.VFX;
         if (AI)
         {
             Accuracy = 0.03f;
+            if (boss)
+                Accuracy = bossAccuracy;
         }
         else Accuracy = this.Accuracy;
 

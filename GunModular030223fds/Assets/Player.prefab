@@ -4070,8 +4070,9 @@ RectTransform:
   - {fileID: 89346501}
   - {fileID: 882767396}
   - {fileID: 744439277}
+  - {fileID: 944199378}
   m_Father: {fileID: 1591372939}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6138,17 +6139,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944199377}
-  m_LocalRotation: {x: 0.00087719294, y: 0.046099924, z: 0.0061391057, w: 0.9989176}
-  m_LocalPosition: {x: 0, y: 0, z: -1.857602}
-  m_LocalScale: {x: 0.13455063, y: 0.1345506, z: 0.14406334}
+  m_LocalRotation: {x: 0.0033274335, y: 0.08475809, z: -0.019900352, w: 0.9961972}
+  m_LocalPosition: {x: 0, y: 0, z: -6.0305314}
+  m_LocalScale: {x: 0.22359386, y: 0.4803734, z: 0.23922849}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1591372939}
-  m_RootOrder: 5
+  m_Father: {fileID: 663088789}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -0.506, y: -4.949, z: -1.535}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9878435, y: -3.262135}
+  m_AnchoredPosition: {x: 1.1256323, y: -27.214745}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &944199380
@@ -10090,7 +10091,6 @@ RectTransform:
   - {fileID: 1585350724}
   - {fileID: 1711552571597830946}
   - {fileID: 1729667731}
-  - {fileID: 944199378}
   - {fileID: 663088789}
   m_Father: {fileID: 939865982}
   m_RootOrder: 1
@@ -15337,6 +15337,7 @@ MonoBehaviour:
   fireTar: {fileID: 3151519759413428042}
   AmmoCount: {fileID: 1605931097}
   gunRecoil: {fileID: 1551694348}
+  decals: []
   Countdown:
     Finished: 0
     value: 0
@@ -16368,8 +16369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+  isBoss: 0
   hasHealthBar: 1
   healthBar: {fileID: 180682634}
+  cooldownBar:
+    Finished: 0
+    value: 0
+    Count: 0
   Regen: 1
   RegenSpeed: 3
   cooldown:
@@ -16383,6 +16389,9 @@ MonoBehaviour:
   Health: 500
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
   startingHealth: 0
+  HitFX: {fileID: 0}
+  hitText: {fileID: 0}
+  poolManager: {fileID: 0}
 --- !u!114 &3151519760732086518
 MonoBehaviour:
   m_ObjectHideFlags: 0

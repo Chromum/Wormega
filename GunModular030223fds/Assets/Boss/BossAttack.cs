@@ -34,6 +34,7 @@ public class BossAttack : Attack
                 if (ta.countDown.HasFinished())
                 {
                     t = ta;
+                    ta.countDown.StartCountdown();
                     attackNotFind = true;
                 }
                 else return;            
@@ -44,13 +45,15 @@ public class BossAttack : Attack
                 if (ta.countDown.HasFinished())
                 {
                     t = ta;
+                    ta.countDown.StartCountdown();
                     attackNotFind = true;
                 }
                 else return;            
             }
         }
         t.attack.Execute(en);
-        en.b.CurrentState = ai.CurrentResetState; 
+        en.b.CurrentState = ai.CurrentResetState;
+        t = null;
     }
 }
 

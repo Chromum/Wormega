@@ -23,14 +23,19 @@ public class RoomManager : MonoBehaviour
     public List<EnemyT> t = new List<EnemyT>();
     public int i;
     public List<ItemBox> boxes = new List<ItemBox>(1);
-    
+    public bool BossRoom = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        mapSpriteSelector.PER += PlayerEnter;
-        mapSpriteSelector.PEER += PlayerExits;
-        Waves = Random.RandomRange(0, 3);
-        CurrentWave = 0;
+        if(!BossRoom)
+        {
+            mapSpriteSelector.PER += PlayerEnter;
+            mapSpriteSelector.PEER += PlayerExits;
+            Waves = Random.RandomRange(0, 3);
+            CurrentWave = 0;
+        }
+
     }
 
     // Update is called once per frame
