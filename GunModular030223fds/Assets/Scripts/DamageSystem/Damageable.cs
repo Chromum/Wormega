@@ -10,10 +10,13 @@ using TMPro;
 public class Damageable : MonoBehaviour
 {
     public bool isEnemy;
-
+    public bool isBoss;
     public bool hasHealthBar;
     [EnableIf("hasHealthBar")]
     public HealthBar healthBar;
+    [EnableIf("hasHealthBar")]
+    public Countdown cooldownBar;
+
 
     public bool Regen;
     [EnableIf("Regen")]
@@ -40,6 +43,9 @@ public class Damageable : MonoBehaviour
     private AudioSource Au;
 
     public float startingHealth;
+    public Poolee HitFX;
+    public Poolee hitText;
+    public PooleeManager poolManager;
     public void Start()
     {
         Health = MaxHealth;
@@ -60,16 +66,34 @@ public class Damageable : MonoBehaviour
                 GiveHealth(Time.deltaTime * RegenSpeed);
         }
 
-        float i = Health * 100;
-        float j = i / (HealthTextValue + MaxHealth);
+        if (!isEnemy)
+        {
+            string s = Mathf.Round((Health / (startingHealth + (HealthTextValue))) * (100 + (HealthTextValue))).ToString();
+            string[] split = s.Split(":");
+            
+            text.text = split[0].ToString() + "%";
+        }
 
-        string[] a = j.ToString().Split(".");
-        text.text = a[0] + "%";
+ 
+
+        
+        if (hasHealthBar)
+        {
+            cooldownBar.CountdownUpdate();
+            if (cooldownBar.HasFinished())
+            {
+                healthBar.HealthBarSlider.gameObject.SetActive(false);
+            }
+
+
+
+        }
+        
     }
 
     public void DoDamage(float i, Vector3 Pos)
     {
-        GameObject.Instantiate(VFXPrefab, Pos, Quaternion.LookRotation((Camera.main.transform.position - transform.position)));
+        PoolManager.instance.SpawnFromPool(HitFX, Pos, Quaternion.LookRotation((Camera.main.transform.position - transform.position)));
 
         if ((Health - i) > 0)
             Health -= i;
@@ -85,7 +109,19 @@ public class Damageable : MonoBehaviour
 
         if(isEnemy)
         {
+            SpawnHitText(i);
             AudioUtils.PlaySoundWithPitch(GameManager.instance.AudioSource, GameManager.instance.HitMarker, 1f);
+        }
+
+        if (hasHealthBar)
+        {
+            cooldownBar.StartCountdown();
+            
+            if(healthBar.HealthBarSlider.gameObject.activeSelf == false)
+                healthBar.HealthBarSlider.gameObject.SetActive(true);
+
+            
+
         }
         
         Hit?.Invoke();
@@ -98,23 +134,39 @@ public class Damageable : MonoBehaviour
 
     public virtual void Die()
     {
-        Death?.Invoke(this.gameObject);
         if (isEnemy)
         {
             GameAnnouncer a = GameObject.FindObjectOfType<GameAnnouncer>();
+            PoolManager.instance.ReturnToPool(poolManager.poolType,gameObject);
             a.KillTracker.EnemyDied(a.Announcer);
+            
         }
         if (gameObject.tag == "Player")
         {
             gameObject.GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<Animator>().SetTrigger("Die");
         }
+        Death?.Invoke(this.gameObject);
     }
     public void DeathEvent()
     {
         Cursor.visible = true;
         GameManager.instance.PlayerDeath();
     }
+
+    public void SpawnHitText(float Damage)
+    {
+        string[] s = Damage.ToString().Split(".");
+        string text = s[0];
+
+        GameObject g = PoolManager.instance.SpawnFromPool(hitText, gameObject.transform.GetChild(transform.childCount-1).transform.position, Quaternion.identity);
+        g.GetComponent<HitText>().TextMeshPro.text = text;
+
+
+    }
+    
+    
+    
 
     
 }

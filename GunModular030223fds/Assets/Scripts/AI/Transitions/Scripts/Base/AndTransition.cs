@@ -8,7 +8,6 @@ public class AndTransition : AITransition
     public AIDecision SecondDecision;
     public override void Execute(AIBase aiBase)
     {
-        Debug.Log(base.Decision.Decide(aiBase).ToString());
 
         if (base.Decision.Decide(aiBase) && SecondDecision.Decide(aiBase) && !(TrueState is RemainInState))
             aiBase.CurrentState = TrueState;

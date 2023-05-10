@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1221912159546358794}
   - component: {fileID: 1221912159546358795}
   - component: {fileID: 6831741574623070772}
+  - component: {fileID: 7298731603073735807}
   m_Layer: 0
   m_Name: BloodVFX
   m_TagString: Untagged
@@ -126,3 +127,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3abc715392faf47befd911ca388441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pool: {fileID: 11400000, guid: 120ba0a47e575ab4f8e55938c787568b, type: 2}
+  minPitch: 1
+  maxPitch: 1
+--- !u!114 &7298731603073735807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221912159546358836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4bd97c1c03305459ca920f7c8e75e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: {fileID: 11400000, guid: 120ba0a47e575ab4f8e55938c787568b, type: 2}
+  pooleeDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []

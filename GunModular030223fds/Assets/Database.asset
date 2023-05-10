@@ -99,10 +99,30 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0095ca33bc482f644b9bb95945cd8b21, type: 2}
   - {fileID: 11400000, guid: aa966871e65b55a4cac26ebf357db48f, type: 2}
   CommonUp:
+  - {fileID: 11400000, guid: e6464d3f79f137c47938501b013feb4d, type: 2}
+  - {fileID: 11400000, guid: 474727e687d4b43488027aac69105192, type: 2}
   - {fileID: 11400000, guid: 0ccb81eac796f744596b8d632d61a524, type: 2}
+  - {fileID: 11400000, guid: c98dfeabd96ad6844ad508d3e1b3f744, type: 2}
+  - {fileID: 11400000, guid: bf0e00d547ceb8f4fbf5edcebbdf8768, type: 2}
+  - {fileID: 11400000, guid: f6005563096800d42853124ed4620654, type: 2}
   RareUp:
+  - {fileID: 11400000, guid: 332ef2ce6d05e214b9831218861c93b5, type: 2}
+  - {fileID: 11400000, guid: 57069d257ecbfd445aace401f6f5f2cc, type: 2}
   - {fileID: 11400000, guid: db69ed158ac35a34881f5eb5d826e731, type: 2}
+  - {fileID: 11400000, guid: e067a4babdaf34942ac6f0d94bd17df8, type: 2}
+  - {fileID: 11400000, guid: b4715f5d3f3405d4889ab94b080937df, type: 2}
+  - {fileID: 11400000, guid: a27306e94ba6bb64a884d2f6a7f5f7b6, type: 2}
   LegendaryUp:
+  - {fileID: 11400000, guid: b96ea64da7762fe408cdb3fe294b65a8, type: 2}
+  - {fileID: 11400000, guid: 323519c6877dfca4cbfdebedc0161840, type: 2}
   - {fileID: 11400000, guid: bcb4260a8d779d544a2fe9dc0af3ee32, type: 2}
+  - {fileID: 11400000, guid: 3d8d23f56812cda4cb65bf25b51b4b3d, type: 2}
+  - {fileID: 11400000, guid: d78a40541dfdfb144997cce866c374b5, type: 2}
+  - {fileID: 11400000, guid: 0095ca33bc482f644b9bb95945cd8b21, type: 2}
   MythicUp:
+  - {fileID: 11400000, guid: be63a6b45ed0dea41af1976a8d8b0920, type: 2}
+  - {fileID: 11400000, guid: 26932e43755e7f849b33add0800582e1, type: 2}
   - {fileID: 11400000, guid: dc35f7619778242158ab822a05cc5f17, type: 2}
+  - {fileID: 11400000, guid: 9ff1af65f72d5d54da3571863e8c6c73, type: 2}
+  - {fileID: 11400000, guid: 4f9b299fc5b71674396b6af48ec5d95f, type: 2}
+  - {fileID: 11400000, guid: aa966871e65b55a4cac26ebf357db48f, type: 2}

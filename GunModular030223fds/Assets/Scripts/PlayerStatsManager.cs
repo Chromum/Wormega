@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.LowLevel;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -20,11 +21,10 @@ public class PlayerStatsManager : MonoBehaviour
         PlayerStats.Health = MathsUtils.IncreaseFloatByPercentage(PlayerStats.Health, NewStat.Health);
         Player.MaxHealth = Player.Health * PlayerStats.Health;
 
-        float i = 100 + ((Player.MaxHealth / Player.startingHealth) * 100);
-        Debug.Log((Player.MaxHealth / Player.startingHealth) * 100);
-        Debug.Log(i);
-        Player.HealthTextValue = i;
-
+        float multiplicationDifference = PlayerStats.Health - 1f;
+        multiplicationDifference *= 10;
+        Player.HealthTextValue = multiplicationDifference;
+        Player.healthBar.HealthBarSlider.maxValue = Player.startingHealth + (multiplicationDifference * 10);
 
         // DEBUG LOG PROCESS
         // Display Health/Max Health

@@ -62,4 +62,11 @@ public class Enemy : MonoBehaviour
 
         }
     }
+
+
+    public void ReturnToPool()
+    {
+        b.Damageable.Health = b.Damageable.MaxHealth;
+        b.CurrentState = b.initialState;
+    }
 }

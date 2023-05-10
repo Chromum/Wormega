@@ -39,10 +39,10 @@ public class LevelGenerator : MonoBehaviour
         transform.localScale = new Vector3(5f, 5f, 5f);
         LG?.Invoke();
         gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
-        
+        GameManager.instance.sceneLoaded = true;
 
     }
-    void CreateRooms()
+    public void CreateRooms()
     {
         //setup
         rooms = new Room[gridSizeX * 2, gridSizeY * 2];
@@ -191,7 +191,7 @@ public class LevelGenerator : MonoBehaviour
     {
         return mapSprites[checkingPos + Dir].gameObject;
     }
-    void DrawMap()
+    public void DrawMap()
     {
         bool doneEnemy = false;
         bool doneShop = false;
@@ -250,21 +250,46 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int j = 0; j < rooms.GetLength(1); j++)
             {
-                if (!takenPositions.Contains(new Vector2(i - gridSizeX, j - gridSizeY)))
+                Vector2 drawPosss = new Vector2(i - gridSizeX, j - gridSizeY);
+
+                if (!takenPositions.Contains(drawPosss))
                 {
-                    Vector2 drawPosss = new Vector2(i - gridSizeX, j - gridSizeY);
-                    drawPosss.x *= 16;//aspect ratio of map sprite
-                    drawPosss.y *= 16;
-                    GameObject g = GameObject.Instantiate(DebugBuildPrefab[Random.RandomRange(0,DebugBuildPrefab.Count)], drawPosss, new Quaternion(180, 0f, 0f, 0f));
-                    g.gameObject.transform.parent = mapRoot;
-                    g.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
+                    bool isNearTakenPosition = false;
+
+                    for (int x = -2; x <= 2; x++)
+                    {
+                        for (int y = -2; y <= 2; y++)
+                        {
+                            Vector2 nearbyPosition = new Vector2(i - gridSizeX + x, j - gridSizeY + y);
+
+                            if (takenPositions.Contains(nearbyPosition))
+                            {
+                                isNearTakenPosition = true;
+                                break;
+                            }
+                        }
+
+                        if (isNearTakenPosition)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (isNearTakenPosition)
+                    {
+                        drawPosss.x *= 16;//aspect ratio of map sprite
+                        drawPosss.y *= 16;
+                        GameObject g = GameObject.Instantiate(DebugBuildPrefab[Random.RandomRange(0,DebugBuildPrefab.Count)], drawPosss, new Quaternion(180, 0f, 0f, 0f));
+                        g.gameObject.transform.parent = mapRoot;
+                        g.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
+                    }
                 }
             }
         }
         SetValues();
     }
 
-    void SetValues()
+    public void SetValues()
     {
         foreach (var item in rooms)
         {
@@ -285,7 +310,7 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
-    void SetRoomDoors()
+    public void SetRoomDoors()
     {
         for (int x = 0; x < ((gridSizeX * 2)); x++)
         {
@@ -330,6 +355,7 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
         }
+
     }
 }
 

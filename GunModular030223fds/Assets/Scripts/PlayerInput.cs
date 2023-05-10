@@ -24,12 +24,12 @@ public class PlayerInput : MonoBehaviour
             if(PlayerGun.Barrel.barrelType == BarrelType.FullyAuto)
             {
                 if (Input.GetMouseButton(0))
-                    PlayerGun.TryShoot(PlayerGun.fireTar.forward);
+                    PlayerGun.TryShoot(Camera.main.transform.forward);
             }
             else
             {
                 if (Input.GetMouseButtonDown(0))
-                    PlayerGun.TryShoot(PlayerGun.fireTar.forward);
+                    PlayerGun.TryShoot(Camera.main.transform.forward);
             }
             
         }

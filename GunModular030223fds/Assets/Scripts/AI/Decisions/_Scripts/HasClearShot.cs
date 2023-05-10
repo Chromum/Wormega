@@ -6,7 +6,6 @@ public class HasClearShot : AIDecision
 {
     public override bool Decide(AIBase AIbase)
     {
-        Debug.Log("1");
         RaycastHit hit;
         if(Physics.Raycast(AIbase.transform.position , AIbase.transform.forward, out hit, 30f))
         {

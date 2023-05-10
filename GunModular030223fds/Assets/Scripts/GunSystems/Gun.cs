@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
+ using Unity.Mathematics;
+ using UnityEngine;
 using UnityEngine.VFX;
  using Random = UnityEngine.Random;
 
@@ -15,7 +16,7 @@ using UnityEngine.VFX;
     public List<AudioClip> Click;
     public GameObject VFX;
     
-    [Header("Stats")]
+    [Header("Stats")]   
     public float FireRate;
     public float Damage;
     public int MagSize;
@@ -36,7 +37,8 @@ using UnityEngine.VFX;
 
     public GunRecoil gunRecoil;
 
-
+    public List<Poolee> decals;
+    
     public Countdown Countdown;
     public void Start()
     {
@@ -166,6 +168,10 @@ using UnityEngine.VFX;
         this.Damage = Damage;
         MagSize = magSize;
         this.Accuracy = Accuracy;
+
+        if (Accuracy < 0)
+            Accuracy = 0;
+        
         Reload();
     }
 
@@ -234,6 +240,10 @@ using UnityEngine.VFX;
                     {
                         d.DoDamage((float)Damage,h1.point);
                     }
+                    else
+                    {
+                        SpawnDecal(h1.point,h1.normal);
+                    }
 
                 }
                 GunShot();
@@ -254,6 +264,10 @@ using UnityEngine.VFX;
                             {
                                 d.DoDamage((float)Damage,h1.point);
                             }
+                            else
+                            {
+                                SpawnDecal(h1.point,h1.normal);
+                            }
                         }
                         GunShot();
                         Debug.Log("Shot");
@@ -266,6 +280,10 @@ using UnityEngine.VFX;
                             if (d != null)
                             {
                                 d.DoDamage((float)Damage,h2.point);
+                            }
+                            else
+                            {
+                                SpawnDecal(h2.point,h2.normal);
                             }
                         }
                         GunShot();
@@ -292,6 +310,10 @@ using UnityEngine.VFX;
                             {
                                 d.DoDamage((float)Damage,h1.point);
                             }
+                            else
+                            {
+                                SpawnDecal(h1.point,h1.normal);
+                            }
                         }
                         GunShot();
                         Debug.Log("Shot");
@@ -304,6 +326,10 @@ using UnityEngine.VFX;
                             if (d != null)
                             {
                                 d.DoDamage((float)Damage,h2.point);
+                            }
+                            else
+                            {
+                                SpawnDecal(h2.point,h2.normal);
                             }
                         }
                         GunShot();
@@ -318,6 +344,10 @@ using UnityEngine.VFX;
                             {
                                 d.DoDamage((float)Damage,h3.point);
                             }
+                            else
+                            {
+                                SpawnDecal(h3.point,h3.normal);
+                            }
                         }
 
                         GunShot();
@@ -326,9 +356,14 @@ using UnityEngine.VFX;
                 }
             }
         }
-        if(!AI)
-            gunRecoil.Fire();
+       
     }
+
+    public void SpawnDecal(Vector3 position, Vector3 rotation)
+    {
+        PoolManager.instance.SpawnFromPool(decals[Random.RandomRange(0, decals.Count)], position, Quaternion.FromToRotation(Vector3.forward, rotation));
+    }
+    
     public bool RaycastWithAccuracy(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance, float accuracy)
     {
         Vector3 spreadDirection = Vector3.Slerp(direction, UnityEngine.Random.onUnitSphere, accuracy);
@@ -352,9 +387,10 @@ using UnityEngine.VFX;
     {
         float pitch = UnityEngine.Random.Range(0.9f, 1.1f); // Change pitch randomly within a small range
         AudioUtils.PlaySoundWithPitch(sU,clip[Random.RandomRange(0,clip.Count)],pitch);
-        GameObject g = GameObject.Instantiate(VFX,transform.GetChild(0).transform.position,new Quaternion(0f,-180f,0f,0f), transform.GetChild(0));
-        g.transform.localPosition = new Vector3(0f, 0f, -0.366f);
-        g.transform.localRotation = new Quaternion(0f, -180f, 0f, 0f);
+        if(!AI)
+            gunRecoil.Fire();
+        VFX.GetComponent<VisualEffect>().Play();
+
     }
 }
 

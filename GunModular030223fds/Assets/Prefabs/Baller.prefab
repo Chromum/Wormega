@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &16630611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16630612}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &16630612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16630611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6526000689476068408}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &144126020586514084
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +764,7 @@ GameObject:
   - component: {fileID: 6526000689476068411}
   - component: {fileID: 466623080}
   - component: {fileID: 1350166246169364351}
+  - component: {fileID: 7169590330842988385}
   m_Layer: 0
   m_Name: Baller
   m_TagString: Enemy
@@ -754,6 +786,7 @@ Transform:
   m_Children:
   - {fileID: 6709161062144289537}
   - {fileID: 7670490237759672777}
+  - {fileID: 16630612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -842,8 +875,9 @@ MonoBehaviour:
     VFX: {fileID: 6526000691532089782}
     As: {fileID: 6526000691532089783}
   MissleShoot:
-  - {fileID: 8300000, guid: 1bd5d9b0c9311b84da1f20a2f2fce35d, type: 3}
-  Explosion: []
+  - {fileID: 8300000, guid: b366edc6871bf8547b74ec9c1ce378e1, type: 3}
+  Explosion:
+  - {fileID: 8300000, guid: c0f1ac122f9d2f64db6892a2f09a6851, type: 3}
 --- !u!114 &6526000689476068410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,17 +891,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
+  isBoss: 0
   hasHealthBar: 1
   healthBar: {fileID: 1350166246169364351}
+  cooldownBar:
+    Finished: 0
+    value: 5
+    Count: 5
   Regen: 0
   RegenSpeed: 0
   cooldown:
     Finished: 0
     value: 0
     Count: 0
+  Player: 0
+  text: {fileID: 0}
+  HealthTextValue: 0
   MaxHealth: 270
   Health: 270
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
+  startingHealth: 0
+  HitFX: {fileID: 11400000, guid: beb7cbd62f5e16b428774bac0a7ce417, type: 2}
+  hitText: {fileID: 11400000, guid: a407f2b2132a3b043bb5c7f268b3605a, type: 2}
+  poolManager: {fileID: 7169590330842988385}
 --- !u!95 &6526000689476068411
 Animator:
   serializedVersion: 4
@@ -918,6 +964,34 @@ MonoBehaviour:
   Damageable: {fileID: 6526000689476068410}
   TwoD: 0
   AutoUpdate: 1
+--- !u!114 &7169590330842988385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526000689476068412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4bd97c1c03305459ca920f7c8e75e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: {fileID: 11400000, guid: 53a3888a97b9ff448bba2090d342eb61, type: 2}
+  pooleeDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7169590330842988385}
+        m_TargetAssemblyTypeName: PooleeManager, Assembly-CSharp
+        m_MethodName: ReturnToPool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6526000689496759016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,12 +3281,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4683605092187327104, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5006853815301098190, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 2827670945779326484}
+    - target: {fileID: 5118575774779356405, guid: 85e3164daae472848a47e17af33a16af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5416370003295260279, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_Name
       value: HealthBar

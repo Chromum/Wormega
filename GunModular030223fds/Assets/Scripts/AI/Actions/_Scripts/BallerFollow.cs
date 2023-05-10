@@ -21,16 +21,11 @@ public class BallerFollow : AIAction
 
         Vector3 offset = player.position - AIbase.transform.position;
         float sqrDistanceToPlayer = offset.sqrMagnitude;
-        Debug.Log("YEP!");
-        Debug.Log(player.name);
-        Debug.Log(agent.name);
-        Debug.Log(sqrDistanceToPlayer);
-        Debug.Log(sqrMoveAwayDistance);
+
 
     
             if (sqrDistanceToPlayer >= sqrFollowDistance)
             {
-                Debug.Log("EE");
                 agent.SetDestination(player.position);
             }
             else if (sqrDistanceToPlayer <= sqrMoveAwayDistance)

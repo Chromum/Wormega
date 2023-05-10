@@ -6,7 +6,7 @@ public class AIBase : MonoBehaviour
 {
     public Enemy Enemy;
     public Damageable Damageable;
-    [SerializeField] private BaseAIState initialState;
+    public BaseAIState initialState;
 
     private void Awake()
     {

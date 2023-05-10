@@ -161,7 +161,21 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 9fdef1e55cecce24da5a35071f0b6d20
+    name: Announcer
+  - guid: d19765eb9c8b88d4fb73b3d50f023025
+    name: BackgroundNoise
+  - guid: 215919dc82974604aa6234a4cba5630e
+    name: GunSounds
+  - guid: 5052682a6822ae34eabd2af26acf3ae9
+    name: Master
+  - guid: ea7f3577352b83946be3a6e5df25fd26
+    name: PlayerSounds
+  - guid: a368725d4926a1648a57dddd59d5f23a
+    name: SFX
+  - guid: 9fb2ee9c3666b464393e9acb8567dd2b
+    name: Voices
   m_AudioMixerGroupViews:
   - guids:
     - f146bfc5b9a2e3a42b707b855b3cd4d0
@@ -224,7 +238,8 @@ AudioMixerSnapshotController:
   m_SnapshotID: 1d044594fea1e45418491e6194bbb04b
   m_FloatValues:
     9fdef1e55cecce24da5a35071f0b6d20: 9.097023
-    ea7f3577352b83946be3a6e5df25fd26: -13.637256
+    ea7f3577352b83946be3a6e5df25fd26: 0.04171297
+    5052682a6822ae34eabd2af26acf3ae9: 9.925883
     d19765eb9c8b88d4fb73b3d50f023025: -16.660433
     215919dc82974604aa6234a4cba5630e: -10.673756
   m_TransitionOverrides: {}

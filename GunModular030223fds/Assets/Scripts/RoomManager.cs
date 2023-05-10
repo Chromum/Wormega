@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class RoomManager : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class RoomManager : MonoBehaviour
 
     public GameObject HeliPrefab;
 
-    public List<GameObject> EnemyPrefabs = new List<GameObject>();
+    public List<Poolee> EnemyPrefabs = new List<Poolee>();
     public AudioClip SF;
 
     public int Waves;
@@ -21,6 +23,7 @@ public class RoomManager : MonoBehaviour
     public List<EnemyT> t = new List<EnemyT>();
     public int i;
     public List<ItemBox> boxes = new List<ItemBox>(1);
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -145,10 +148,9 @@ public class RoomManager : MonoBehaviour
     {
         try
         {
-           NavMeshAgent g = GameObject.Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)]).GetComponent<NavMeshAgent>();
+            NavMeshAgent g = PoolManager.instance.SpawnFromPool(EnemyPrefabs[Random.RandomRange(0,EnemyPrefabs.Count)],Heli.transform.GetChild(14).position,quaternion.identity).GetComponent<NavMeshAgent>();
             g.enabled = false;
             g.GetComponent<Enemy>().enabled = false;
-            g.transform.position = Heli.transform.GetChild(14).position;
             t.Add(new EnemyT { EnemyOBJ = g.gameObject, Alive = true });
             g.GetComponent<Damageable>().Death += EnemyDied;
             StartCoroutine(LerpObject(g, 3f, Heli.transform.GetChild(14).position));

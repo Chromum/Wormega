@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
@@ -21,6 +22,18 @@ public class GameManager : MonoBehaviour
     public GameAnnouncer Announcer;
     public float GrappleForce = 100;
     public HealthBar Wave1, Wave2, Wave3;
+
+    private bool OptionMenuBool;
+    public GameObject OptionMenuUI;
+    
+    private bool ControlMenuBool;
+    public GameObject ControlMenuUI;
+
+    public AudioMixer auMix;
+    public bool sceneLoaded;
+
+    public GameObject player;
+    
     private void Start()
     {
         if (instance == null)
@@ -69,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(int scene)
     {
+        sceneLoaded = false;
         StartCoroutine(LoadSceneEnum(scene));
     }
 
@@ -77,7 +91,7 @@ public class GameManager : MonoBehaviour
         AsyncOperation o = SceneManager.LoadSceneAsync(i);
         LoadingSceneArt.SetActive(true);
 
-        while (!o.isDone)
+        while (!o.isDone && sceneLoaded == false)
         {
             yield return null;
         }
@@ -94,6 +108,17 @@ public class GameManager : MonoBehaviour
         gameObject.transform.GetChild(1).gameObject.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void ToggleControlMenu()
+    {
+        ControlMenuBool = !ControlMenuBool;
+        ControlMenuUI.SetActive(ControlMenuBool);
+    }
+    public void ToggleOptionMenu()
+    {
+        OptionMenuBool = !OptionMenuBool;
+        OptionMenuUI.SetActive(OptionMenuBool);
     }
 
 }

@@ -72,9 +72,9 @@ public class BallerAttack : Attack
             float time = 0f;
             g.transform.localScale = startScale;
             g.transform.position = ranPoints[i];
-            while (time < 1.25f)
+            while (time < .5f)
             {
-                float te = time / 1.25f;
+                float te = time / .5f;
                 g.transform.localScale = Vector3.Lerp(startScale, endScale, te);
                 time += Time.deltaTime;
                 yield return null;

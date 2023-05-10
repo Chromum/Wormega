@@ -112,7 +112,14 @@ public class MapSpriteSelector : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerInRoom = true;
-            Pm.currentRoom = this;
+            if (Pm != null)
+                Pm.currentRoom = this;
+            else
+            {
+                Pm = GameObject.FindObjectOfType<PlayerManager>();
+                Pm.currentRoom = this;
+            }
+
             PER?.Invoke();
             ev?.Invoke();
         }
