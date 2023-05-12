@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Test State
   m_EditorClassIdentifier: 
   AIActions:
-  - {fileID: 11400000, guid: bb03bef8dac0f844d98e6660a8680f05, type: 2}
-  AITransitions:
-  - {fileID: 11400000, guid: d42556eda7543ed42b27172b5d898cb1, type: 2}
+  - {fileID: 11400000, guid: d51b85ab1fbfd1449a202c0b52405d3c, type: 2}
+  AITransitions: []

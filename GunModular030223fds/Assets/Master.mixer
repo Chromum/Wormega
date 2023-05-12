@@ -185,6 +185,7 @@ AudioMixerController:
     - f58b2820688e8a848a393be8e34d9ca8
     - d04900782c5128645846f641e98c90a2
     - 7b6252208c4e43843b69a0ef7b0d7fd6
+    - bfa4e645d09c12d4896150f4ff52c924
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -204,6 +205,7 @@ AudioMixerGroupController:
   - {fileID: -5510231960832294001}
   - {fileID: 3134212392122607763}
   - {fileID: -5554264007517779841}
+  - {fileID: 8136438869053193616}
   m_Volume: 5052682a6822ae34eabd2af26acf3ae9
   m_Pitch: 46b09226c15d2434296bc988dfab8fc8
   m_Send: 00000000000000000000000000000000
@@ -237,6 +239,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 1d044594fea1e45418491e6194bbb04b
   m_FloatValues:
+    9ef3da8095251d9459e25eb6fc8811af: 20
     9fdef1e55cecce24da5a35071f0b6d20: 9.097023
     ea7f3577352b83946be3a6e5df25fd26: 0.04171297
     5052682a6822ae34eabd2af26acf3ae9: 9.925883
@@ -291,6 +294,39 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -2488963140591900769}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &5147430115904274667
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c39e69c3249d470498b197114fee44a1
+  m_EffectName: Attenuation
+  m_MixLevel: 4a6d029b0111e75469494ba162761207
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &8136438869053193616
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Familty Guy
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: bfa4e645d09c12d4896150f4ff52c924
+  m_Children: []
+  m_Volume: 9ef3da8095251d9459e25eb6fc8811af
+  m_Pitch: 5734875c2084dbc4ea3d8f9e3ac876a1
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 5147430115904274667}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

@@ -14,7 +14,7 @@ public class BossRoomManager : MonoBehaviour
     public GameObject HeliPrefab;
     public List<EnemyT> t = new List<EnemyT>();
     public BossAI ai;
-
+    public GameObject intro;
     public void Start()
     {
         mapSpriteSelector.PER += PlayerEnter;
@@ -28,7 +28,8 @@ public class BossRoomManager : MonoBehaviour
 
     public void PlayerEnter()
     {
-        ai.Activate();
+
+        intro.SetActive(true);
     }
 
     public IEnumerator FlyAwayEnum(AudioSource SFX, GameObject g)

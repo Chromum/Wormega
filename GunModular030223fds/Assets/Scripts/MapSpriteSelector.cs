@@ -97,7 +97,7 @@ public class MapSpriteSelector : MonoBehaviour
                 transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
                 break;
             case 3:
-                transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;
+                transform.gameObject.GetComponentInChildren<BossRoomManager>().enabled = false;
                 break;
             case 4:
                 transform.gameObject.GetComponentInChildren<RoomManager>().enabled = false;

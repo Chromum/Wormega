@@ -907,8 +907,8 @@ MonoBehaviour:
   Player: 0
   text: {fileID: 0}
   HealthTextValue: 0
-  MaxHealth: 270
-  Health: 270
+  MaxHealth: 200
+  Health: 200
   VFXPrefab: {fileID: 1221912159546358836, guid: 98f66ef11ae29664588dc4c3c5e128da, type: 3}
   startingHealth: 0
   HitFX: {fileID: 11400000, guid: beb7cbd62f5e16b428774bac0a7ce417, type: 2}
@@ -3282,6 +3282,10 @@ PrefabInstance:
     - target: {fileID: 4683605092187327104, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006853815301098190, guid: 85e3164daae472848a47e17af33a16af, type: 3}
+      propertyPath: m_MaxValue
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5006853815301098190, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_TargetGraphic

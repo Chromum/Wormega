@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,26 +51,59 @@ public class BossAI : Enemy
         spawnTransform.gameObject.SetActive(false);
         Vector3 pos = transform.position;
         transform.parent = null;
+        GameManager.instance.Wave1.transform.parent.gameObject.SetActive(true);
         base.Start();
         healerSpawnCooldown.StartCountdown();
         b.Damageable.Death += WaveChange;
-        Wave1 = GameObject.Find("Wave1HealthBar").GetComponent<HealthBar>();
-        Wave2 = GameObject.Find("Wave2HealthBar").GetComponent<HealthBar>();
-        Wave3 = GameObject.Find("Wave3HealthBar").GetComponent<HealthBar>();
-        b.enabled = false;
+        if(Wave1 == null)
+            Wave1 = GameObject.Find("Wave1HealthBar").GetComponent<HealthBar>();
+        if(Wave2 == null)
+            Wave2 = GameObject.Find("Wave2HealthBar").GetComponent<HealthBar>();
+        if(Wave3 == null)
+            Wave3 = GameObject.Find("Wave3HealthBar").GetComponent<HealthBar>();
+
+        switch (wave)
+        {
+            case 2:
+                b.Damageable.healthBar = Wave2;
+                b.Damageable.MaxHealth = WaveTwoHealth;
+                b.Damageable.Health = WaveTwoHealth;
+                break;
+            case 3:
+                b.Damageable.healthBar = Wave3;
+                b.Damageable.MaxHealth = WaveThreeHealth;
+                b.Damageable.Health = WaveTwoHealth;
+                
+                break;
+            case 4:
+                Debug.Log("Boss Defeated");
+                Wave1.transform.parent.gameObject.SetActive(false);
+                Destroy(gameObject);
+                break;
+                
+        }
+
+        b.Damageable.healthBar.HealthBarSlider.maxValue = b.Damageable.MaxHealth;
+        b.Damageable.healthBar.HealthBarSlider.value = b.Damageable.MaxHealth;
+        b.enabled = true;
+    }
+
+    public void OnDisable()
+    {
+        b.Damageable.Death -= WaveChange;
+
     }
 
     public void Activate()
     {
         
-        b.Damageable.MaxHealth = WaveOneHealth;
-        b.Damageable.Health = b.Damageable.MaxHealth;
-        b.enabled = true;
+
     }
 
     public void BackIntoRing()
     {
-
+        ActivateGameOBJ();
+        animator.SetBool("InArena", true);
     }
 
     // Update is called once per frame
@@ -99,7 +133,6 @@ public class BossAI : Enemy
 
             if(wave == 3)
                 Wave3.HealthBarSlider.value = b.Damageable.Health;
-
         }
         else
         {
@@ -140,20 +173,24 @@ public class BossAI : Enemy
             case 4:
                 Debug.Log("Boss Defeated");
                 Wave1.transform.parent.gameObject.SetActive(false);
+                GameManager.instance.GameWin();
                 Destroy(gameObject);
                 break;
                 
         }
 
+        if (wave != 4)
+        {
+            outOfArena = true;
+            SpawnEnemies();
+            animator.SetBool("InArena", false);
+        }
 
-        outOfArena = true;
-        SpawnEnemies();
     }
 
     public void SpawnEnemies()
     {
         bossRoomManager.SpawnEnemies();
-        gameObject.SetActive(false);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -182,5 +219,14 @@ public class BossAI : Enemy
     public override void ResetCooldown()
     {
         
+    }
+
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+    public void ActivateGameOBJ()
+    {
+        gameObject.SetActive(true);
     }
 }

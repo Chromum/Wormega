@@ -17,11 +17,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerManager>().transform;
-        if(AutoUpdate)
-            HealthBarSlider.maxValue = Damageable.MaxHealth;
-        else
-            HealthBarSlider.maxValue = GameObject.FindObjectOfType<BossAI>().b.Damageable.MaxHealth;
-
+ 
     }
 
     // Update is called once per frame

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Baller
   m_EditorClassIdentifier: 
   poolType: 4
-  Amount: 15
+  Amount: 300
   poolPrefab: {fileID: 6526000689476068412, guid: 2d6450487cccbce449ac85b02b17dece, type: 3}

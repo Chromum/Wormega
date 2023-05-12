@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HitNumber
   m_EditorClassIdentifier: 
   poolType: 4
-  Amount: 20
+  Amount: 300
   poolPrefab: {fileID: 2408223600913505488, guid: 7ef26ad0a1ebb2f4e967759a4c24890f, type: 3}

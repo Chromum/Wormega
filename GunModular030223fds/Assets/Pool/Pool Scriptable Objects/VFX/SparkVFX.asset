@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78b12c59baad9b4787ec3aab2efcc92, type: 3}
   m_Name: SparkVFX
   m_EditorClassIdentifier: 
-  poolType: 1
-  Amount: 10
+  poolType: 4
+  Amount: 300
   poolPrefab: {fileID: 5987711396127017987, guid: e77bf16c5e125d04ebabb2000fa4cfd5, type: 3}

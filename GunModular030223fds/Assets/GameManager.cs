@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
     public bool sceneLoaded;
 
     public GameObject player;
+    public GameObject winScreen;
+    public GameObject creditScreen;
+
+    
+
+    public bool hasDied;
     
     private void Start()
     {
@@ -121,4 +127,40 @@ public class GameManager : MonoBehaviour
         OptionMenuUI.SetActive(OptionMenuBool);
     }
 
+    public void GameWin()
+    {
+        if(!hasDied)
+        {
+            foreach(GameObject g in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (g != gameObject)
+                    g.SetActive(false);
+                
+                
+            }
+
+            hasDied = true;
+            winScreen.SetActive(true);
+            creditScreen.SetActive(false);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
+            foreach (var VARIABLE in winScreen.transform.GetComponentsInChildren<Transform>())
+            {
+                VARIABLE.gameObject.SetActive(true);
+            }
+            
+            foreach (var VARIABLE in creditScreen.transform.GetComponentsInChildren<Transform>())
+            {
+                VARIABLE.gameObject.SetActive(true);
+            }
+            creditScreen.SetActive(false);
+            
+        }
+
+
+
+    }
+
+    
 }
