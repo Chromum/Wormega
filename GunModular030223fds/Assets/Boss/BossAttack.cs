@@ -5,9 +5,9 @@ using UnityEngine;
 public class BossAttack : Attack
 {
     public List<AttackAndCooldown> f;
-    public List<AttackAndCooldown> WaveOne;
-    public List<AttackAndCooldown> WaveTwo;
-    public List<AttackAndCooldown> WaveThree;
+    public BossWave WaveOne;
+    public BossWave WaveTwo;
+    public BossWave WaveThree;
 
     public override void Execute(Enemy en)
     {
@@ -18,7 +18,7 @@ public class BossAttack : Attack
         {
             if(ai.wave == 1)
             {
-                AttackAndCooldown ta = WaveOne[Random.Range(0, WaveOne.Count)];
+                AttackAndCooldown ta = WaveOne.bossAttacks[Random.Range(0, WaveOne.bossAttacks.Count)];
                 if (ta.countDown.HasFinished())
                 {
                     t = ta;
@@ -30,7 +30,7 @@ public class BossAttack : Attack
             }
             if (ai.wave == 2)
             {
-                AttackAndCooldown ta = WaveTwo[Random.Range(0, WaveTwo.Count)];
+                AttackAndCooldown ta = WaveTwo.bossAttacks[Random.Range(0, WaveOne.bossAttacks.Count)];
                 if (ta.countDown.HasFinished())
                 {
                     t = ta;
@@ -41,7 +41,7 @@ public class BossAttack : Attack
             }
             if (ai.wave == 3)
             {
-                AttackAndCooldown ta = WaveThree[Random.Range(0, WaveThree.Count)];
+                AttackAndCooldown ta = WaveThree.bossAttacks[Random.Range(0, WaveOne.bossAttacks.Count)];
                 if (ta.countDown.HasFinished())
                 {
                     t = ta;

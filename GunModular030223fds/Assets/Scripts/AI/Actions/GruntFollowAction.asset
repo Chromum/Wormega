@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GruntFollowAction
   m_EditorClassIdentifier: 
   moveaway: 0
-  followDistance: 0
-  moveAwayDistance: 0
+  followDistance: 5
+  moveAwayDistance: 1

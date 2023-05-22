@@ -8,7 +8,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public Attack Attack;
-    public EnemyDifficultyStats Stats;
+    public EnemyStats EnemyStats;
+    public EnemyDifficultyStats DifficultyStats;
     public NavMeshAgent NavMeshAgent;
     public Countdown countdown;
     public float cooldown;
@@ -22,25 +23,35 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
         b = gameObject.GetComponent<AIBase>();
         b.enabled = true;
-        cooldown = Attack.Cooldown;
+        if(this.GetType() != typeof(BossAI))
+            cooldown = EnemyStats.attackCooldown;
+        else
+        {
+
+            cooldown = Attack.Cooldown;
+        }
         countdown.Count = cooldown;
-        Stats = GameManager.instance.currentDifficulty.enemyStats;
+        Debug.Log(GameManager.instance.currentDifficulty.enemyStats.Barrel.Name);
+        DifficultyStats = GameManager.instance.currentDifficulty.enemyStats;
+        if(this.GetType() != typeof(BossAI))
+            b.Damageable.MaxHealth = EnemyStats.Health;
     }
-
-
     public virtual void Update()
     {
+        if(DifficultyStats.HealthMultiplier != GameManager.instance.currentDifficulty.enemyStats.HealthMultiplier)
+            DifficultyStats = GameManager.instance.currentDifficulty.enemyStats;
+
+
         if (!canAttack)
         {
             countdown.CountdownUpdate();
+            animator.SetBool("AttackAnim", false);
         }
 
         if (countdown.HasFinished())
         {
             if(canAttack == false)
                 canAttack = true;
-            
-
         }
        
     }

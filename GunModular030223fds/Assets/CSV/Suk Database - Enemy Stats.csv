@@ -1,0 +1,4 @@
+Name,Health,Min Attack Damage,Max Attack Damage,Attack Cooldown
+Grunt,100,0,0,1
+Charger,100,100,250,3
+Baller,100,600,600,10

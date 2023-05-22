@@ -66,6 +66,10 @@ using UnityEngine.VFX;
 
     public bool NeedsToReload()
     {
+        if (AI )
+            return false;
+        
+        
         int count = 0;
         switch (Barrel.ShotMode)
         {
@@ -131,7 +135,7 @@ using UnityEngine.VFX;
 
         RecalculateStats(); 
     }
-        
+    [NaughtyAttributes.Button("Recalculate Stats")]
     public void RecalculateStats()
     {
 
@@ -174,7 +178,6 @@ using UnityEngine.VFX;
         if (Accuracy < 0)
             Accuracy = 0;
         
-        Reload();
     }
 
     public void Reload()
@@ -188,31 +191,6 @@ using UnityEngine.VFX;
         Countdown.Count = MathsUtils.DecreaseFloatByPercentage(BaseStat.FireRateBase, FireRate);
         Countdown.StartCountdown();
         fireTar.localEulerAngles = new Vector3(0f, 0f, 0f);
-        int count = 0;
-        switch (Barrel.ShotMode)
-        {
-            case ShotMode.SingleShot:
-                count = 1;
-                break;
-            case ShotMode.DoubleShot:
-                count = 2;
-                break;
-            case ShotMode.TrippleShot:
-                count = 3;
-                break;
-            default:
-                break;
-        }
-        currentAmmo -= count;
-        float Accuracy = 0f;
-        if (AI)
-        {
-            Accuracy = 0.03f;
-            if (boss)
-                Accuracy = bossAccuracy;
-        }
-        else Accuracy = this.Accuracy;
-
         int ShotCount = 1;
         switch (Barrel.ShotMode)
         {
@@ -228,8 +206,14 @@ using UnityEngine.VFX;
             default:
                 break;
         }
+
         if (AI)
+        {
             ShotCount = 1;
+            Accuracy = .1f;
+        }
+        currentAmmo -= ShotCount;
+
 
         for (int i = 0; i < ShotCount; i++)
         {

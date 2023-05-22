@@ -19,12 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de96567eb296df44ebf059e439c2d49e, type: 2}
   - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
   - {fileID: 11400000, guid: ed25d2bc2d248b44dbf0bae0ce8f7468, type: 2}
-  WaveOne:
-  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
-  WaveTwo:
-  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
-  - {fileID: 11400000, guid: ed25d2bc2d248b44dbf0bae0ce8f7468, type: 2}
-  WaveThree:
-  - {fileID: 11400000, guid: de96567eb296df44ebf059e439c2d49e, type: 2}
-  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
-  - {fileID: 11400000, guid: ed25d2bc2d248b44dbf0bae0ce8f7468, type: 2}
+  WaveOne: {fileID: 11400000, guid: 9b48a29a8ce7cce4ab410430e61a62cf, type: 2}
+  WaveTwo: {fileID: 11400000, guid: a1dc288275d4dab42925d0b385cc7295, type: 2}
+  WaveThree: {fileID: 11400000, guid: e1648993d58ba72428997a0497439f8d, type: 2}

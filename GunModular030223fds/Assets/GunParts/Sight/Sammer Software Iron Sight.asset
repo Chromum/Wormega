@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sammer Software Iron Sight
   Type: 2
-  Bio: SAM FILL THIS IN
+  Bio: This sight is Iron
   FireRate: 0
   Damage: 0
   MagSize: 0

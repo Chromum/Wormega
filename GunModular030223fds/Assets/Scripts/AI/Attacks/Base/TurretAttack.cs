@@ -11,6 +11,7 @@ public class TurretAttack : Attack
     public override void Execute(Enemy en)
     {
         en.player.GetComponent<Damageable>().DoDamage(Damage((Turret)en),Vector3.zero);
+        en.canAttack = false;
     }
 
 

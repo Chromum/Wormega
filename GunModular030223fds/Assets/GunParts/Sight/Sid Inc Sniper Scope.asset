@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sid Inc Sniper Scope
   Type: 2
-  Bio: SID FILL THIS IN
+  Bio: This scope for sure scopes and that
   FireRate: 0
   Damage: 0
   MagSize: 0

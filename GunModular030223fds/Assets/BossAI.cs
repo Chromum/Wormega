@@ -10,10 +10,8 @@ public class BossAI : Enemy
     public List<Transform> HealerPositions;
     public AIState CurrentResetState;
 
-    public float WaveOneHealth;
-    public float WaveTwoHealth;
-    public float WaveThreeHealth;
-
+    public BossWave bossWave1, bossWave2, bossWave3;
+    public BossWave currentWave;
     public bool HealersSpawned;
     public int currentHealers = 0;
 
@@ -45,6 +43,15 @@ public class BossAI : Enemy
 
     // Start is called before the first frame update
 
+    
+
+    public void Start()
+    {
+        player = GameObject.Find("Player");
+        b = gameObject.GetComponent<AIBase>();
+        b.enabled = true;
+    }
+
     public void OnEnable()
     {
         spawnTransform.parent.gameObject.GetComponent<Animator>().enabled = false;
@@ -55,25 +62,49 @@ public class BossAI : Enemy
         base.Start();
         healerSpawnCooldown.StartCountdown();
         b.Damageable.Death += WaveChange;
-        if(Wave1 == null)
+        if (Wave1 == null)
+        {
             Wave1 = GameObject.Find("Wave1HealthBar").GetComponent<HealthBar>();
-        if(Wave2 == null)
+        }
+
+        if (Wave2 == null)
+        {
             Wave2 = GameObject.Find("Wave2HealthBar").GetComponent<HealthBar>();
-        if(Wave3 == null)
+
+        }
+
+        if (Wave3 == null)
+        {
             Wave3 = GameObject.Find("Wave3HealthBar").GetComponent<HealthBar>();
 
+        }
+
+        
+        
+        
         switch (wave)
         {
+            case 1:
+                b.Damageable.healthBar = Wave1;
+                b.Damageable.MaxHealth = bossWave1.bossHealth;
+                b.Damageable.Health = bossWave1.bossHealth;
+                b.Damageable.healthBar.HealthBarSlider.maxValue = bossWave1.bossHealth;
+                b.Damageable.healthBar.gameObject.SetActive(true);
+                break;
             case 2:
                 b.Damageable.healthBar = Wave2;
-                b.Damageable.MaxHealth = WaveTwoHealth;
-                b.Damageable.Health = WaveTwoHealth;
+                b.Damageable.MaxHealth = bossWave2.bossHealth;
+                b.Damageable.Health = bossWave2.bossHealth;
+                b.Damageable.healthBar.HealthBarSlider.maxValue = bossWave2.bossHealth;
+                b.Damageable.healthBar.gameObject.SetActive(true);
                 break;
             case 3:
                 b.Damageable.healthBar = Wave3;
-                b.Damageable.MaxHealth = WaveThreeHealth;
-                b.Damageable.Health = WaveTwoHealth;
-                
+                b.Damageable.MaxHealth = bossWave3.bossHealth;
+                b.Damageable.Health = bossWave3.bossHealth;
+                b.Damageable.healthBar.HealthBarSlider.maxValue = bossWave3.bossHealth;
+                b.Damageable.healthBar.gameObject.SetActive(true);
+
                 break;
             case 4:
                 Debug.Log("Boss Defeated");
@@ -83,11 +114,12 @@ public class BossAI : Enemy
                 
         }
 
-        b.Damageable.healthBar.HealthBarSlider.maxValue = b.Damageable.MaxHealth;
-        b.Damageable.healthBar.HealthBarSlider.value = b.Damageable.MaxHealth;
+
         b.enabled = true;
     }
 
+    
+    
     public void OnDisable()
     {
         b.Damageable.Death -= WaveChange;
@@ -161,14 +193,17 @@ public class BossAI : Enemy
             case 2:
                 Wave1.gameObject.SetActive(false);
                 Wave2.gameObject.SetActive(true);
-                b.Damageable.MaxHealth = WaveTwoHealth;
-                b.Damageable.Health = b.Damageable.MaxHealth;
+                b.Damageable.MaxHealth = bossWave2.bossHealth;
+                b.Damageable.Health = bossWave2.bossHealth;
+                
+                currentWave = bossWave2;
                 break;
             case 3:
                 Wave2.gameObject.SetActive(false);
                 Wave3.gameObject.SetActive(true);
-                b.Damageable.MaxHealth = WaveThreeHealth;
-                b.Damageable.Health = b.Damageable.MaxHealth;
+                b.Damageable.MaxHealth = bossWave3.bossHealth;
+                b.Damageable.Health = bossWave3.bossHealth;
+                currentWave = bossWave3;
                 break;
             case 4:
                 Debug.Log("Boss Defeated");
@@ -178,6 +213,9 @@ public class BossAI : Enemy
                 break;
                 
         }
+
+        b.Damageable.healthBar.HealthBarSlider.maxValue = b.Damageable.MaxHealth;
+        b.Damageable.healthBar.HealthBarSlider.value = b.Damageable.MaxHealth;
 
         if (wave != 4)
         {
@@ -190,7 +228,7 @@ public class BossAI : Enemy
 
     public void SpawnEnemies()
     {
-        bossRoomManager.SpawnEnemies();
+        bossRoomManager.SpawnEnemies(currentWave.enemysToSpawn);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -204,7 +242,7 @@ public class BossAI : Enemy
                 float distanceFromPlayerEnd = Vector3.Distance(NavMeshAgent.transform.position, player.transform.position);
                 float damageRatio = 1f - (distanceFromPlayerEnd / distanceFromPlayerStart);
                 
-                float damage = Mathf.Lerp(Stats.DamageMultiplier * minDamage, Stats.DamageMultiplier * maxDamage, damageRatio);
+                float damage = Mathf.Lerp(DifficultyStats.DamageMultiplier * EnemyStats.minAttackDamage, DifficultyStats.DamageMultiplier * EnemyStats.maxAttackDamage, damageRatio);
                 float knockbackRatio = 1f - damageRatio;
                 float knockbackForce = Mathf.Lerp(minKnockbackForce, maxKnockbackForce, knockbackRatio);
                 Vector3 knockbackDirection = (player.transform.position - transform.position).normalized;

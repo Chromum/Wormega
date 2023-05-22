@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,7 +11,12 @@ public class Grunt : Enemy
     public void Start()
     {
         base.Start();
+    }
+
+    public void OnEnable()
+    {
         ResetStats();
+
     }
 
     public void Update()
@@ -22,11 +28,12 @@ public class Grunt : Enemy
 
     public void ResetStats()
     {
-        AIGun.Barrel = Stats.Barrel;
-        AIGun.Grip = Stats.Barrel;
-        AIGun.Magazine = Stats.Magazine;
-        AIGun.Sight = Stats.Sight;
-        AIGun.Module = Stats.Module;
+        DifficultyStats = GameManager.instance.currentDifficulty.enemyStats;
+        AIGun.Barrel = DifficultyStats.Barrel;
+        AIGun.Grip = DifficultyStats.Barrel;
+        AIGun.Magazine = DifficultyStats.Magazine;
+        AIGun.Sight = DifficultyStats.Sight;
+        AIGun.Module = DifficultyStats.Module;
         AIGun.RecalculateStats();
     }
 }

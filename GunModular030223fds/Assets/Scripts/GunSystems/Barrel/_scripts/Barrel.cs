@@ -7,11 +7,6 @@ public class Barrel : GunPart
 { 
     public ShotMode ShotMode;
     public BarrelType barrelType;
-
-    public virtual void Shoot(int Damage)
-    {
-        
-    }
 }
 
 

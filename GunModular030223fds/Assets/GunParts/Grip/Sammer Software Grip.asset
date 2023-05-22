@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sammer Software Grip
   Type: 0
-  Bio: SAM FILL THIS IN
+  Bio: This grip is hella grippy
   FireRate: 5
   Damage: 0
   MagSize: 0

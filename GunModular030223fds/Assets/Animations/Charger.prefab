@@ -1426,6 +1426,7 @@ GameObject:
   - component: {fileID: 1479695639}
   - component: {fileID: 2859405602375945139}
   - component: {fileID: 4743763646081090223}
+  - component: {fileID: 221305267}
   m_Layer: 0
   m_Name: Charger
   m_TagString: Enemy
@@ -1487,7 +1488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attack: {fileID: 11400000, guid: 824e463c5fec9614899718f3b82e9914, type: 2}
-  Stats:
+  EnemyStats: {fileID: 11400000, guid: d7422680682c97947adbb2df9ece149a, type: 2}
+  DifficultyStats:
     HealthMultiplier: 0
     DamageMultiplier: 0
     Magazine: {fileID: 0}
@@ -1789,6 +1791,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &221305267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865120117351406976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2ee4a56683d044ca09b8c951d1d6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mR:
+  - {fileID: 8380019934200677955}
+  - {fileID: 476778305104863543}
+  - {fileID: 7611932074851891459}
+  - {fileID: 2621603350263218255}
+  - {fileID: 6098912457351217090}
+  - {fileID: 4534654116673644976}
+  - {fileID: 4955342434078024690}
+  - {fileID: 388235487136910400}
+  - {fileID: 9144922532206848975}
+  - {fileID: 3092791913301122875}
+  - {fileID: 5083176481595401942}
+  - {fileID: 8452063268357108163}
+  - {fileID: 3778941778217231910}
+  - {fileID: 1352572469936080547}
+  - {fileID: 2620261390780501972}
+  - {fileID: 8015074028158324013}
+  - {fileID: 8144165104815851875}
+  - {fileID: 8285912290772717370}
+  blackHoleMaterial: {fileID: 2100000, guid: ccb90e13832714643b58503e77377d77, type: 2}
+  ExplosionMaterial: {fileID: 2100000, guid: c365f0fa29f07e74e9fa50ed9182c066, type: 2}
+  fireMaterial: {fileID: 2100000, guid: cc257a0abd924d94e86f7b8b3c76f02b, type: 2}
+  iceMaterial: {fileID: 2100000, guid: a3cf8a09eca02a848bf526628be83554, type: 2}
+  electricMaterial: {fileID: 2100000, guid: 0be0a5e0c23880642a221855984532d7, type: 2}
+  hasGlow: 0
 --- !u!1 &2050084379769399993
 GameObject:
   m_ObjectHideFlags: 0

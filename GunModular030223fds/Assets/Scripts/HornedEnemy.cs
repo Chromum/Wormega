@@ -32,7 +32,7 @@ public class HornedEnemy : Enemy
                 float distanceFromPlayerEnd = Vector3.Distance(NavMeshAgent.transform.position, player.transform.position);
                 float damageRatio = 1f - (distanceFromPlayerEnd / distanceFromPlayerStart);
                 
-                float damage = Mathf.Lerp(Stats.DamageMultiplier * a.minDamage, Stats.DamageMultiplier * a.maxDamage, damageRatio);
+                float damage = Mathf.Lerp(DifficultyStats.DamageMultiplier * EnemyStats.minAttackDamage, DifficultyStats.DamageMultiplier * EnemyStats.maxAttackDamage, damageRatio);
                 float knockbackRatio = 1f - damageRatio;
                 float knockbackForce = Mathf.Lerp(a.minKnockbackForce, a.maxKnockbackForce, knockbackRatio);
                 Vector3 knockbackDirection = (player.transform.position - transform.position).normalized;

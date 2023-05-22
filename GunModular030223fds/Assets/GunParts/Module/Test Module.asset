@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Test Module
   Type: 4
-  Bio: This is a test module!
+  Bio: This is a test module! HAHA SUCK IT
   FireRate: 0
   Damage: 0
   MagSize: 0

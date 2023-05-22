@@ -15,6 +15,9 @@ public static class MathsUtils
         float i = (Increase / 100) / Current;
         return Current - i;
     }
+   
+   
+   
     public enum eThrowTypes
     {
         Height, HighSpeed, LowSpeed

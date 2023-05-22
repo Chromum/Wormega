@@ -20,7 +20,7 @@ public class BossRoomManager : MonoBehaviour
         mapSpriteSelector.PER += PlayerEnter;
     }
 
-    public void SpawnEnemies()
+    public void SpawnEnemies(int count)
     {
         GameObject j = GameObject.Instantiate(HeliPrefab, new Vector3(transform.position.x - 50f, transform.position.y + 60f, transform.position.z), Quaternion.identity);
         StartCoroutine(FlyAwayEnum(j.GetComponent<AudioSource>(), j));
@@ -36,7 +36,7 @@ public class BossRoomManager : MonoBehaviour
     {
 
         yield return new WaitForSeconds(5f);
-        int e = Random.Range(5, 8);
+        int e = ai.currentWave.enemysToSpawn;
         aliveEnemys = e;
         for (int i = 0; i < e; i++)
         {
@@ -107,13 +107,38 @@ public class BossRoomManager : MonoBehaviour
 
     }
 
-
-
     public void SpawnEnemy(GameObject Heli)
+    {
+        // Calculate the total spawn chance
+        float totalSpawnChance = 0f;
+        foreach (EnemySpawnData spawnData in ai.currentWave.enemySpawnArray)
+        {
+            totalSpawnChance += spawnData.chanceOfSpawning;
+        }
+
+        // Generate a random value between 0 and the total spawn chance
+        float randomValue = Random.Range(0f, totalSpawnChance);
+
+        // Iterate through the spawn array to find the enemy to spawn
+        foreach (EnemySpawnData spawnData in ai.currentWave.enemySpawnArray)
+        {
+            // If the random value is within the current spawn chance range, spawn the corresponding enemy
+            if (randomValue <= spawnData.chanceOfSpawning)
+            {
+                SpawnEnemyOfType(spawnData.enemyType,Heli);
+                break;
+            }
+
+            // Subtract the current spawn chance from the random value
+            randomValue -= spawnData.chanceOfSpawning;
+        }
+    }
+
+    private void SpawnEnemyOfType(Poolee enemyType,GameObject Heli)
     {
         try
         {
-            NavMeshAgent g = PoolManager.instance.SpawnFromPool(EnemyPrefabs[Random.RandomRange(0, EnemyPrefabs.Count)], Heli.transform.GetChild(14).position, Quaternion.identity).GetComponent<NavMeshAgent>();
+            NavMeshAgent g = PoolManager.instance.SpawnFromPool(enemyType, Heli.transform.GetChild(14).position, Quaternion.identity).GetComponent<NavMeshAgent>();
             g.enabled = false;
             g.GetComponent<Enemy>().enabled = false;
             t.Add(new EnemyT { EnemyOBJ = g.gameObject, Alive = true });
@@ -125,7 +150,26 @@ public class BossRoomManager : MonoBehaviour
 
         }
 
+        Debug.Log("Spawning enemy: " + enemyType);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public void EnemyDied(GameObject g)
     {

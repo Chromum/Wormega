@@ -66,6 +66,12 @@ public class Damageable : MonoBehaviour
                 GiveHealth(Time.deltaTime * RegenSpeed);
         }
 
+        if (healthBar)
+        {
+            if (healthBar.HealthBarSlider.maxValue != MaxHealth)
+                healthBar.HealthBarSlider.maxValue = MaxHealth;
+        }
+        
         if (!isEnemy)
         {
             string s = Mathf.Round((Health / (startingHealth + (HealthTextValue))) * (100 + (HealthTextValue))).ToString();
@@ -74,26 +80,28 @@ public class Damageable : MonoBehaviour
             text.text = split[0].ToString() + "%";
         }
 
- 
 
-        
-        if (hasHealthBar)
+
+        if (!isBoss)
         {
-            cooldownBar.CountdownUpdate();
-            if (cooldownBar.HasFinished())
+            if (hasHealthBar && isEnemy)
             {
-                healthBar.HealthBarSlider.gameObject.SetActive(false);
+                cooldownBar.CountdownUpdate();
+                if (cooldownBar.HasFinished())
+                {
+                    healthBar.HealthBarSlider.gameObject.SetActive(false);
+                }
+
+
+
             }
-
-
-
         }
+        
         
     }
 
     public void DoDamage(float i, Vector3 Pos)
     {
-        PoolManager.instance.SpawnFromPool(HitFX, Pos, Quaternion.LookRotation((Camera.main.transform.position - transform.position)));
 
         if ((Health - i) > 0)
             Health -= i;

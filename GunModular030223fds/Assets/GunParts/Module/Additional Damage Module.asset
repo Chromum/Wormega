@@ -17,7 +17,7 @@ MonoBehaviour:
   Bio: Grants 5 Additional Bullets Per Clip
   FireRate: 0
   Damage: 20
-  MagSize: 0
+  MagSize: 5
   Accuracy: 0
   Sprite: {fileID: 0}
   Rareity: 0

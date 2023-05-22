@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sid Inc Hollowpoint Magazine
   Type: 3
-  Bio: SID FILL THIS IN
+  Bio: This Sniper Stock sure is epic and stufff
   FireRate: -5
   Damage: 20
   MagSize: 5

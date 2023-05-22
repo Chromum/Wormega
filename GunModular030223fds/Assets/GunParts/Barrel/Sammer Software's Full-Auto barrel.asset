@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sammer Software's Full-Auto barrel
   Type: 1
-  Bio: SAM FILL THIS IN
+  Bio: gun go bang
   FireRate: 80
   Damage: 20
   MagSize: 0

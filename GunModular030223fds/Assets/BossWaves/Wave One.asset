@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4147be85e7587c84c9361bb8ea7e345b, type: 3}
+  m_Name: Wave One
+  m_EditorClassIdentifier: 
+  bossHealth: 750
+  bossAttacks:
+  - {fileID: 11400000, guid: 8065903ba487ad6498f6298737b73b1e, type: 2}
+  enemysToSpawn: 5
+  enemySpawnArray:
+  - enemyType: {fileID: 11400000, guid: 53a3888a97b9ff448bba2090d342eb61, type: 2}
+    chanceOfSpawning: 0.3
+  - enemyType: {fileID: 11400000, guid: 88738db9a51df0649b36661684e3e8c5, type: 2}
+    chanceOfSpawning: 0.5
+  - enemyType: {fileID: 11400000, guid: 5ebb0708af2503643a33dbc9d2041501, type: 2}
+    chanceOfSpawning: 0.2

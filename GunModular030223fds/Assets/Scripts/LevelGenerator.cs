@@ -24,7 +24,7 @@ public class LevelGenerator : MonoBehaviour
     public LevelGenerated LG;
 
     private Dictionary<Vector2, MapSpriteSelector> mapSprites = new Dictionary<Vector2, MapSpriteSelector>();
-    void Start()
+    public void Start()
     {
         if (numberOfRooms >= (worldSize.x * 2) * (worldSize.y * 2))
         { // make sure we dont try to make more rooms than can fit in our grid
@@ -32,7 +32,7 @@ public class LevelGenerator : MonoBehaviour
         }
         gridSizeX = Mathf.RoundToInt(worldSize.x); //note: these are half-extents
         gridSizeY = Mathf.RoundToInt(worldSize.y);
-        CreateRooms(); //lays out the actual map
+        CreateRooms(); //lays out the actual mapWWWWWWWWWWW
         SetRoomDoors(); //assigns the doors where rooms would connect
         DrawMap(); //instantiates objects to make up a map
         gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);

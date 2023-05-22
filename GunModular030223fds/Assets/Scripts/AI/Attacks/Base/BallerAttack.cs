@@ -58,7 +58,6 @@ public class BallerAttack : Attack
                 Vector3 randomPoint = navMeshPoint + new Vector3(randomCircle.x, 0, randomCircle.y);
                 NavMesh.SamplePosition(randomPoint, out hit, 1f, NavMesh.AllAreas);
                 ranPoints[i] = hit.position;
-                Debug.Log("Random NavMesh point " + (i + 1) + ": " + ranPoints[i]);
             }
         }
         else
@@ -98,7 +97,7 @@ public class BallerAttack : Attack
     public float Damage(Vector3 target, Vector3 self, Enemy e)
     {
         float distance = Vector3.Distance(self, target);
-        float damage = BaseDam * e.Stats.DamageMultiplier / distance;
+        float damage = e.EnemyStats.maxAttackDamage / distance;
         Debug.Log(damage);
 
         if (damage > BaseDam)

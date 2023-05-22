@@ -36,11 +36,12 @@ public class GameManager : MonoBehaviour
     public GameObject winScreen;
     public GameObject creditScreen;
 
-    
+    public PoolManager PoolManager;
+    public LevelGenerator LevelGenerator;
 
     public bool hasDied;
     
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Contains("MainMenu"))
             MainMenu = true;
         DebugManager.instance.enableRuntimeUI = false;
-        Debug.Log("HA");
+        PoolManager.Init();
     }
 
     public void Update()

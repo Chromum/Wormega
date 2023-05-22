@@ -12,7 +12,7 @@ public class PoolManager : MonoBehaviour
     private Dictionary<Poolee, Queue<GameObject>> pools;
 
     
-    private void Awake()
+    public void Init()
     {
         if (instance == null)
         {
@@ -101,8 +101,7 @@ public class PoolManager : MonoBehaviour
         return obj;
     }
 }
-
-
+ 
 public enum PoolType
 { 	
     Grow,

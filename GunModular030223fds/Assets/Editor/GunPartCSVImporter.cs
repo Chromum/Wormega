@@ -3,6 +3,7 @@ using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Networking;
 
 public class GunPartCSVImporter : EditorWindow
 {
@@ -10,12 +11,16 @@ public class GunPartCSVImporter : EditorWindow
     private string GunfileName;
     private TextAsset ItemcsvFile;
     private string ItemfileName;
+    private TextAsset EnemyStatsFile;
+    private string EnemyStatsfileName;
+    private TextAsset bossWaveFile;
+    private string bossWaveFileName;
     private Database db;
 
     [MenuItem("Window/Gun Part CSV Importer")]
     public static void ShowWindow()
     {
-        GetWindow<GunPartCSVImporter>("Gun Part CSV Importer");
+        GunPartCSVImporter window = GetWindow<GunPartCSVImporter>("Gun Part CSV Importer");
     }
 
     private void OnGUI()
@@ -25,8 +30,14 @@ public class GunPartCSVImporter : EditorWindow
         GuncsvFile = EditorGUILayout.ObjectField("Gun CSV File", GuncsvFile, typeof(TextAsset), false) as TextAsset;
         GunfileName = GuncsvFile ? GuncsvFile.name : "";
 
-        ItemcsvFile = EditorGUILayout.ObjectField("Gun CSV File", ItemcsvFile, typeof(TextAsset), false) as TextAsset;
+        ItemcsvFile = EditorGUILayout.ObjectField("Upgrades CSV File", ItemcsvFile, typeof(TextAsset), false) as TextAsset;
         ItemfileName = ItemcsvFile ? ItemcsvFile.name : "";
+        
+        EnemyStatsFile = EditorGUILayout.ObjectField("Enemy Stat CSV File", EnemyStatsFile, typeof(TextAsset), false) as TextAsset;
+        EnemyStatsfileName = EnemyStatsFile ? EnemyStatsFile.name : "";
+        
+        bossWaveFile = EditorGUILayout.ObjectField("Boss Wave CSV File", bossWaveFile, typeof(TextAsset), false) as TextAsset;
+        bossWaveFileName = bossWaveFile ? bossWaveFile.name : "";
         
         db = EditorGUILayout.ObjectField("Database", db, typeof(Database), false) as Database;
 
@@ -38,9 +49,11 @@ public class GunPartCSVImporter : EditorWindow
                 Debug.LogError("Please select a CSV file to import");
                 return;
             }
-
+            
             LoadGunParts();
             LoadPlayerItems();
+            LoadEnemyStats();
+            LoadBossWave();
             
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -49,8 +62,7 @@ public class GunPartCSVImporter : EditorWindow
     
     private void LoadPlayerItems()
     {
-        if(Directory.Exists("Assets/PlayerUpgrades"))
-            Directory.Delete("Assets/PlayerUpgrades",true);
+
         
         string[] lines = ItemcsvFile.text.Split('\n');
 
@@ -71,22 +83,29 @@ public class GunPartCSVImporter : EditorWindow
                 float strength = float.Parse(data[8]);
                 float stamina = float.Parse(data[9]);
 
-
-                Item gunPart = new Item
+                bool d = false;
+                string path = "Assets/PlayerUpgrades/" + name + ".asset";
+                Item gunPart = AssetDatabase.LoadAssetAtPath<Item>(path);
+                if (gunPart == null)
                 {
-                    Name = name,
-                    Description = bio,
-                    ItemStats = new Stats()
-                    {
-                        Health = health,
-                        Speed = speed,
-                        JumpHeight = jumpHeight,
-                        GrappleCooldown = grappleCooldown,
-                        AbilityCooldown = abilityCooldown,
-                        Strength = strength,
-                        Stamina = stamina
-                    }
+                    d = true;
+                    gunPart = new Item();
+                }
+
+
+                gunPart.Name = name;
+                gunPart.Description = bio;
+                gunPart.ItemStats = new Stats()
+                {
+                    Health = health,
+                    Speed = speed,
+                    JumpHeight = jumpHeight,
+                    GrappleCooldown = grappleCooldown,
+                    AbilityCooldown = abilityCooldown,
+                    Strength = strength,
+                    Stamina = stamina
                 };
+
 
 
 
@@ -116,9 +135,18 @@ public class GunPartCSVImporter : EditorWindow
                 }
 
                
-                string path = "Assets/PlayerUpgrades/" + name + ".asset";
-                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
-                AssetDatabase.CreateAsset(gunPart, path);
+
+                
+                if (d)
+                {
+                    
+                    System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
+                    AssetDatabase.CreateAsset(gunPart, path);
+                }
+                else
+                {
+                    EditorUtility.SetDirty(gunPart);
+                }
             }
             catch {
 
@@ -135,8 +163,7 @@ public class GunPartCSVImporter : EditorWindow
 
     private void LoadGunParts()
     {
-        if(Directory.Exists("Assets/GunParts"))
-            Directory.Delete("Assets/GunParts",true);
+
         
         string[] lines = GuncsvFile.text.Split('\n');
 
@@ -154,21 +181,20 @@ public class GunPartCSVImporter : EditorWindow
                 int magSize = int.Parse(data[5]);
                 float accuracy = float.Parse(data[6]);
 
-                GunPart gunPart;
+                string path = "Assets/GunParts/" + type + "/" + name + ".asset";
+                bool d = false;
+                GunPart gunPart = AssetDatabase.LoadAssetAtPath<GunPart>(path);
+                UnityEngine.Debug.Log(gunPart.Bio);
+                if (gunPart == null)
+                {
+                    d = true;
+                    gunPart = new GunPart();
+                }
 
                 switch (type)
                 {
                     case "Barrel":
-                        gunPart = ScriptableObject.CreateInstance<Barrel>();
                         ((Barrel)gunPart).ShotMode = (ShotMode)System.Enum.Parse(typeof(ShotMode), data[7]);
-                        break;
-
-                    case "Module":
-                        gunPart = ScriptableObject.CreateInstance<Module>();
-                        break;
-
-                    default:
-                        gunPart = ScriptableObject.CreateInstance<GunPart>();
                         break;
                 }
 
@@ -227,9 +253,16 @@ public class GunPartCSVImporter : EditorWindow
 
                 gunPart.Name = name;
                 gunPart.Bio = Bio;
-                string path = "Assets/GunParts/" + type + "/" + name + ".asset";
-                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
-                AssetDatabase.CreateAsset(gunPart, path);
+                if (d)
+                {
+                    
+                    System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
+                    AssetDatabase.CreateAsset(gunPart, path);
+                }
+                else
+                {
+                    EditorUtility.SetDirty(gunPart);
+                }
             }
             catch {
 
@@ -241,6 +274,124 @@ public class GunPartCSVImporter : EditorWindow
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        
+        db.FillInDatabase();
+            
     }
+
+    private void LoadEnemyStats()
+    {
+         string[] lines = EnemyStatsFile.text.Split('\n');
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            try {
+                string[] data = lines[i].Split(',');
+
+                string name = data[0];
+                float Health = float.Parse(data[1]);
+                float minDamage = float.Parse(data[2]);
+                float maxDamage = float.Parse(data[3]);
+                float cooldown = float.Parse(data[4]);
+
+
+
+                string path = "Assets/EnemyStats/" + name + ".asset";
+                bool d = false;
+                EnemyStats gunPart = AssetDatabase.LoadAssetAtPath<EnemyStats>(path);
+                if (gunPart == null)
+                {
+                    d = true;
+                    gunPart = new EnemyStats();
+                }
+
+              
+                
+                
+           
+
+                gunPart.name = name;
+                gunPart.Health = Health;
+                gunPart.minAttackDamage = minDamage;
+                gunPart.maxAttackDamage = maxDamage;
+                gunPart.attackCooldown = cooldown;
+                
+                if (d)
+                {
+                    System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
+                    AssetDatabase.CreateAsset(gunPart, path);
+                }
+                else
+                {
+                    EditorUtility.SetDirty(gunPart);
+                }
+            }
+            catch {
+
+            }
+        }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        db.FillInDatabase();
+            
+    }
+
+    private void LoadBossWave()
+    {
+        string[] lines = bossWaveFile.text.Split('\n');
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            try {
+                string[] data = lines[i].Split(',');
+
+                string name = data[0];
+                float Health = float.Parse(data[1]);
+                int enemyiesToSpawn = int.Parse(data[2]);
+     
+
+
+
+                string path = "Assets/BossWaves/" + name + ".asset";
+                bool d = false;
+                BossWave gunPart = AssetDatabase.LoadAssetAtPath<BossWave>(path);
+                if (gunPart == null)
+                {
+                    d = true;
+                    gunPart = new BossWave();
+                }
+
+              
+                
+                
+           
+
+                gunPart.name = name;
+                gunPart.bossHealth = Health;
+                gunPart.enemysToSpawn = enemyiesToSpawn;
+
+                
+                if (d)
+                {
+                    System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
+                    AssetDatabase.CreateAsset(gunPart, path);
+                }
+                else
+                {
+                    EditorUtility.SetDirty(gunPart);
+                }
+            }
+            catch {
+
+            }
+        }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        db.FillInDatabase();
+            
+    }
+    
+
+
 }

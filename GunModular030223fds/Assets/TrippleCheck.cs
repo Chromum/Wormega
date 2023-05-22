@@ -8,7 +8,9 @@ public class TrippleCheck :  AndTransition
     public AIDecision ThirdDecision;
     public override void Execute(AIBase aiBase)
     {
-
+        Debug.Log(Decision.Decide(aiBase));
+        Debug.Log(SecondDecision.Decide(aiBase));
+        Debug.Log(ThirdDecision.Decide(aiBase));
 
 
         if (base.Decision.Decide(aiBase) && SecondDecision.Decide(aiBase) && ThirdDecision.Decide(aiBase) && !(TrueState is RemainInState))
@@ -16,5 +18,5 @@ public class TrippleCheck :  AndTransition
         else if (!(FalseState is RemainInState))
             aiBase.CurrentState = FalseState;
     }
-
+    
 }
