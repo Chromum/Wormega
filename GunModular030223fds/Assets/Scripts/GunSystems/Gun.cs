@@ -1,4 +1,4 @@
- using System;
+     using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -42,6 +42,8 @@ using UnityEngine.VFX;
     public List<Poolee> decals;
     
     public Countdown Countdown;
+
+    public Countdown bulletTypeCooldown;
     public void Start()
     {
 
