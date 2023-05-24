@@ -24,7 +24,7 @@ public class ChargeAttack : Attack
         yield return new WaitForSeconds(ChargeTime);
         ai.lineRenderer.positionCount = 2;
         ai.lineRenderer.SetPosition(0, ai.ChargeTransform.position);
-        ai.lineRenderer.SetPosition(1, (ai.ChargeTransform.transform.position + ai.ChargeTransform.transform.forward * 100f));
+        ai.lineRenderer.SetPosition(1, (ai.ChargeTransform.transform.position + ai.ChargeTransform.transform.forward * 100));
         RaycastHit hitInfo;
         if (Physics.SphereCast(ai.ChargeTransform.position, 1f, ai.ChargeTransform.forward,out hitInfo))
         {
