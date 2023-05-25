@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [CreateAssetMenu(menuName = "Wormega/Attack/Gnome")]
 public class GnomeAttack : Attack
@@ -17,14 +18,18 @@ public class GnomeAttack : Attack
         gnome.ShootFX();
 
 
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(en.player.transform.position, out hit, 100f, NavMesh.AllAreas))
+        {
+            Vector3 playerPosition = hit.position;
+            Vector3 finalPosition = (playerPosition + new Vector3(0f, 20f, 0f));
 
-        Vector3 playerPosition = en.player.transform.position;
-        Vector3 finalPosition = (playerPosition + new Vector3(0f, 20f, 0f)) ;
+            gnome.lm2.positionCount = 2;
+            gnome.lm2.SetPosition(0, finalPosition);
 
-        gnome.lm2.positionCount = 2;
-        gnome.lm2.SetPosition(0, finalPosition);
-
-        en.StartCoroutine(MoveLine(finalPosition, playerPosition, gnome.moveDuration, gnome.lm2,gnome));
+            en.StartCoroutine(MoveLine(finalPosition, playerPosition, gnome.moveDuration, gnome.lm2, gnome));
+        }
+           
 
         
     }

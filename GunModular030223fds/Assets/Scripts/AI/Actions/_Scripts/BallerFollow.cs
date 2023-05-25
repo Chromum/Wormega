@@ -33,12 +33,10 @@ public class BallerFollow : AIAction
                 Vector3 moveAwayDirection = (AIbase.transform.position - player.position).normalized;
                 Vector3 moveAwayTarget = AIbase.transform.position + moveAwayDirection * followDistance;
                 agent.SetDestination(moveAwayTarget);
-                Debug.Log("TEEE");
             }
             else
             {
                 agent.ResetPath();
-                Debug.Log("HA");
             }
         
     }
