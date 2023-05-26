@@ -22,7 +22,7 @@ public class Gnome : Enemy
     // Update is called once per frame
     public override void Update()
     {
-        
+        base.Update();   
     }
 
     [NaughtyAttributes.Button]
@@ -82,16 +82,64 @@ public class Gnome : Enemy
             yield return null;
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 50; i++)
         {
+            
+            Vector3 startPosition = hit.position;
+
+            Vector3 randomPosition;
+            NavMeshHit hit2;
+
+            randomPosition = Random.insideUnitSphere * 1f + transform.position;
+            while (!NavMesh.SamplePosition(randomPosition, out hit2, 5f, NavMesh.AllAreas))
+            {
+                randomPosition = Random.insideUnitSphere * 1f + transform.position;
+                yield return null;
+            }
+            
+            
             Vector2 randomCircle = Random.insideUnitCircle * 1f;
             Vector3 randomPoint = hit.position + new Vector3(randomCircle.x, 0, randomCircle.y);
-            NavMesh.SamplePosition(randomPoint, out hit, 1f, NavMesh.AllAreas);
-            GameObject g = PoolManager.instance.SpawnFromPool(smallerSelfPrefab, hit.position, Quaternion.identity);
+            GameObject g = PoolManager.instance.SpawnFromPool(smallerSelfPrefab, hit2.position, Quaternion.identity);
+            StartCoroutine(PlaceAgentOnNavMesh(g.GetComponent<NavMeshAgent>()));
             Debug.Log(g.GetInstanceID());
         }
 
 
+        
+        
 
+    }
+    
+    private System.Collections.IEnumerator PlaceAgentOnNavMesh(NavMeshAgent agent)
+    {
+        float radius = 2f; // Maximum distance to search for a valid position
+        int maxAttempts = 10; // Maximum number of attempts to find a valid position
+
+        int attempts = 0;
+        bool positionFound = false;
+
+        while (!positionFound && attempts < maxAttempts)
+        {
+            Vector3 randomOffset = Random.insideUnitSphere * radius;
+            Vector3 randomPosition = transform.position + randomOffset;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPosition, out hit, radius, NavMesh.AllAreas))
+            {
+                agent.enabled = false;
+                agent.transform.position = hit.position;
+                agent.enabled = true;
+                positionFound = true;
+            }
+
+            attempts++;
+            yield return null;
+        }
+
+        if (!positionFound)
+        {
+            Debug.LogWarning("Failed to find a valid position on the NavMesh for agent placement.");
+        }
     }
 }

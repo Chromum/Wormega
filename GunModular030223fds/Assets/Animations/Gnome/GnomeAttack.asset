@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab6cc54d77744ba4beb7b36399ec179, type: 3}
+  m_Name: GnomeAttack
+  m_EditorClassIdentifier: 
+  Decision: {fileID: 11400000, guid: 672ced31617b9314a9ac6b1c03debce2, type: 2}
+  TrueState: {fileID: 11400000, guid: fb08f12c47ab877488dd6ed95c0a7e6f, type: 2}
+  FalseState: {fileID: 11400000, guid: a7eae09890260db4597888701dcdde16, type: 2}
+  SecondDecision: {fileID: 11400000, guid: 22730a6015039a24482cb74254e19c9b, type: 2}

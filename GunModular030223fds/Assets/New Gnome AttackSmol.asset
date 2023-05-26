@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf822ae1fd8597c419c7a104a6d3a186, type: 3}
-  m_Name: New Gnome Attack
+  m_Name: New Gnome AttackSmol
   m_EditorClassIdentifier: 
   Cooldown: 6
   AttackDistance: 15.71
   delay: 1
-  Spiner: {fileID: 2317650207496892555, guid: 5f50f8f31e190cb46aba7d15584110ed, type: 3}
+  Spiner: {fileID: 865140999139303728, guid: 2c0e5238fc1149b43a4b5ecc92910a3b, type: 3}

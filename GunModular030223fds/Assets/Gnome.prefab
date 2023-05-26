@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attack: {fileID: 11400000, guid: 4bc1099aecb869c459a657d922d1484b, type: 2}
-  EnemyStats: {fileID: 0}
+  EnemyStats: {fileID: 11400000, guid: 18a6856c369ba5a43b10062e26642822, type: 2}
   DifficultyStats:
     HealthMultiplier: 0
     DamageMultiplier: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   cooldown: 0
   canAttack: 0
   player: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 7123293415003285082}
   b: {fileID: 1644410297}
   lm: {fileID: 7123293414283524419}
   lm2: {fileID: 7123293415828955830}
@@ -80,7 +80,7 @@ MonoBehaviour:
   endPoint: {fileID: 7123293415482236170}
   moveDuration: 0.5
   smallerSelfPrefab: {fileID: 11400000, guid: 91933a5364a21de4d802e8cf6ac51e3b, type: 2}
-  saller: 0
+  saller: 1
 --- !u!120 &7123293414283524419
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5018dd6e2d1552f448c3dec210e5c0b6, type: 2}
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,8 +123,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -36.37667, y: 12.483298, z: 89.05253}
-  - {x: -36.29728, y: 26.815077, z: 89.05819}
+  - {x: -35.47603, y: 13.446789, z: 92.13028}
+  - {x: -35.349003, y: 36.377636, z: 92.13934}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -133,7 +133,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.8120003
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 7123293414283524418}
   Damageable: {fileID: 7123293414283524422}
-  initialState: {fileID: 11400000, guid: 412112fe3b41f6a469589fbf5c38bc49, type: 2}
+  initialState: {fileID: 11400000, guid: a7eae09890260db4597888701dcdde16, type: 2}
   CurrentState: {fileID: 0}
 --- !u!114 &1644410298
 MonoBehaviour:
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f890f6113d00a04e8473a62c7cf2cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 7123293414283524418}
 --- !u!1 &7123293415482236171
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5018dd6e2d1552f448c3dec210e5c0b6, type: 2}
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -600,8 +600,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -10.24, y: 31.150002, z: 68.30136}
-  - {x: -10.24, y: 11.150002, z: 68.30136}
+  - {x: -17.413074, y: 31.994205, z: 74.76314}
+  - {x: -16.128233, y: 12.149539, z: 74.08185}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -610,7 +610,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.8120003
         inSlope: 0
         outSlope: 0
         tangentMode: 0

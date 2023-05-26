@@ -142,6 +142,10 @@ public class Damageable : MonoBehaviour
 
     public virtual void Die()
     {
+        Death?.Invoke(this.gameObject);
+
+        
+        
         if (isEnemy)
         {
             GameAnnouncer a = GameObject.FindObjectOfType<GameAnnouncer>();
@@ -155,7 +159,6 @@ public class Damageable : MonoBehaviour
             gameObject.GetComponent<Animator>().enabled = true;
             gameObject.GetComponent<Animator>().SetTrigger("Die");
         }
-        Death?.Invoke(this.gameObject);
     }
     public void DeathEvent()
     {

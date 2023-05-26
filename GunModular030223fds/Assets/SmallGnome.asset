@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf822ae1fd8597c419c7a104a6d3a186, type: 3}
-  m_Name: New Gnome Attack
+  m_Script: {fileID: 11500000, guid: 93f11aacbc16b0a48a4df1ba829892b3, type: 3}
+  m_Name: SmallGnome
   m_EditorClassIdentifier: 
-  Cooldown: 6
-  AttackDistance: 15.71
-  delay: 1
-  Spiner: {fileID: 2317650207496892555, guid: 5f50f8f31e190cb46aba7d15584110ed, type: 3}
+  Health: 75
+  minAttackDamage: 50
+  maxAttackDamage: 50
+  attackCooldown: 6

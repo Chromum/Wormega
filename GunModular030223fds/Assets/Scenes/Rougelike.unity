@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1676a792f7bcc4f459160a6b6d74d75f, type: 2}
     - target: {fileID: 8021747316786997176, guid: d87f57cedcd8eda4aaefbc6cff6f3616, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8021747316786997176, guid: d87f57cedcd8eda4aaefbc6cff6f3616, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1064,6 +1064,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: beb7cbd62f5e16b428774bac0a7ce417, type: 2}
   - {fileID: 11400000, guid: f003408077a2a3d4984ce120ee2763c3, type: 2}
   - {fileID: 11400000, guid: 91933a5364a21de4d802e8cf6ac51e3b, type: 2}
+--- !u!114 &239303192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239303185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38701c176a7e18a45be7b08d54f85599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 0, g: 0, b: 0, a: 0}
+  minGlowIntensity: 4.2
+  maxGlowIntensity: 8.2
+  glowIntensity: 1
+  lineMaterials:
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
 --- !u!1 &357866023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,7 +2561,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782192978
 GameObject:
@@ -2965,10 +2983,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1508329119}
-    - target: {fileID: 7123293414283524418, guid: fe110af243bd46d4ca12249cfcf4cb78, type: 3}
-      propertyPath: saller
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7123293414283524421, guid: fe110af243bd46d4ca12249cfcf4cb78, type: 3}
       propertyPath: m_RootOrder
       value: 8

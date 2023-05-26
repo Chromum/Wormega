@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf822ae1fd8597c419c7a104a6d3a186, type: 3}
-  m_Name: New Gnome Attack
+  m_Script: {fileID: 11500000, guid: 2995566a7e58a2a438b8f31d25253e2d, type: 3}
+  m_Name: GnomeFollow
   m_EditorClassIdentifier: 
-  Cooldown: 6
-  AttackDistance: 15.71
-  delay: 1
-  Spiner: {fileID: 2317650207496892555, guid: 5f50f8f31e190cb46aba7d15584110ed, type: 3}
+  moveaway: 0
+  followDistance: 9.25
+  moveAwayDistance: 7.13
