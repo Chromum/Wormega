@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b79ad1352aaa2418fe72893bbd3e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 18a6856c369ba5a43b10062e26642822, type: 2}
 --- !u!1 &706685077
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b79ad1352aaa2418fe72893bbd3e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 18a6856c369ba5a43b10062e26642822, type: 2}
 --- !u!1 &770819005
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +281,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5018dd6e2d1552f448c3dec210e5c0b6, type: 2}
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,8 +312,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.4960003
+        time: 0.005207062
+        value: 0.24600029
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -581,6 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b79ad1352aaa2418fe72893bbd3e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 18a6856c369ba5a43b10062e26642822, type: 2}
 --- !u!1 &997947832
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +835,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5018dd6e2d1552f448c3dec210e5c0b6, type: 2}
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -863,8 +866,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.4960003
+        time: 0.005207062
+        value: 0.24600029
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1468,7 +1471,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5018dd6e2d1552f448c3dec210e5c0b6, type: 2}
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1499,8 +1502,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.4960003
+        time: 0.005207062
+        value: 0.24600029
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1862,7 +1865,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5018dd6e2d1552f448c3dec210e5c0b6, type: 2}
+  - {fileID: 2100000, guid: a7f11cbd2faad094ea34ea10e0a065d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1893,8 +1896,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.4960003
+        time: 0.005207062
+        value: 0.24600029
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2261,3 +2264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b79ad1352aaa2418fe72893bbd3e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 18a6856c369ba5a43b10062e26642822, type: 2}

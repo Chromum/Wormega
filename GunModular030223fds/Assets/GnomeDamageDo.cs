@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GnomeDamageDo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public EnemyStats stats;
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if(other.tag == "Player")
+        {
+            Damageable d = other.gameObject.GetComponent<Damageable>();
+            print(other.gameObject.name);
+            d.DoDamage(stats.minAttackDamage, other.transform.position);
+        }
     }
 }

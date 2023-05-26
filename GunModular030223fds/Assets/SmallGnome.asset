@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SmallGnome
   m_EditorClassIdentifier: 
   Health: 75
-  minAttackDamage: 50
-  maxAttackDamage: 50
+  minAttackDamage: 5
+  maxAttackDamage: 5
   attackCooldown: 6

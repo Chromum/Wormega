@@ -82,7 +82,7 @@ public class Gnome : Enemy
             yield return null;
         }
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 4; i++)
         {
             
             Vector3 startPosition = hit.position;

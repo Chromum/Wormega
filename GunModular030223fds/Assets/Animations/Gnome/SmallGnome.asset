@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SmallGnome
   m_EditorClassIdentifier: 
   poolType: 4
-  Amount: 300
+  Amount: 1000
   poolPrefab: {fileID: 3970072027708110634, guid: 1c1a003b21967bf47b0c83ce7700fc1e, type: 3}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gnome
   m_EditorClassIdentifier: 
   Health: 100
-  minAttackDamage: 150
-  maxAttackDamage: 150
+  minAttackDamage: 5
+  maxAttackDamage: 5
   attackCooldown: 6

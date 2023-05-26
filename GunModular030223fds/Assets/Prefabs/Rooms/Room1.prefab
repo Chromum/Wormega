@@ -406,7 +406,10 @@ MonoBehaviour:
   mapSpriteSelector: {fileID: 6645272069507029489}
   HeliPrefab: {fileID: 4243386060940601233, guid: 13b63eccaf965994fbb21952b83bfd1c, type: 3}
   EnemyPrefabs:
+  - {fileID: 11400000, guid: f003408077a2a3d4984ce120ee2763c3, type: 2}
   - {fileID: 11400000, guid: 88738db9a51df0649b36661684e3e8c5, type: 2}
+  - {fileID: 11400000, guid: 53a3888a97b9ff448bba2090d342eb61, type: 2}
+  - {fileID: 11400000, guid: 5ebb0708af2503643a33dbc9d2041501, type: 2}
   SF: {fileID: 8300000, guid: 395e7a331a2f2c440aaef9718e089e0e, type: 3}
   Waves: 0
   CurrentWave: -1
