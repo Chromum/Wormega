@@ -9,13 +9,14 @@ public class GruntAttack : Attack
     public AIDecision clearShot;
     public override void Execute(Enemy en)
     {
+        Debug.Log("GruntBang!");
         if (en.GetType() == typeof(Grunt))
         {
             Grunt g = (Grunt)en;
             if (clearShot.Decide(en.b))
             {
 
-                g.AIGun.Shoot(g.player.transform.position - g.AIGun.fireTar.position);
+                g.AIGun.StartCoroutine(g.AIGun.Shoot(g.player.transform.position - g.AIGun.fireTar.position));
                 ShowRayBetweenPoints(g.AIGun.fireTar.position, g.player.transform.GetComponent<CapsuleCollider>().center);
                 en.b.CurrentState = FollowState;
             }
@@ -26,10 +27,11 @@ public class GruntAttack : Attack
             int i = Random.Range(0, 1);
             if (clearShot.Decide(en.b))
             {
+                Debug.Log("I");
                 if(i == 0)
-                    g.Gun1.Shoot(g.player.transform.position - g.Gun1.fireTar.position);
+                    g.Gun1.StartCoroutine(g.Gun1.Shoot(g.player.transform.position - g.Gun1.fireTar.position));
                 else
-                    g.Gun2.Shoot(g.player.transform.position - g.Gun2.fireTar.position);
+                    g.Gun2.StartCoroutine(g.Gun1.Shoot(g.player.transform.position - g.Gun2.fireTar.position));
 
                 //ShowRayBetweenPoints(g.AIGun.fireTar.position, g.player.transform.GetComponent<CapsuleCollider>().center);
                 en.b.CurrentState = g.CurrentResetState;

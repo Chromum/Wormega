@@ -19,6 +19,8 @@ public class HealthBar : MonoBehaviour
         player = GameObject.FindObjectOfType<PlayerManager>().transform;
  
     }
+    
+    
 
     // Update is called once per frame
     void Update()
@@ -31,6 +33,9 @@ public class HealthBar : MonoBehaviour
             Vector3 rotation = lookRotation.eulerAngles;
             this.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
-       
+
+        if (HealthBarSlider.maxValue != Damageable.MaxHealth)
+            HealthBarSlider.maxValue = Damageable.MaxHealth;
+
     }
 }

@@ -9,7 +9,7 @@ public class Spin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(SpinnerCooldown());
     }
 
     // Update is called once per frame
@@ -17,5 +17,11 @@ public class Spin : MonoBehaviour
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
 
+    }
+    
+    public IEnumerator SpinnerCooldown()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
     }
 }

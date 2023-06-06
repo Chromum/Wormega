@@ -98,7 +98,7 @@ using UnityEngine.VFX;
         if (Countdown.HasFinished())
         {
             if (NeedsToReload() == false)
-                Shoot(Dir);
+                StartCoroutine(Shoot(Dir));
             else
             {
                 Countdown.StartCountdown();
@@ -166,11 +166,15 @@ using UnityEngine.VFX;
         magSize += Barrel.MagSize;
         magSize += Module.MagSize;
         
+        
         Accuracy += Magazine.Accuracy;
         Accuracy += Grip.Accuracy;
         Accuracy += Sight.Accuracy;
         Accuracy += Barrel.Accuracy;
         Accuracy += Module.Accuracy;
+
+        if (boss)
+            Accuracy = bossAccuracy;
 
         FireRate = fireRate;
         this.Damage = Damage;
@@ -188,7 +192,7 @@ using UnityEngine.VFX;
         //AudioUtils.PlaySoundWithPitch(sU, Click, 1f);
     }
 
-    public void Shoot(Vector3 Direction)
+    public IEnumerator Shoot(Vector3 Direction)
     {
         Countdown.Count = MathsUtils.DecreaseFloatByPercentage(BaseStat.FireRateBase, FireRate);
         Countdown.StartCountdown();
@@ -209,142 +213,33 @@ using UnityEngine.VFX;
                 break;
         }
 
-        if (AI)
+        if (AI && !boss)
         {
             ShotCount = 1;
             Accuracy = .1f;
         }
-        currentAmmo -= ShotCount;
 
-
+        
         for (int i = 0; i < ShotCount; i++)
         {
-            if (ShotCount == 1)
+            RaycastHit h1;
+            Debug.Log("BANG");
+            if (RaycastWithAccuracy(fireTar.position, Direction, out h1, Mathf.Infinity, Accuracy) )
             {
-                RaycastHit h1;
-
-                if (RaycastWithAccuracy(fireTar.position, Direction, out h1, Mathf.Infinity, Accuracy) )
+                Damageable d = h1.collider.transform.GetComponent<Damageable>();
+                if (d != null)
                 {
-                    Damageable d = h1.collider.transform.GetComponent<Damageable>();
-                    if (d != null)
-                    {
-                        d.DoDamage((float)Damage,h1.point);
-                    }
-                    else
-                    {
-                        SpawnDecal(h1.point,h1.normal);
-                    }
-
+                    d.DoDamage((float)Damage,h1.point);
                 }
-                GunShot();
-                
-            }
-            if (ShotCount == 2)
-            {
-                RaycastHit h1;
-                RaycastHit h2;
-                switch (i)
+                else
                 {
-                    case 0:
-                        fireTar.localEulerAngles = new Vector3(0f, -5f, 0f);
-                        if (RaycastWithAccuracy(fireTar.position, Direction, out h1, Mathf.Infinity, Accuracy))
-                        {
-                            Damageable d = h1.collider.transform.GetComponent<Damageable>();
-                            if (d != null)
-                            {
-                                d.DoDamage((float)Damage,h1.point);
-                            }
-                            else
-                            {
-                                SpawnDecal(h1.point,h1.normal);
-                            }
-                        }
-                        GunShot();
-                        Debug.Log("Shot");
-                        break;
-                    case 1:
-                        fireTar.localEulerAngles = new Vector3(0f, 5f, 0f);
-                        if (RaycastWithAccuracy(fireTar.position, Direction, out h2, Mathf.Infinity, Accuracy))
-                        {
-                            Damageable d = h2.collider.transform.GetComponent<Damageable>();
-                            if (d != null)
-                            {
-                                d.DoDamage((float)Damage,h2.point);
-                            }
-                            else
-                            {
-                                SpawnDecal(h2.point,h2.normal);
-                            }
-                        }
-                        GunShot();
-                        Debug.Log("Shot");
-                        break;
-
+                    SpawnDecal(h1.point,h1.normal);
                 }
-                
-            }
-            if (ShotCount == 3)
-            {
-                RaycastHit h1;
-                RaycastHit h2;
-                RaycastHit h3;
-                
-                switch (i)
-                {
-                    case 0:
-                        fireTar.localEulerAngles = new Vector3(0f, -10f, 0f);
-                        if (RaycastWithAccuracy(fireTar.position, Direction, out h1, Mathf.Infinity,Accuracy))
-                        {
-                            Damageable d = h1.collider.transform.GetComponent<Damageable>();
-                            if (d != null)
-                            {
-                                d.DoDamage((float)Damage,h1.point);
-                            }
-                            else
-                            {
-                                SpawnDecal(h1.point,h1.normal);
-                            }
-                        }
-                        GunShot();
-                        Debug.Log("Shot");
-                        break;
-                    case 1:
-                        fireTar.localEulerAngles = new Vector3(0f, 0f, 0f);
-                        if (RaycastWithAccuracy(fireTar.position, Direction, out h2, Mathf.Infinity, Accuracy))
-                        {
-                            Damageable d = h2.collider.transform.GetComponent<Damageable>();
-                            if (d != null)
-                            {
-                                d.DoDamage((float)Damage,h2.point);
-                            }
-                            else
-                            {
-                                SpawnDecal(h2.point,h2.normal);
-                            }
-                        }
-                        GunShot();
-                        Debug.Log("Shot");
-                        break;
-                    case 2:
-                        fireTar.localEulerAngles = new Vector3(0f, 10f, 0f);
-                        if (RaycastWithAccuracy(fireTar.position, Direction, out h3, Mathf.Infinity, Accuracy))
-                        {
-                            Damageable d = h3.collider.transform.GetComponent<Damageable>();
-                            if (d != null)
-                            {
-                                d.DoDamage((float)Damage,h3.point);
-                            }
-                            else
-                            {
-                                SpawnDecal(h3.point,h3.normal);
-                            }
-                        }
 
-                        GunShot();
-                        Debug.Log("Shot");
-                        break;
-                }
             }
+            GunShot();
+            currentAmmo--;
+            yield return new WaitForSeconds(.01f);
         }
        
     }

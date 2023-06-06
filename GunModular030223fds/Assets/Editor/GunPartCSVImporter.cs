@@ -139,14 +139,12 @@ public class GunPartCSVImporter : EditorWindow
                 
                 if (d)
                 {
-                    
                     System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path));
                     AssetDatabase.CreateAsset(gunPart, path);
                 }
-                else
-                {
+                else      
                     EditorUtility.SetDirty(gunPart);
-                }
+
             }
             catch {
 

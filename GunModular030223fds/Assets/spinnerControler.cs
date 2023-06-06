@@ -7,11 +7,10 @@ public class spinnerControler : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform Startr;
     public Transform End;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -21,4 +20,6 @@ public class spinnerControler : MonoBehaviour
         lineRenderer.SetPosition(1, End.transform.position);
 
     }
+
+
 }

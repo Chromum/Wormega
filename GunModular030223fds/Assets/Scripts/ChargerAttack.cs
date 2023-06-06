@@ -20,9 +20,12 @@ public class ChargerAttack : Attack
         {
             HornedEnemy e = en as HornedEnemy;
             e.hasCharged = true;
-            e.distanceFromPlayerStart = Vector3.Distance(en.NavMeshAgent.transform.position, en.player.transform.position);
-            Vector3 chargeDirection = (en.player.transform.position - en.NavMeshAgent.transform.position).normalized;
-            en.NavMeshAgent.velocity = chargeDirection * AttackSpeed;
+            e.distanceFromPlayerStart = Vector3.Distance
+                (en.NavMeshAgent.transform.position, en.player.transform.position);
+            Vector3 chargeDirection = 
+                (en.player.transform.position - en.NavMeshAgent.transform.position).normalized;
+            en.NavMeshAgent.velocity = 
+                chargeDirection * AttackSpeed;
             base.Execute(en);
         }
         

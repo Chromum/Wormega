@@ -103,12 +103,9 @@ public class Gnome : Enemy
             GameObject g = PoolManager.instance.SpawnFromPool(smallerSelfPrefab, hit2.position, Quaternion.identity);
             StartCoroutine(PlaceAgentOnNavMesh(g.GetComponent<NavMeshAgent>()));
             Debug.Log(g.GetInstanceID());
+            currentRoom.t.Add(new EnemyT {EnemyOBJ = g, Alive = true});
+            g.GetComponent<Damageable>().Death += currentRoom.EnemyDied;
         }
-
-
-        
-        
-
     }
     
     private System.Collections.IEnumerator PlaceAgentOnNavMesh(NavMeshAgent agent)

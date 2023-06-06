@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -24,8 +28,18 @@ public class LevelGenerator : MonoBehaviour
     public LevelGenerated LG;
 
     private Dictionary<Vector2, MapSpriteSelector> mapSprites = new Dictionary<Vector2, MapSpriteSelector>();
+    
+    
+    
     public void Start()
     {
+        LevelPassThroughManager lmp = GameObject.FindObjectOfType<LevelPassThroughManager>();
+        if(lmp != null)
+            numberOfRooms = GameObject.FindObjectOfType<LevelPassThroughManager>().RoomCount;
+        else
+        {
+            numberOfRooms = 15;
+        }
         if (numberOfRooms >= (worldSize.x * 2) * (worldSize.y * 2))
         { // make sure we dont try to make more rooms than can fit in our grid
             numberOfRooms = Mathf.RoundToInt((worldSize.x * 2) * (worldSize.y * 2));
@@ -49,9 +63,7 @@ public class LevelGenerator : MonoBehaviour
         rooms[gridSizeX, gridSizeY] = new Room(Vector2.zero, 1);
         takenPositions.Insert(0, Vector2.zero);
         Vector2 checkPos = Vector2.zero;
-        //magic numbers
         float randomCompare = 0.1f, randomCompareStart = 0.1f, randomCompareEnd = 0.01f;
-        //add rooms
         for (int i = 0; i < numberOfRooms - 1; i++)
         {
             float randomPerc = ((float)i) / (((float)numberOfRooms - 1));
@@ -68,16 +80,14 @@ public class LevelGenerator : MonoBehaviour
                     iterations++;
                 } while (NumberOfNeighbors(checkPos, takenPositions) > 1 && iterations < 100);
                 if (iterations >= 50)
-                    print("error: could not create with fewer neighbors than : " + NumberOfNeighbors(checkPos, takenPositions));
+                    print("error: could not create with fewer neighbors than : " +
+                          NumberOfNeighbors(checkPos, takenPositions));
             }
             //finalize position
             rooms[(int)checkPos.x + gridSizeX, (int)checkPos.y + gridSizeY] = new Room(checkPos, 0);
             takenPositions.Insert(0, checkPos);
 
         }
-
-
-
     }
     Vector2 NewPosition()
     {
@@ -239,9 +249,13 @@ public class LevelGenerator : MonoBehaviour
             }
             mapper.gameObject.transform.parent = mapRoot;
             mapper.type = room.type;
-            GameObject g = Instantiate(Offsets[Random.RandomRange(0, Offsets.Count)], mapper.transform);
-            g.transform.localScale = new Vector3(0.08394533f, 6.2959f, 0.08394533f);
-            g.transform.localPosition = Vector3.zero;
+            if (!(mapper.type == 1 || mapper.type == 3))
+            {
+                GameObject g = Instantiate(Offsets[Random.RandomRange(0, Offsets.Count)], mapper.transform);
+                g.transform.localScale = new Vector3(0.08394533f, 6.2959f, 0.08394533f);
+                g.transform.localPosition = Vector3.zero;
+            }
+            
             mapSprites.Add(room.gridPos, mapper);
 
         }
@@ -309,7 +323,9 @@ public class LevelGenerator : MonoBehaviour
         }
 
     }
-
+    
+    
+    
     public void SetRoomDoors()
     {
         for (int x = 0; x < ((gridSizeX * 2)); x++)
@@ -357,5 +373,12 @@ public class LevelGenerator : MonoBehaviour
         }
 
     }
+
+
+    
+
+
 }
+
+
 

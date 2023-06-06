@@ -28,6 +28,9 @@ public class GnomeAttack : Attack
 
         Vector3 playerPosition = gnome.player.transform.position;
 
+        yield return new WaitForSeconds(1f);
+
+        
         NavMeshHit hit;
         if (NavMesh.SamplePosition(playerPosition, out hit, 100f, NavMesh.AllAreas))
         {
@@ -51,8 +54,9 @@ public class GnomeAttack : Attack
             {
                 float progress = (Time.time - moveStartTime) / delays;
 
-                playerPosition = gnome.player.transform.position;
 
+
+                
                 if (NavMesh.SamplePosition(playerPosition, out hit, 100f, NavMesh.AllAreas))
                 {
                     Vector3 randomOffset = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f)); // Adjust the range as desired

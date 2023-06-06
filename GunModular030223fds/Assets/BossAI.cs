@@ -41,8 +41,10 @@ public class BossAI : Enemy
 
     public Transform spawnTransform;
 
-    // Start is called before the first frame update
+    public Animator bossMixamo;
 
+    // Start is called before the first frame update
+    private bool firstTime = true;
     
 
     public void Start()
@@ -54,32 +56,38 @@ public class BossAI : Enemy
 
     public void OnEnable()
     {
-        spawnTransform.parent.gameObject.GetComponent<Animator>().enabled = false;
-        spawnTransform.gameObject.SetActive(false);
-        Vector3 pos = transform.position;
-        transform.parent = null;
-        GameManager.instance.Wave1.transform.parent.gameObject.SetActive(true);
-        base.Start();
+        if (firstTime)
+        {
+            spawnTransform.parent.gameObject.GetComponent<Animator>().enabled = false;
+            spawnTransform.gameObject.SetActive(false);
+            Vector3 pos = transform.position;
+            transform.parent = null;
+            firstTime = false;
+        }
         healerSpawnCooldown.StartCountdown();
         b.Damageable.Death += WaveChange;
+
+
+
         if (Wave1 == null)
         {
-            Wave1 = GameObject.Find("Wave1HealthBar").GetComponent<HealthBar>();
+            Wave1 = GameManager.instance.Wave1;
+
         }
 
         if (Wave2 == null)
         {
-            Wave2 = GameObject.Find("Wave2HealthBar").GetComponent<HealthBar>();
+            Wave2 = GameManager.instance.Wave2;
 
         }
 
         if (Wave3 == null)
         {
-            Wave3 = GameObject.Find("Wave3HealthBar").GetComponent<HealthBar>();
-
+            Wave3 = GameManager.instance.Wave3;
         }
 
-        
+
+        Wave1.gameObject.transform.parent.gameObject.SetActive(true);
         
         
         switch (wave)
@@ -88,22 +96,34 @@ public class BossAI : Enemy
                 b.Damageable.healthBar = Wave1;
                 b.Damageable.MaxHealth = bossWave1.bossHealth;
                 b.Damageable.Health = bossWave1.bossHealth;
+                Wave1.Damageable = b.Damageable;
+                
                 b.Damageable.healthBar.HealthBarSlider.maxValue = bossWave1.bossHealth;
                 b.Damageable.healthBar.gameObject.SetActive(true);
+                bossMixamo.SetBool("Wave1", true);
                 break;
             case 2:
                 b.Damageable.healthBar = Wave2;
                 b.Damageable.MaxHealth = bossWave2.bossHealth;
                 b.Damageable.Health = bossWave2.bossHealth;
+                Wave2.Damageable = b.Damageable;
+
+                
                 b.Damageable.healthBar.HealthBarSlider.maxValue = bossWave2.bossHealth;
                 b.Damageable.healthBar.gameObject.SetActive(true);
+                bossMixamo.SetBool("Wave1", true);
+                bossMixamo.SetBool("Wave2", true);
                 break;
             case 3:
                 b.Damageable.healthBar = Wave3;
                 b.Damageable.MaxHealth = bossWave3.bossHealth;
+                Wave3.Damageable = b.Damageable;
+
                 b.Damageable.Health = bossWave3.bossHealth;
                 b.Damageable.healthBar.HealthBarSlider.maxValue = bossWave3.bossHealth;
                 b.Damageable.healthBar.gameObject.SetActive(true);
+                bossMixamo.SetBool("Wave1", true);
+                bossMixamo.SetBool("Wave2", true);
 
                 break;
             case 4:
@@ -116,6 +136,7 @@ public class BossAI : Enemy
 
 
         b.enabled = true;
+        base.Start();
     }
 
     
@@ -188,6 +209,7 @@ public class BossAI : Enemy
     public void WaveChange(GameObject g)
     {
         wave++; 
+        Wave1.gameObject.transform.parent.gameObject.SetActive(false);
         switch (wave)
         {
             case 2:
@@ -195,7 +217,6 @@ public class BossAI : Enemy
                 Wave2.gameObject.SetActive(true);
                 b.Damageable.MaxHealth = bossWave2.bossHealth;
                 b.Damageable.Health = bossWave2.bossHealth;
-                
                 currentWave = bossWave2;
                 break;
             case 3:

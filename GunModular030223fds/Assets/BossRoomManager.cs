@@ -30,6 +30,7 @@ public class BossRoomManager : MonoBehaviour
     {
 
         intro.SetActive(true);
+        GameManager.instance.Wave1.transform.parent.gameObject.SetActive(true);
     }
 
     public IEnumerator FlyAwayEnum(AudioSource SFX, GameObject g)

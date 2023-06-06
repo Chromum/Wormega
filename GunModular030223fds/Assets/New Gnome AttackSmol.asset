@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 6
   AttackDistance: 15.71
-  delay: 1
+  delay: 3
   Spiner: {fileID: 865140999139303728, guid: 2c0e5238fc1149b43a4b5ecc92910a3b, type: 3}

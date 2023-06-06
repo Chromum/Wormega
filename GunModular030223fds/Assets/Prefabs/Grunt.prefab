@@ -1828,6 +1828,7 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 2777943868785224879}
   b: {fileID: 2777943868785224874}
+  currentRoom: {fileID: 0}
   AIGun: {fileID: 2777943869076938743}
 --- !u!195 &2777943868785224876
 NavMeshAgent:
@@ -1897,6 +1898,7 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 0
+  hitTextPos: {fileID: 6559211274124024132}
   Player: 0
   text: {fileID: 0}
   HealthTextValue: 0
@@ -1977,6 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2ee4a56683d044ca09b8c951d1d6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkinnedMeshRender: 0
   mR:
   - {fileID: 1084080348312112612}
   - {fileID: 2704340728142487818}
@@ -2008,11 +2011,13 @@ MonoBehaviour:
   - {fileID: 4958033386455954533}
   - {fileID: 7216655632681272620}
   - {fileID: 7484468419273245557}
+  sMR: []
   blackHoleMaterial: {fileID: 2100000, guid: ccb90e13832714643b58503e77377d77, type: 2}
   ExplosionMaterial: {fileID: 2100000, guid: c365f0fa29f07e74e9fa50ed9182c066, type: 2}
   fireMaterial: {fileID: 2100000, guid: cc257a0abd924d94e86f7b8b3c76f02b, type: 2}
   iceMaterial: {fileID: 2100000, guid: a3cf8a09eca02a848bf526628be83554, type: 2}
   electricMaterial: {fileID: 2100000, guid: 0be0a5e0c23880642a221855984532d7, type: 2}
+  hasGlow: 0
 --- !u!1 &2777943869076938736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,6 +2151,10 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 0.5
+  bulletTypeCooldown:
+    Finished: 0
+    value: 0
+    Count: 0
 --- !u!82 &2777943869076938742
 AudioSource:
   m_ObjectHideFlags: 0

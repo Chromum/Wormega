@@ -36,6 +36,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9d17f9907eaa87645bf6e13ab4896a4b, type: 2}
     - target: {fileID: 7123293414283524418, guid: fe110af243bd46d4ca12249cfcf4cb78, type: 3}
+      propertyPath: moveDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123293414283524418, guid: fe110af243bd46d4ca12249cfcf4cb78, type: 3}
       propertyPath: smallerSelfPrefab
       value: 
       objectReference: {fileID: 0}

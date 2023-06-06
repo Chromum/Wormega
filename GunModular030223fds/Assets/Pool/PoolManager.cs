@@ -26,6 +26,10 @@ public class PoolManager : MonoBehaviour
 
         pools = new Dictionary<Poolee, Queue<GameObject>>();
 
+        GameObject g = new GameObject("Pools");
+        
+        
+            
         foreach (Poolee config in poolConfigurations)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
@@ -33,6 +37,7 @@ public class PoolManager : MonoBehaviour
             for (int i = 0; i < config.Amount; i++)
             {
                 GameObject obj = Instantiate(config.poolPrefab);
+                obj.transform.parent = g.transform;
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }

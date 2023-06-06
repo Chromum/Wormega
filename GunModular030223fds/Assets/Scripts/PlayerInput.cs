@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public Gun PlayerGun;
+    public Transform MainCam;
     public SecondAblityActivator Activator;
     public RayInteractor Interactor;
     public InventoryUIManager InventoryUIManager;
@@ -17,19 +19,19 @@ public class PlayerInput : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if(PlayerGun.Countdown.Finished)
         {
             if(PlayerGun.Barrel.barrelType == BarrelType.FullyAuto)
             {
                 if (Input.GetMouseButton(0))
-                    PlayerGun.TryShoot(Camera.main.transform.forward);
+                    PlayerGun.TryShoot(MainCam.forward);
             }
             else
             {
                 if (Input.GetMouseButtonDown(0))
-                    PlayerGun.TryShoot(Camera.main.transform.forward);
+                    PlayerGun.TryShoot(MainCam.forward);
             }
             
         }
@@ -51,5 +53,10 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
             melee.Attack();
             
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(Camera.main.transform.position,Camera.main.transform.forward * 10);
     }
 }

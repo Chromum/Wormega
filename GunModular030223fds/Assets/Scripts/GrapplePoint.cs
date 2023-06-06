@@ -47,10 +47,14 @@ public class GrapplePoint : Interactable
         
         Vector3 target;
         if (ConnectorOne.PlayerInRoom)
-            target = ConnectorTwo.transform.position;
+        {
+            target = (ConnectorTwo.GetComponentInChildren<MapSpriteSelector>().playerSpawn.position -
+                      new Vector3(0f, -10f, 0f));
+        }
         else
         {
-            target = ConnectorOne.transform.position;
+            target = (ConnectorOne.GetComponentInChildren<MapSpriteSelector>().playerSpawn.position -
+                      new Vector3(0f, -10f, 0f));
         }
         
         rb.velocity = Vector3.zero;

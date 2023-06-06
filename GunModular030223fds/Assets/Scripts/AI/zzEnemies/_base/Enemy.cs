@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public Animator animator;
     public AIBase b;
-
+    public RoomManager currentRoom;
     public virtual void Start()
     {
         player = GameObject.Find("Player");

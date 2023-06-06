@@ -12,7 +12,7 @@ public class RayInteractor : MonoBehaviour
     public LayerMask LayerMask;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         RaycastHit i;
         if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward,out i, Range,LayerMask))

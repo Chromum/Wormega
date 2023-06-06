@@ -1057,6 +1057,7 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 6526000689476068411}
   b: {fileID: 0}
+  currentRoom: {fileID: 0}
   Tube1:
     VFX: {fileID: 6526000689657407564}
     As: {fileID: 6526000689657407565}
@@ -1102,6 +1103,7 @@ MonoBehaviour:
     Finished: 0
     value: 0
     Count: 0
+  hitTextPos: {fileID: 16630612}
   Player: 0
   text: {fileID: 0}
   HealthTextValue: 0
@@ -1202,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2ee4a56683d044ca09b8c951d1d6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkinnedMeshRender: 0
   mR:
   - {fileID: 3083895138793158221}
   - {fileID: 1600014933162737998}
@@ -1215,6 +1218,7 @@ MonoBehaviour:
   - {fileID: 5502065952266191431}
   - {fileID: 4722479184754257052}
   - {fileID: 7942585727681609407}
+  sMR: []
   blackHoleMaterial: {fileID: 2100000, guid: 84a2cf1349d9fe642906cf2d7cac37a1, type: 2}
   ExplosionMaterial: {fileID: 2100000, guid: 1bd90d898e3a07e40a0fdfc005fc84a1, type: 2}
   fireMaterial: {fileID: 2100000, guid: 10a21f9a9744e8042ae811281635e7d1, type: 2}
@@ -3641,6 +3645,10 @@ PrefabInstance:
     - target: {fileID: 4683605092187327104, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006853815301098190, guid: 85e3164daae472848a47e17af33a16af, type: 3}
+      propertyPath: m_Value
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5006853815301098190, guid: 85e3164daae472848a47e17af33a16af, type: 3}
       propertyPath: m_MaxValue

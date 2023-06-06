@@ -24,6 +24,8 @@ public class Damageable : MonoBehaviour
     [EnableIf("Regen")]
     public Countdown cooldown;
 
+    [EnableIf("isEnemy")] public Transform hitTextPos;
+
     public bool Player;
     [EnableIf("Player")]
     public TextMeshPro text;
@@ -125,8 +127,9 @@ public class Damageable : MonoBehaviour
         {
             cooldownBar.StartCountdown();
             
-            if(healthBar.HealthBarSlider.gameObject.activeSelf == false)
-                healthBar.HealthBarSlider.gameObject.SetActive(true);
+            if(!isBoss)
+                if(healthBar.HealthBarSlider.gameObject.activeSelf == false)
+                    healthBar.HealthBarSlider.gameObject.SetActive(true);
 
             
 
@@ -171,7 +174,7 @@ public class Damageable : MonoBehaviour
         string[] s = Damage.ToString().Split(".");
         string text = s[0];
 
-        GameObject g = PoolManager.instance.SpawnFromPool(hitText, gameObject.transform.GetChild(transform.childCount-1).transform.position, Quaternion.identity);
+        GameObject g = PoolManager.instance.SpawnFromPool(hitText, hitTextPos.position, Quaternion.identity);
         g.GetComponent<HitText>().TextMeshPro.text = text;
 
 

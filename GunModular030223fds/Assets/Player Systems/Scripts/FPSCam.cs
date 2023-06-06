@@ -117,24 +117,33 @@ public class FPSCam : MonoBehaviour
         normalSlideHeight = col.height;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        handCamera.fieldOfView = camera.fieldOfView;
-        jumpVector = new Vector3(0, 0, 0);
-        InputStuff();
 
-        if (!Pm.InventoryUIManager.Active && GameManager.instance.isPaused == false)
+    public void LateUpdate()
+    {
+        if (!GameManager.instance.isPaused)
         {
             ymouse += Input.GetAxis("Mouse X") * Sensitivity;
             Xmouse += Input.GetAxis("Mouse Y") * Sensitivity;
-            Xmouse = Mathf.Clamp(Xmouse, -60, 60);
-
-
-
+            Xmouse = Mathf.Clamp(Xmouse, -60, 60); 
             transform.localEulerAngles = new Vector3(0f, ymouse, 0);
             camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f);
         }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0f, ymouse, 0);
+            camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f); 
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        jumpVector = new Vector3(0, 0, 0);
+        InputStuff();
+
+
+
+        
 
 
         if (inputX == 0 && inputY == 0)

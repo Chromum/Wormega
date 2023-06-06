@@ -18,6 +18,9 @@ public class GunRecoil : MonoBehaviour
     private bool isRecoiling;
     private float recoilTimer;
 
+    public FPSCam cam;
+    public float swayAmount;
+    
     private void Start()
     {
         startingPosition = transform.localPosition;
@@ -30,6 +33,7 @@ public class GunRecoil : MonoBehaviour
         {
             Recoil();
         }
+        
     }
 
     public void Fire()
@@ -40,6 +44,7 @@ public class GunRecoil : MonoBehaviour
             recoilTimer = 0f;
         }
     }
+
 
     private void Recoil()
     {

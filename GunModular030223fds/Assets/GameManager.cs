@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public LevelGenerator LevelGenerator;
 
     public bool hasDied;
+    public Poolee GnomePoolee;
     
     private void Awake()
     {

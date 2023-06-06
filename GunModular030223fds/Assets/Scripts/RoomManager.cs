@@ -30,11 +30,17 @@ public class RoomManager : MonoBehaviour
     {
         if(!BossRoom)
         {
+            mapSpriteSelector = gameObject.GetComponentInParent<MapSpriteSelector>();
             mapSpriteSelector.PER += PlayerEnter;
             mapSpriteSelector.PEER += PlayerExits;
             Waves = Random.RandomRange(0, 3);
             CurrentWave = 0;
         }
+
+        LevelPassThroughManager p = GameObject.FindObjectOfType<LevelPassThroughManager>();
+        if (!p.Gnomes)
+            EnemyPrefabs.Remove(GameManager.instance.GnomePoolee);
+
 
     }
 
@@ -153,9 +159,14 @@ public class RoomManager : MonoBehaviour
     {
         try
         {
+            
             NavMeshAgent g = PoolManager.instance.SpawnFromPool(EnemyPrefabs[Random.RandomRange(0,EnemyPrefabs.Count)],Heli.transform.GetChild(14).position,quaternion.identity).GetComponent<NavMeshAgent>();
+
+                
             g.enabled = false;
-            g.GetComponent<Enemy>().enabled = false;
+            Enemy enemy = g.GetComponent<Enemy>();
+            enemy.enabled = false;
+            enemy.currentRoom = this;
             t.Add(new EnemyT { EnemyOBJ = g.gameObject, Alive = true });
             g.GetComponent<Damageable>().Death += EnemyDied;
             StartCoroutine(LerpObject(g, 3f, Heli.transform.GetChild(14).position));

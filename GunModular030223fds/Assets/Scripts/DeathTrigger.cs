@@ -10,7 +10,8 @@ public class DeathTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<Damageable>().DoDamage(Damage, other.transform.position);
+            Damageable d = other.gameObject.GetComponent<Damageable>();
+            d.DoDamage(d.Health/2, other.transform.position);
             other.transform.position = PlayerManager.currentRoom.playerSpawn.position;
         }
     }
