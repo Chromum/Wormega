@@ -6010,6 +6010,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1513981648}
+    - target: {fileID: 2410830148501607793, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: stopNaNs
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3151519760509821589, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: VFX
       value: 
@@ -6017,11 +6021,15 @@ PrefabInstance:
     - target: {fileID: 3151519760509821589, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: Barrel
       value: 
-      objectReference: {fileID: 11400000, guid: 71c1845e139c85944b8bf0ef5ce33b4e, type: 2}
+      objectReference: {fileID: 11400000, guid: 0307e3d24aa225b47bc100b1d2480944, type: 2}
     - target: {fileID: 3151519760509821589, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: Magazine
       value: 
-      objectReference: {fileID: 11400000, guid: 47da666189f98404a8ab46ec39e1b63d, type: 2}
+      objectReference: {fileID: 11400000, guid: 69d84ed963c47604a961f9f4eba91a3b, type: 2}
+    - target: {fileID: 3151519760568889972, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: stopNaNs
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4941917818253290914, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: m_Name
       value: Player

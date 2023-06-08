@@ -132,6 +132,7 @@ public class FPSCam : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(0f, ymouse, 0);
             camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f); 
+            movementVector = Vector3.zero;
         }
     }
 

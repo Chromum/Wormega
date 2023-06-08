@@ -368,11 +368,11 @@ public class ItemBox : Interactable
     {
         float f = Random.Range(0f, 1f);
         Rareity rareity;
-        if (f < .5f)
+        if (f < 0.3f)
             rareity = Rareity.Common;
-        else if (f < .85f)
+        else if (f < 0.5f)
             rareity = Rareity.Rare;
-        else if (f < .95)
+        else if (f < 0.8f)
             rareity = Rareity.Legendary;
         else
             rareity = Rareity.Mythic;
