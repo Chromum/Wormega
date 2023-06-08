@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: MinMax Tech [QuestionMark] Module
   Type: 4
   Bio: Shoot faster with this unreleased untested module!
-  FireRate: 75
+  FireRate: 50
   Damage: -10
   MagSize: 0
   Accuracy: 0.05
@@ -23,3 +23,9 @@ MonoBehaviour:
   Rareity: 3
   objectName: 
   Debug: 0
+  BulletType: 0
+  EffectCooldown: 0
+  PassiveDamage: 0
+  effectDuration: 0
+  effectOnDeath: 0
+  blackHolePrefab: {fileID: 0}

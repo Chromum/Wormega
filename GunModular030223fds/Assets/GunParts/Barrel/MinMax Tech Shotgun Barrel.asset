@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: MinMax Tech Shotgun Barrel
   Type: 1
   Bio: The coolest barrel for the dopest person.
-  FireRate: -20
-  Damage: 15
+  FireRate: -15
+  Damage: 30
   MagSize: 0
   Accuracy: 0.1
   Sprite: {fileID: 0}

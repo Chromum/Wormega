@@ -23,3 +23,9 @@ MonoBehaviour:
   Rareity: 0
   objectName: 
   Debug: 0
+  BulletType: 0
+  EffectCooldown: 0
+  PassiveDamage: 0
+  effectDuration: 0
+  effectOnDeath: 0
+  blackHolePrefab: {fileID: 0}

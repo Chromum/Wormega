@@ -97,6 +97,8 @@ public class FPSCam : MonoBehaviour
     public FootstepSound fss;
     private bool firstTime = true;
 
+    private Vector3 lastFramePosition;
+
     void Start()
     {
         col.hasModifiableContacts = true;
@@ -127,13 +129,15 @@ public class FPSCam : MonoBehaviour
             Xmouse = Mathf.Clamp(Xmouse, -60, 60); 
             transform.localEulerAngles = new Vector3(0f, ymouse, 0);
             camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f);
+            contactMod = true;
         }
         else
         {
             transform.localEulerAngles = new Vector3(0f, ymouse, 0);
-            camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f); 
-            movementVector = Vector3.zero;
+            camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f);
+            contactMod = false;
         }
+
     }
 
     // Update is called once per frame

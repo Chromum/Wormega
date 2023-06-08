@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Sid Inc Sniper Barrel
   Type: 1
   Bio: Sploingy Boingy Barrel from Sid Inc
-  FireRate: -30
+  FireRate: -20
   Damage: 45
   MagSize: 0
   Accuracy: 0.003

@@ -9,6 +9,7 @@ public class Melee : MonoBehaviour
     public float BaseDamage;
     public float Damage;
     public Animator animator;
+    public Transform tar;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class Melee : MonoBehaviour
     public void DoDamge()
     {
         RaycastHit raycastHit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out raycastHit, 3f))
+        if (Physics.Raycast(tar.transform.position, tar.transform.forward, out raycastHit, 3f))
         {
             if (raycastHit.collider.CompareTag("Enemy"))
             {

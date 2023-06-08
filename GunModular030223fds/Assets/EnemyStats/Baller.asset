@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f11aacbc16b0a48a4df1ba829892b3, type: 3}
   m_Name: Baller
   m_EditorClassIdentifier: 
-  Health: 200
+  Health: 100
   minAttackDamage: 600
   maxAttackDamage: 600
   attackCooldown: 10

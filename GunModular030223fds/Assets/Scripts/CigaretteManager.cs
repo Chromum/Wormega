@@ -118,12 +118,17 @@ public class CigaretteManager : AbilityManager
         
         base.EnableEffect();
         Countdown.StartCountdown();
+        StartCoroutine(STOPAFTERTIME());
         Active = true;
         lens.active = true;
         colorAdj.active = true;
         og = new Color(1f, 1f, 1f);
     }
 
+    public IEnumerator STOPAFTERTIME()
+    {
+        yield return new WaitForSeconds(35f);
+    }
     public override void StartAbility()
     {
         base.StartAbility();
