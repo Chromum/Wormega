@@ -87,6 +87,7 @@ public class ItemBox : Interactable
     [Button]
     public void OpenBox()
     {
+        GameManager.instance.openingCrate = true;
         isOpen = true;
         PickItem();
 
@@ -226,13 +227,12 @@ public class ItemBox : Interactable
         
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        GameManager.instance.isPaused = true;
-        Time.timeScale = 0f;
+        GameManager.instance.TogglePause(false);
     }
 
     public override void Interact(GameObject GO)
     {
-        if(TurnedOn && !isOpen )
+        if(TurnedOn && !isOpen && !GameManager.instance.openingCrate)
         {
             base.Interact(GO);
             OpenBox();

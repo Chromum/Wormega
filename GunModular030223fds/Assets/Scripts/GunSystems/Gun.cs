@@ -180,7 +180,8 @@ using UnityEngine.VFX;
         this.Damage = Damage;
         MagSize = magSize;
         this.Accuracy = Accuracy;
-
+        if (magSize <= 0)
+            magSize = 1;
         if (Accuracy < 0)
             Accuracy = 0;
         

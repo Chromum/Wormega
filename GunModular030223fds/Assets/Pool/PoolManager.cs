@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    public bool Initialized;
     public static PoolManager instance;
     
     public List<Poolee> poolConfigurations;
@@ -23,11 +24,13 @@ public class PoolManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
+        DontDestroyOnLoad(this.gameObject);
 
         pools = new Dictionary<Poolee, Queue<GameObject>>();
 
         GameObject g = new GameObject("Pools");
-        
+        g.transform.parent = this.transform;
         
             
         foreach (Poolee config in poolConfigurations)
@@ -44,6 +47,8 @@ public class PoolManager : MonoBehaviour
 
             pools.Add(config, objectPool);
         }
+
+        Initialized = true;
     }
     public GameObject SpawnFromPool(Poolee poolee, Vector3 position, Quaternion rotation)
     {

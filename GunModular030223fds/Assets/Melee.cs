@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,8 @@ public class Melee : MonoBehaviour
     public float BaseDamage;
     public float Damage;
     public Animator animator;
-    public Transform tar;
+    public Transform test;
+    public LayerMask mask;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +35,15 @@ public class Melee : MonoBehaviour
     }
     public void DoDamge()
     {
+        Debug.Log("Attempting to do damage");
         RaycastHit raycastHit;
-        if (Physics.Raycast(tar.transform.position, tar.transform.forward, out raycastHit, 3f))
+        Collider[] c = Physics.OverlapBox(Camera.main.transform.position, new Vector3(3f, 3f, 3f));
+        foreach (var VARIABLE in c)
         {
-            if (raycastHit.collider.CompareTag("Enemy"))
+            if (VARIABLE.CompareTag("Enemy")) 
             {
                 Debug.Log("Melee");
-                raycastHit.transform.GetComponent<Damageable>().DoDamage(Damage, raycastHit.transform.position);
+                VARIABLE.transform.GetComponent<Damageable>().DoDamage(Damage, VARIABLE.transform.position);
             }
         }
     }
@@ -49,4 +53,9 @@ public class Melee : MonoBehaviour
         isMeleeing = false;
     }
 
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawCube(Camera.main.transform.position, new Vector3(5,5,5));
+    }
 }

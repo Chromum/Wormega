@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -41,7 +42,9 @@ public class GameManager : MonoBehaviour
 
     public bool hasDied;
     public Poolee GnomePoolee;
-    
+    public GameObject poolManagerPrefab;
+    public bool openingCrate;
+    public RayInteractor RayInteractor;
     private void Awake()
     {
         if (instance == null)
@@ -52,11 +55,21 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         if((!MainMenu))
-            TogglePause();
+            TogglePause(true);
         if (SceneManager.GetActiveScene().name.Contains("MainMenu"))
             MainMenu = true;
         DebugManager.instance.enableRuntimeUI = false;
-        PoolManager.Init();
+        PoolManager = GameObject.FindObjectOfType<PoolManager>();
+        RayInteractor = GameObject.FindObjectOfType<RayInteractor>();
+
+        if (PoolManager == null)
+        {
+            PoolManager = GameObject.Instantiate(poolManagerPrefab).GetComponent<PoolManager>();
+            PoolManager.Init();
+        }
+        else if (!PoolManager.Initialized)
+            PoolManager.Init();
+
     }
 
     public void Update()
@@ -64,17 +77,20 @@ public class GameManager : MonoBehaviour
         if(!MainMenu)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
-                TogglePause();
+                TogglePause(true);
         }
 
     }
 
-    public void TogglePause()
+    public void TogglePause(bool ESCMenu)
     {
         isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0 : 1;
+        FPSCam c = GameObject.FindObjectOfType<FPSCam>();
+        c.contactMod = !c.contactMod;
+        c.rb.velocity = Vector3.zero;
         Cursor.visible = isPaused;
-        PauseScreen.SetActive(isPaused);
+        if(ESCMenu)
+            PauseScreen.SetActive(isPaused);
     }
 
     public void Quit()
@@ -137,8 +153,10 @@ public class GameManager : MonoBehaviour
             {
                 if (g != gameObject)
                     g.SetActive(false);
-                
-                
+                if (g.transform.gameObject.name == "PoolManager")
+                    g.SetActive(true);
+                if(g.transform.parent.gameObject.name == "PoolManager")
+                    g.SetActive(true);
             }
 
             hasDied = true;

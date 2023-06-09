@@ -31,6 +31,7 @@ public class MapSpriteSelector : MonoBehaviour
     public UnityEvent ev;
     public UnityEvent Leave;
     public RoomManager rm;
+    public int EnemiesNeeded;
 
     void Start ()
     {
@@ -39,8 +40,6 @@ public class MapSpriteSelector : MonoBehaviour
         Pm = FindObjectOfType<PlayerManager>();
         NavMeshSurface s = gameObject.GetComponent<NavMeshSurface>();
         rm = gameObject.GetComponentInChildren<RoomManager>();
-        s.RemoveData();
-        s.BuildNavMesh();
     }
     
     public void PostGen()

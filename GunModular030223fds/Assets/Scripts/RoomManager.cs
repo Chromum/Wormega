@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
@@ -24,10 +25,12 @@ public class RoomManager : MonoBehaviour
     public int i;
     public List<ItemBox> boxes = new List<ItemBox>(1);
     public bool BossRoom = false;
+    public NavMeshSurface navMeshSurface;
 
     // Start is called before the first frame update
     void Start()
     {
+        navMeshSurface = transform.parent.GetComponent<NavMeshSurface>();
         if(!BossRoom)
         {
             mapSpriteSelector = gameObject.GetComponentInParent<MapSpriteSelector>();
@@ -56,7 +59,8 @@ public class RoomManager : MonoBehaviour
             FirstTimeEnter();
         else
             InRoom = true;
-
+        GameManager.instance.RayInteractor.enabled = false;
+        GameManager.instance.RayInteractor.InteractText.SetActive(false);
     }
 
     public void PlayerExits()
@@ -68,6 +72,8 @@ public class RoomManager : MonoBehaviour
         FirstTime = true;
         GameObject j = GameObject.Instantiate(HeliPrefab, new Vector3(transform.position.x - 50f, transform.position.y + 60f, transform.position.z), Quaternion.identity);
         StartCoroutine(FlyAwayEnum(j.GetComponent<AudioSource>(), j));
+        navMeshSurface.RemoveData();
+        navMeshSurface.BuildNavMesh();
 
     }
 
@@ -83,7 +89,7 @@ public class RoomManager : MonoBehaviour
             GameManager.instance.Announcer.Wave(CurrentWave,false);
         }
         yield return new WaitForSeconds(5f);
-        int e = Random.Range(5, 8);
+        int e = mapSpriteSelector.EnemiesNeeded;
         for (int i = 0; i < e; i++)
         {
             SpawnEnemy(g);
@@ -209,6 +215,7 @@ public class RoomManager : MonoBehaviour
         {
             item.TurnBoxOn();
         }
+        GameManager.instance.RayInteractor.enabled = true;
     }
 }
 

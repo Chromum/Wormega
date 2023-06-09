@@ -2345,7 +2345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4218397476568488123
 Transform:
   m_ObjectHideFlags: 0
@@ -13797,6 +13797,7 @@ MonoBehaviour:
   - {fileID: 6780814971301251875}
   - {fileID: 3694411800999314140}
   BossRoom: 0
+  navMeshSurface: {fileID: 0}
 --- !u!82 &3095253433477795877
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14985,7 +14986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4671556394234184261}
   m_LocalRotation: {x: -0.000000059604645, y: -0.000000059604645, z: 0.7071067, w: 0.7071068}
-  m_LocalPosition: {x: 0.077, y: -0.000000012516975, z: 0.008836816}
+  m_LocalPosition: {x: 0.077, y: 0, z: 0.0065}
   m_LocalScale: {x: 0.15022002, y: 0.001026752, z: 0.0036898511}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15104,7 +15105,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5127017087361797494}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18710,6 +18711,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rm: {fileID: 6956681334405668108}
+  EnemiesNeeded: 0
 --- !u!82 &7561249815846666352
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19036,7 +19038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7552688769830343851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0015866493, y: -0.07721001, z: 0.008836826}
+  m_LocalPosition: {x: 0.0015866493, y: -0.0772, z: 0.0065}
   m_LocalScale: {x: 0.15022002, y: 0.001026752, z: 0.0036898511}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26345,7 +26347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8703871686281709137}
   m_LocalRotation: {x: 0.24036226, y: 0.2403614, z: 0.665, w: 0.6650018}
-  m_LocalPosition: {x: -0.03890999, y: -0.00011, z: -0.02196}
+  m_LocalPosition: {x: -0.038063794, y: -0.00070587615, z: -0.022633204}
   m_LocalScale: {x: 0.027349105, y: 0.07067658, z: 0.00068331056}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26367,7 +26369,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8703871686281709137}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28114,7 +28116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574199698677861367, guid: 52d9628824bd12242a124e79e7e6cca4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 57.44074
+      value: 57.75
       objectReference: {fileID: 0}
     - target: {fileID: 574199698677861367, guid: 52d9628824bd12242a124e79e7e6cca4, type: 3}
       propertyPath: m_LocalPosition.z

@@ -129,13 +129,11 @@ public class FPSCam : MonoBehaviour
             Xmouse = Mathf.Clamp(Xmouse, -60, 60); 
             transform.localEulerAngles = new Vector3(0f, ymouse, 0);
             camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f);
-            contactMod = true;
         }
         else
         {
             transform.localEulerAngles = new Vector3(0f, ymouse, 0);
             camera.transform.localEulerAngles = new Vector3(-Xmouse, 0f, 0f);
-            contactMod = false;
         }
 
     }
@@ -147,7 +145,8 @@ public class FPSCam : MonoBehaviour
         InputStuff();
 
 
-
+        if (transform.position.y > 200)
+            transform.position = new Vector3(transform.position.x, 23.82f, transform.position.z);
         
 
 
@@ -286,7 +285,7 @@ public class FPSCam : MonoBehaviour
             }
             else
                 inAir = true;
-
+            
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
         }
     }
@@ -381,12 +380,16 @@ public struct Modifier
                     {
                         if (!mod.inAir)
                         {
-                            mod.veltoprint = pair[i].GetTargetVelocity(j);
-                            mod.Datoprint = Vector3.ProjectOnPlane(mod.movementVector, pair[i].GetNormal(j));
-                            mod.Datoprint += mod.jumpVector;
-                            pair[i].SetStaticFriction(j, mod.friction);
-                            pair[i].SetDynamicFriction(j, mod.friction);
-                            pair[i].SetTargetVelocity(j, mod.veltoprint + mod.Datoprint);
+                          
+                                mod.veltoprint = pair[i].GetTargetVelocity(j);
+                                mod.Datoprint = Vector3.ProjectOnPlane(mod.movementVector, pair[i].GetNormal(j));
+                                mod.Datoprint += mod.jumpVector;
+                                pair[i].SetStaticFriction(j, mod.friction);
+                                pair[i].SetDynamicFriction(j, mod.friction);
+                                if((mod.veltoprint + mod.Datoprint) != new Vector3(float.NaN,float.NaN,float.NaN))
+                                    pair[i].SetTargetVelocity(j, mod.veltoprint + mod.Datoprint);
+                            
+                            
                         }
 
                     }

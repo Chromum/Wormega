@@ -43,7 +43,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045433050410226748}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: f811cf6901d332b4399e197673799799, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 1eb76aa1fa2e72e48a7d4680de85b61b, type: 3}
   m_InitialEventName: 
   m_InitialEventNameOverriden: 1
   m_StartSeed: 0
@@ -220,5 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3abc715392faf47befd911ca388441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pool: {fileID: 0}
   minPitch: 0.9
   maxPitch: 1.5

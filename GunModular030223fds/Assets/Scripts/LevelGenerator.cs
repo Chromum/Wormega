@@ -33,6 +33,7 @@ public class LevelGenerator : MonoBehaviour
     
     public void Start()
     {
+        float startTime = Time.realtimeSinceStartup;
         LevelPassThroughManager lmp = GameObject.FindObjectOfType<LevelPassThroughManager>();
         if(lmp != null)
             numberOfRooms = GameObject.FindObjectOfType<LevelPassThroughManager>().RoomCount;
@@ -46,15 +47,21 @@ public class LevelGenerator : MonoBehaviour
         }
         gridSizeX = Mathf.RoundToInt(worldSize.x); //note: these are half-extents
         gridSizeY = Mathf.RoundToInt(worldSize.y);
-        CreateRooms(); //lays out the actual mapWWWWWWWWWWW
+        CreateRooms(); //lays out the actual map
         SetRoomDoors(); //assigns the doors where rooms would connect
         DrawMap(); //instantiates objects to make up a map
+        SetEnemyCounts();
         gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         transform.localScale = new Vector3(5f, 5f, 5f);
         LG?.Invoke();
-        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
         GameManager.instance.sceneLoaded = true;
 
+
+        float endTime = Time.realtimeSinceStartup;
+        float executionTime = endTime - startTime;
+
+        Debug.Log("Start() function execution time: " + executionTime + " seconds");
+        
     }
     public void CreateRooms()
     {
@@ -374,9 +381,48 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
+    public int CalculateRoomDistance(Vector2 roomPosition)
+    {
+        int distance = -1;
 
-    
+        // Check if the specified room is within the valid grid range
+        if (roomPosition.x >= -gridSizeX && roomPosition.x <= gridSizeX && roomPosition.y >= -gridSizeY && roomPosition.y <= gridSizeY)
+        {
+            // Calculate the Manhattan distance from 0,0 to the specified room position
+            distance = Mathf.Abs((int)roomPosition.x) + Mathf.Abs((int)roomPosition.y);
+        }
 
+        return distance;
+    }
+
+    public void SetEnemyCounts()
+    {
+        foreach (var VARIABLE in mapSprites)
+        {
+            int i = CalculateRoomDistance(VARIABLE.Key);
+            int j = 0;
+            switch (i)
+            {
+                case 1:
+                    j = 3;
+                    break;
+                case 2:
+                    j = 3;
+                    break;
+                case 3:
+                    j = 5;
+                    break;
+                case 4:
+                    j = 6;
+                    break;
+                default:
+                    j = 7;
+                    break;
+            }
+
+            VARIABLE.Value.EnemiesNeeded = j;
+        }
+    }
 
 }
 

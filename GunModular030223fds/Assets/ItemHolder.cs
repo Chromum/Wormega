@@ -56,9 +56,10 @@ public class ItemHolder : MonoBehaviour
 
         item = null;
         part = null;
-        GameManager.instance.TogglePause();
+        GameManager.instance.TogglePause(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        GameManager.instance.openingCrate = false;
     }
     public void DeclineItem()
     {
@@ -66,9 +67,10 @@ public class ItemHolder : MonoBehaviour
         part = null;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GameManager.instance.TogglePause();
+        GameManager.instance.TogglePause(false);
         gameObject.SetActive(false);
-     
+        GameManager.instance.openingCrate = false;
+
 
     }
 }

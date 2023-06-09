@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0022913404, g: 0.0023903009, b: 0.002113982, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -840,17 +840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240378203}
   m_CullTransparentMesh: 1
---- !u!114 &270206703 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 235690817, guid: 85d3a76d7259d914ea04cd78e94a5dcd, type: 3}
-  m_PrefabInstance: {fileID: 836927493}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b254f87e8d6ba49ac9bd79933bc1e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &270206705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7462761289937128879, guid: 85d3a76d7259d914ea04cd78e94a5dcd, type: 3}
@@ -1878,7 +1867,8 @@ PrefabInstance:
       propertyPath: roomWhiteObj.Array.data[6]
       value: 
       objectReference: {fileID: 5586785513520652263, guid: 14f8d3a397992034481b018ff3097505, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 235690817, guid: 85d3a76d7259d914ea04cd78e94a5dcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 85d3a76d7259d914ea04cd78e94a5dcd, type: 3}
 --- !u!1 &854452143
 GameObject:
@@ -3376,7 +3366,7 @@ PrefabInstance:
     - target: {fileID: 976780269376157736, guid: 6d81e13839ee2a243920e032112c0c49, type: 3}
       propertyPath: PoolManager
       value: 
-      objectReference: {fileID: 270206703}
+      objectReference: {fileID: 0}
     - target: {fileID: 976780269376157736, guid: 6d81e13839ee2a243920e032112c0c49, type: 3}
       propertyPath: OptionMenuUI
       value: 
@@ -3397,6 +3387,10 @@ PrefabInstance:
       propertyPath: currentDifficulty
       value: 
       objectReference: {fileID: 11400000, guid: ced95f2bc32fe2b4bbb7d92587413132, type: 2}
+    - target: {fileID: 976780269376157736, guid: 6d81e13839ee2a243920e032112c0c49, type: 3}
+      propertyPath: poolManagerPrefab
+      value: 
+      objectReference: {fileID: 6591548392623566959, guid: 5793727b871a20645a4346898ef4f385, type: 3}
     - target: {fileID: 976780269376157737, guid: 6d81e13839ee2a243920e032112c0c49, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4644,14 +4638,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749342964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.38492274, y: -0, z: -0, w: 0.92294884}
+  m_LocalPosition: {x: 2.3772094, y: 11.322947, z: 4.0783434}
+  m_LocalScale: {x: 0.5826948, y: 2.1561756, z: 2.1259804}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4774065762598939935}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: -45.278, y: 0, z: 0}
 --- !u!1 &1793458004
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,6 +6031,14 @@ PrefabInstance:
       propertyPath: tar
       value: 
       objectReference: {fileID: 1749342965}
+    - target: {fileID: 1551694349, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 1749342965}
+    - target: {fileID: 1551694349, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: mask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1853853661, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6068,6 +6070,10 @@ PrefabInstance:
     - target: {fileID: 4941917818253290914, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941917818253290940, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: contactMod
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4941917818253290942, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: m_RootOrder
@@ -6113,6 +6119,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7637138506482954410, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637138507117324005, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637138507117324007, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637138507461648280, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8316848062686958551, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6123,11 +6145,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
---- !u!4 &4774065762598939935 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3151519760509821577, guid: 956a40ec5f45f6a45905717b599d5686, type: 3}
-  m_PrefabInstance: {fileID: 4774065762598939934}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &5343006397623624112
 MeshCollider:
   m_ObjectHideFlags: 0
